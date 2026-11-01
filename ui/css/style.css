@@ -1016,6 +1016,13 @@ svg {
   height: auto;
 }
 
+.cardMedia > a {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
 .quickHint {
   position: absolute;
   left: 50%;
@@ -1029,6 +1036,7 @@ svg {
   opacity: 0;
   transform: translateX(-50%) translateY(4px);
   transition: opacity .15s, transform .15s;
+  pointer-events: none;
 }
 
 .card:hover .quickHint,
