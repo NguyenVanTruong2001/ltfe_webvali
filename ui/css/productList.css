@@ -81,10 +81,11 @@
   height: 44px;
   padding: 0 14px;
   border: 1.5px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   background: #fff;
   font-weight: 500;
   cursor: pointer;
+  transition: border-color .15s;
 }
 
 .sortSelect:hover {
@@ -112,6 +113,8 @@
   max-height: calc(100dvh - var(--headerOffset) - 32px);
   overflow-y: auto;
   padding-right: 8px;
+  scrollbar-width: thin;
+  overscroll-behavior: contain;
 }
 
 .sidebarHead {
@@ -163,9 +166,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 36px;
+  min-height: 40px;
+  padding-inline: 6px;
+  margin-inline: -6px;
+  border-radius: var(--rSm);
   font-size: 15px;
   cursor: pointer;
+  transition: background-color .15s;
+}
+
+.checkRow:hover {
+  background: var(--sky);
 }
 
 .checkRow input {
@@ -186,9 +197,12 @@
   font-size: 13px;
 }
 
-.checkRow:hover .checkText {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.checkRow:has(input:checked) .checkText {
+  font-weight: 600;
+}
+
+.checkRow:has(input:checked) .checkCount {
+  color: var(--ink);
 }
 
 .colorOption {
@@ -198,13 +212,13 @@
 }
 
 .colorDot {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 2px solid #fff;
   border-radius: 50%;
   background: var(--bodyColor);
   box-shadow: 0 0 0 1px var(--line);
-  transition: box-shadow 0.15s;
+  transition: box-shadow .15s, transform .15s;
 }
 
 .colorOption:hover .colorDot {
@@ -238,13 +252,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 34px;
-  padding: 0 8px 0 14px;
-  border-radius: 999px;
+  min-height: 36px;
+  padding: 0 10px 0 14px;
+  border-radius: 4px;
   background: var(--sky);
   font-size: 14px;
   font-weight: 600;
-  transition: background-color 0.15s;
+  transition: background-color .15s;
 }
 
 .activeChip:hover {
@@ -258,7 +272,7 @@
 
 .gridThree {
   margin-top: 0;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 .pagination {
@@ -285,10 +299,10 @@
   height: 44px;
   padding: 0 14px;
   border: 1.5px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   background: #fff;
   font-weight: 600;
-  transition: border-color 0.15s;
+  transition: border-color .15s, background-color .15s;
 }
 
 a.pageBtn:hover {
@@ -330,10 +344,6 @@ a.pageBtn:hover {
 
   .filterCheck:checked ~ .sidebar {
     display: block;
-  }
-
-  .filterCheck:focus-visible ~ .results {
-    outline: none;
   }
 }
 

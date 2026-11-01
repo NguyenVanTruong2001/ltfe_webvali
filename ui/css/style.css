@@ -1,20 +1,23 @@
 :root {
   --ink: #12263a;
   --inkSoft: #46586a;
-  --inkFaint: #75869a;
+  --inkFaint: #5f7185;
   --sky: #e8f1f7;
   --skyDeep: #cfe0ec;
   --line: #dce5ec;
   --strap: #ffc400;
   --strapDeep: #e5ae00;
-  --coral: #e5484d;
+  --coral: #d13438;
   --focus: #1456c8;
   --fontBody: 'Be Vietnam Pro', system-ui, 'Segoe UI', Roboto, sans-serif;
   --fontDisplay: 'Barlow Condensed', 'Be Vietnam Pro', system-ui, sans-serif;
-  --rSm: 8px;
-  --rMd: 12px;
-  --rLg: 20px;
+  --rSm: 4px;
+  --rMd: 0;
+  --rLg: 0;
   --shadowFloat: 0 18px 40px -12px rgba(18, 38, 58, 0.35);
+  --shadowSoft: 0 1px 2px rgb(18 38 58 / .06), 0 8px 24px -10px rgb(18 38 58 / .14);
+  --shadowLift: 0 2px 4px rgb(18 38 58 / .06), 0 18px 34px -12px rgb(18 38 58 / .25);
+  --ease: cubic-bezier(.2, .7, .2, 1);
   --container: 1240px;
   --headerOffset: 132px;
 }
@@ -57,6 +60,16 @@ figure {
   margin: 0;
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 ul {
   padding: 0;
   list-style: none;
@@ -68,7 +81,9 @@ a {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
   color: inherit;
 }
@@ -147,12 +162,21 @@ svg {
   min-height: 46px;
   padding: 0 22px;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 4px;
   font-weight: 600;
   font-size: 15px;
   line-height: 1.2;
   text-align: center;
-  transition: background-color .15s, color .15s, border-color .15s;
+  transition: background-color .15s, color .15s, border-color .15s, transform .1s;
+}
+
+.btn:active {
+  transform: scale(.97);
+}
+
+.btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .btnPrimary {
@@ -254,7 +278,7 @@ svg {
   left: 12px;
   z-index: 1;
   padding: 3px 9px;
-  border-radius: 6px;
+  border-radius: 2px;
   background: var(--coral);
   color: #fff;
   font-size: 13px;
@@ -419,7 +443,7 @@ svg {
   height: 46px;
   padding: 0 52px 0 18px;
   border: 1.5px solid var(--line);
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--sky);
   transition: border-color .15s, background-color .15s;
 }
@@ -448,7 +472,7 @@ svg {
   width: 38px;
   height: 38px;
   border: 0;
-  border-radius: 50%;
+  border-radius: 4px;
   background: var(--ink);
   color: #fff;
 }
@@ -533,7 +557,10 @@ svg {
 }
 
 .mega {
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
   position: absolute;
   left: 0;
   right: 0;
@@ -542,11 +569,15 @@ svg {
   border-top: 1px solid var(--line);
   background: #fff;
   box-shadow: 0 24px 32px -20px rgba(18, 38, 58, .35);
+  transition: opacity .18s, transform .18s var(--ease), visibility 0s .18s;
 }
 
 .navItem:hover > .mega,
 .navItem:focus-within > .mega {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
 }
 
 .megaInner {
@@ -594,8 +625,9 @@ svg {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   min-height: 420px;
-  border-radius: 22px;
+  border-radius: 8px;
   background: #fff;
+  box-shadow: var(--shadowSoft);
 }
 
 .ticket::before,
@@ -655,7 +687,7 @@ svg {
   gap: 8px 14px;
   padding: 6px 6px 6px 16px;
   border: 2px dashed var(--ink);
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 .couponCode {
@@ -678,7 +710,7 @@ svg {
   min-height: 36px;
   padding: 0 12px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--sky);
   font-size: 14px;
   font-weight: 600;
@@ -702,12 +734,19 @@ svg {
 }
 
 .dot {
+  position: relative;
   width: 26px;
   height: 8px;
   padding: 0;
   border: 0;
   border-radius: 4px;
   background: var(--skyDeep);
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: -9px -2px;
 }
 
 .dot.isActive {
@@ -720,7 +759,7 @@ svg {
   place-items: center;
   padding: 28px 24px;
   border-left: 2px dashed var(--skyDeep);
-  border-radius: 0 22px 22px 0;
+  border-radius: 0 8px 8px 0;
   background: #e3ecf6;
   text-align: center;
 }
@@ -798,6 +837,7 @@ svg {
   padding: 40px 44px;
   border: 1.5px solid var(--line);
   border-radius: var(--rLg);
+  box-shadow: var(--shadowSoft);
 }
 
 .finderCopy {
@@ -895,7 +935,7 @@ svg {
   min-height: 44px;
   padding: 0 20px;
   border: 1.5px solid var(--line);
-  border-radius: 999px;
+  border-radius: 4px;
   background: #fff;
   font-weight: 600;
   font-size: 15px;
@@ -929,7 +969,7 @@ svg {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 22px;
   margin-top: 24px;
 }
@@ -945,14 +985,22 @@ svg {
   flex-direction: column;
   overflow: hidden;
   border: 1.5px solid var(--line);
-  border-radius: var(--rMd);
+  border-radius: 0;
   background: #fff;
   color: var(--ink);
-  transition: border-color .15s;
+  box-shadow: var(--shadowSoft);
+  transition: border-color .15s, box-shadow .25s var(--ease), transform .25s var(--ease);
 }
 
 .card:hover {
   border-color: var(--ink);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadowLift);
+  }
 }
 
 .cardMedia {
@@ -973,7 +1021,7 @@ svg {
   left: 50%;
   bottom: 12px;
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--ink);
   color: #fff;
   font-size: 13px;
@@ -983,9 +1031,16 @@ svg {
   transition: opacity .15s, transform .15s;
 }
 
-.card:hover .quickHint {
+.card:hover .quickHint,
+.card:focus-within .quickHint {
   opacity: 1;
   transform: translateX(-50%);
+}
+
+@media (hover: none) {
+  .quickHint {
+    display: none;
+  }
 }
 
 .wish {
@@ -1001,6 +1056,7 @@ svg {
   border-radius: 50%;
   background: #fff;
   color: var(--ink);
+  box-shadow: 0 2px 8px rgb(18 38 58 / .12);
 }
 
 .wish:hover {
@@ -1030,6 +1086,7 @@ svg {
 }
 
 .swatch {
+  position: relative;
   width: 20px;
   height: 20px;
   padding: 0;
@@ -1037,6 +1094,12 @@ svg {
   border-radius: 50%;
   background: var(--bodyColor);
   box-shadow: 0 0 0 1px var(--line);
+}
+
+.swatch::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
 }
 
 .swatch:hover {
@@ -1098,7 +1161,7 @@ svg {
   justify-items: center;
   min-width: 62px;
   padding: 8px 10px 6px;
-  border-radius: 10px;
+  border-radius: 4px;
   background: var(--coral);
 }
 
@@ -1126,6 +1189,7 @@ svg {
   gap: 18px;
   padding-bottom: 14px;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #4a6580 transparent;
@@ -1226,7 +1290,7 @@ svg {
 
 .newsTag {
   padding: 2px 10px;
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--sky);
   color: var(--ink);
   font-weight: 600;
@@ -1277,7 +1341,7 @@ svg {
   height: 48px;
   padding: 0 16px;
   border: 1.5px solid var(--skyDeep);
-  border-radius: 10px;
+  border-radius: 4px;
   background: #fff;
 }
 
@@ -1366,7 +1430,7 @@ svg {
 .payList li {
   padding: 5px 12px;
   border: 1px solid #36506a;
-  border-radius: 6px;
+  border-radius: 2px;
   font-size: 13px;
 }
 
@@ -1384,10 +1448,6 @@ svg {
 }
 
 @media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .policyList {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1508,7 +1568,7 @@ svg {
     padding: 20px;
     border-left: 0;
     border-top: 2px dashed var(--skyDeep);
-    border-radius: 0 0 22px 22px;
+    border-radius: 0 0 8px 8px;
   }
 
   .stubContent {
