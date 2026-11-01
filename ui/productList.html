@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vali - Valigo</title>
+    <meta
+      name="description"
+      content="Danh sách vali khung nhôm, khóa kéo, nhựa PC và PP. Lọc theo size, chất liệu, giá và màu sắc."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/productList.css">
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="iSearch" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </symbol>
+        <symbol id="iUser" viewBox="0 0 24 24">
+          <path d="M20 21v-1a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5v1" />
+          <circle cx="12" cy="8" r="4" />
+        </symbol>
+        <symbol id="iHeart" viewBox="0 0 24 24">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </symbol>
+        <symbol id="iBag" viewBox="0 0 24 24">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+          <path d="M3 6h18" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </symbol>
+        <symbol id="iPhone" viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </symbol>
+        <symbol id="iMail" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="m3 7 9 6 9-6" />
+        </symbol>
+        <symbol id="iMenu" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </symbol>
+        <symbol id="iChevDown" viewBox="0 0 24 24">
+          <path d="m6 9 6 6 6-6" />
+        </symbol>
+        <symbol id="iChevLeft" viewBox="0 0 24 24">
+          <path d="m15 18-6-6 6-6" />
+        </symbol>
+        <symbol id="iChevRight" viewBox="0 0 24 24">
+          <path d="m9 18 6-6-6-6" />
+        </symbol>
+        <symbol id="iTruck" viewBox="0 0 24 24">
+          <path d="M1 6h13v10H1z" />
+          <path d="M14 9h4l4 4v3h-8z" />
+          <circle cx="6" cy="18" r="2" />
+          <circle cx="18" cy="18" r="2" />
+        </symbol>
+        <symbol id="iShield" viewBox="0 0 24 24">
+          <path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z" />
+          <path d="m9 12 2 2 4-4" />
+        </symbol>
+        <symbol id="iRefresh" viewBox="0 0 24 24">
+          <path d="M3 12a9 9 0 0 1 15.5-6.2L21 8" />
+          <path d="M21 3v5h-5" />
+          <path d="M21 12a9 9 0 0 1-15.5 6.2L3 16" />
+          <path d="M3 21v-5h5" />
+        </symbol>
+        <symbol id="iHeadset" viewBox="0 0 24 24">
+          <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+          <rect x="3" y="14" width="4" height="6" rx="1.5" />
+          <rect x="17" y="14" width="4" height="6" rx="1.5" />
+        </symbol>
+        <symbol id="iCopy" viewBox="0 0 24 24">
+          <rect x="9" y="9" width="11" height="11" rx="2" />
+          <path d="M5 15V6a2 2 0 0 1 2-2h9" />
+        </symbol>
+        <symbol id="iStore" viewBox="0 0 24 24">
+          <path d="M4 9 5.5 4h13L20 9" />
+          <path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9" />
+          <path d="M5 12v8h14v-8" />
+        </symbol>
+        <symbol id="iPackage" viewBox="0 0 24 24">
+          <path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z" />
+          <path d="m3 7.5 9 4.5 9-4.5M12 12v9" />
+        </symbol>
+        <symbol id="iClock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </symbol>
+        <symbol id="suitcase" viewBox="0 0 200 240">
+          <ellipse cx="100" cy="230" rx="64" ry="5" fill="#12263A" opacity=".1" />
+          <path
+            d="M80 34V20a8 8 0 0 1 8-8h24a8 8 0 0 1 8 8v14"
+            fill="none"
+            style="stroke:color-mix(in srgb, var(--bodyColor), #000 30%)"
+            stroke-width="7"
+            stroke-linecap="round"
+          />
+          <rect x="38" y="30" width="124" height="172" rx="24" style="fill:var(--bodyColor)" />
+          <path
+            d="M68 48V184M100 48V184M132 48V184"
+            fill="none"
+            style="stroke:color-mix(in srgb, var(--bodyColor), #000 14%)"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+          <rect x="47" y="40" width="9" height="152" rx="4.5" fill="#fff" opacity=".22" />
+          <rect
+            x="122"
+            y="156"
+            width="30"
+            height="16"
+            rx="4"
+            style="fill:color-mix(in srgb, var(--bodyColor), #000 30%)"
+          />
+          <rect x="127" y="160" width="12" height="8" rx="2" fill="#FFC400" />
+          <path
+            d="M62 202v4M138 202v4"
+            fill="none"
+            style="stroke:color-mix(in srgb, var(--bodyColor), #000 30%)"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+          <circle cx="62" cy="214" r="10" fill="#12263A" />
+          <circle cx="62" cy="214" r="4" fill="#9AA9B8" />
+          <circle cx="138" cy="214" r="10" fill="#12263A" />
+          <circle cx="138" cy="214" r="4" fill="#9AA9B8" />
+        </symbol>
+        <symbol id="backpack" viewBox="0 0 200 240">
+          <ellipse cx="100" cy="230" rx="64" ry="5" fill="#12263A" opacity=".1" />
+          <path
+            d="M84 36q16-26 32 0"
+            fill="none"
+            style="stroke:color-mix(in srgb, var(--bodyColor), #000 30%)"
+            stroke-width="7"
+            stroke-linecap="round"
+          />
+          <rect
+            x="34"
+            y="92"
+            width="14"
+            height="88"
+            rx="7"
+            style="fill:color-mix(in srgb, var(--bodyColor), #000 30%)"
+          />
+          <rect
+            x="152"
+            y="92"
+            width="14"
+            height="88"
+            rx="7"
+            style="fill:color-mix(in srgb, var(--bodyColor), #000 30%)"
+          />
+          <path
+            d="M46 84Q46 32 100 32T154 84V190Q154 214 130 214H70Q46 214 46 190Z"
+            style="fill:var(--bodyColor)"
+          />
+          <path
+            d="M62 74Q100 54 138 74"
+            fill="none"
+            style="stroke:color-mix(in srgb, var(--bodyColor), #000 14%)"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+          <rect
+            x="62"
+            y="122"
+            width="76"
+            height="72"
+            rx="18"
+            style="fill:color-mix(in srgb, var(--bodyColor), #000 14%)"
+          />
+          <path
+            d="M72 140h56"
+            fill="none"
+            style="stroke:color-mix(in srgb, var(--bodyColor), #000 30%)"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-dasharray="2 6"
+          />
+          <rect x="88" y="88" width="24" height="12" rx="3" fill="#FFC400" />
+          <rect x="50" y="44" width="8" height="120" rx="4" fill="#fff" opacity=".18" />
+        </symbol>
+        <symbol id="pouch" viewBox="0 0 200 240">
+          <ellipse cx="100" cy="230" rx="64" ry="5" fill="#12263A" opacity=".1" />
+          <rect x="28" y="84" width="144" height="116" rx="28" style="fill:var(--bodyColor)" />
+          <path
+            d="M28 120h144"
+            fill="none"
+            style="stroke:color-mix(in srgb, var(--bodyColor), #000 30%)"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-dasharray="2 6"
+          />
+          <rect
+            x="84"
+            y="102"
+            width="32"
+            height="14"
+            rx="7"
+            style="fill:color-mix(in srgb, var(--bodyColor), #000 30%)"
+          />
+          <rect x="118" y="146" width="36" height="22" rx="5" fill="#FFC400" />
+          <rect x="38" y="94" width="10" height="96" rx="5" fill="#fff" opacity=".2" />
+        </symbol>
+        <symbol id="iClose" viewBox="0 0 24 24">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </symbol>
+        <symbol id="iFilter" viewBox="0 0 24 24">
+          <path d="M3 5h18l-7 8v6l-4 2v-8z" />
+        </symbol>
+      </defs>
+    </svg>
+    <a class="skipLink" href="#noiDung">Bỏ qua và đến nội dung chính</a>
+    <input type="checkbox" id="navCheck" class="navCheck" aria-label="Mở menu">
+    <div class="topbar">
+      <div class="container topbarInner">
+        <div class="topbarGroup">
+          <a href="tel:0900000000">
+            <svg class="icon iconSm" aria-hidden="true">
+              <use href="#iPhone" />
+            </svg>
+            0900 000 000
+          </a>
+          <a href="mailto:cskh@valigo.vn">
+            <svg class="icon iconSm" aria-hidden="true">
+              <use href="#iMail" />
+            </svg>
+            cskh@valigo.vn
+          </a>
+        </div>
+        <div class="topbarGroup">
+          <a href="#">
+            <svg class="icon iconSm" aria-hidden="true">
+              <use href="#iPackage" />
+            </svg>
+            Kiểm tra đơn hàng
+          </a>
+          <a href="#">
+            <svg class="icon iconSm" aria-hidden="true">
+              <use href="#iStore" />
+            </svg>
+            Hệ thống cửa hàng
+          </a>
+        </div>
+      </div>
+    </div>
+    <header class="siteHeader">
+      <div class="container mainbar">
+        <label for="navCheck" class="menuToggle" aria-label="Mở menu">
+          <svg class="icon iconLg" aria-hidden="true">
+            <use href="#iMenu" />
+          </svg>
+        </label>
+        <a href="../../../Downloads/ltfe_webvali-master%20(1)/ltfe_webvali-master/ui/index.html" class="logo" aria-label="Valigo - trang chủ">
+          <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+            <path
+              d="M15 11V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"
+              fill="none"
+              stroke="#12263A"
+              stroke-width="2.6"
+              stroke-linecap="round"
+            />
+            <rect x="6" y="11" width="28" height="22" rx="6" fill="#12263A" />
+            <path
+              d="M14 15v14M20 15v14M26 15v14"
+              stroke="#3B5876"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <rect x="22" y="22" width="14" height="9" rx="2.5" fill="#FFC400" />
+          </svg>
+          <span class="logoText">Valigo</span>
+        </a>
+        <form class="search" role="search" action="#">
+          <label class="visuallyHidden" for="siteSearch">Tìm sản phẩm</label>
+          <input
+            id="siteSearch"
+            type="search"
+            autocomplete="off"
+            placeholder="Tìm vali, balo, phụ kiện..."
+          >
+          <button type="submit" class="searchBtn" aria-label="Tìm kiếm">
+            <svg class="icon" aria-hidden="true">
+              <use href="#iSearch" />
+            </svg>
+          </button>
+        </form>
+        <div class="actions">
+          <a href="#" class="action">
+            <svg class="icon iconLg" aria-hidden="true">
+              <use href="#iUser" />
+            </svg>
+            <span class="actionLabel">Tài khoản</span>
+          </a>
+          <a href="#" class="action" aria-label="Yêu thích, 2 sản phẩm">
+            <span class="actionIcon">
+              <svg class="icon iconLg" aria-hidden="true">
+                <use href="#iHeart" />
+              </svg>
+              <span class="count">2</span>
+            </span>
+            <span class="actionLabel">Yêu thích</span>
+          </a>
+          <button type="button" class="action" aria-label="Giỏ hàng, 1 sản phẩm">
+            <span class="actionIcon">
+              <svg class="icon iconLg" aria-hidden="true">
+                <use href="#iBag" />
+              </svg>
+              <span class="count">1</span>
+            </span>
+            <span class="actionLabel">Giỏ hàng</span>
+          </button>
+        </div>
+      </div>
+      <nav class="mainnav" aria-label="Danh mục chính">
+        <div class="container">
+          <ul class="navList">
+            <li class="navItem">
+              <a class="navLink" href="#">Về chúng tôi</a>
+            </li>
+            <li class="navItem">
+              <a class="navLink isCurrent" href="productList.html">
+                Vali
+                <svg class="icon iconSm" aria-hidden="true">
+                  <use href="#iChevDown" />
+                </svg>
+              </a>
+              <div class="mega">
+                <div class="container megaInner">
+                  <div class="megaCol">
+                    <p class="megaTitle">Theo size</p>
+                    <ul>
+                      <li>
+                        <a href="#">Size 20" xách tay</a>
+                      </li>
+                      <li>
+                        <a href="#">Size 24" ký gửi</a>
+                      </li>
+                      <li>
+                        <a href="#">Size 28" cỡ lớn</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="megaCol">
+                    <p class="megaTitle">Theo chất liệu</p>
+                    <ul>
+                      <li>
+                        <a href="#">Vali khung nhôm</a>
+                      </li>
+                      <li>
+                        <a href="#">Vali khóa kéo</a>
+                      </li>
+                      <li>
+                        <a href="#">Vali nhựa PC</a>
+                      </li>
+                      <li>
+                        <a href="#">Vali nhựa PP</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="megaCol">
+                    <p class="megaTitle">Dòng sản phẩm</p>
+                    <ul>
+                      <li>
+                        <a href="#">Atlas</a>
+                      </li>
+                      <li>
+                        <a href="#">Orion doanh nhân</a>
+                      </li>
+                      <li>
+                        <a href="#">Zipra</a>
+                      </li>
+                      <li>
+                        <a href="#">Sora</a>
+                      </li>
+                      <li>
+                        <a href="#">Pebble</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="navItem">
+              <a class="navLink" href="#">
+                Balo
+                <svg class="icon iconSm" aria-hidden="true">
+                  <use href="#iChevDown" />
+                </svg>
+              </a>
+              <div class="mega">
+                <div class="container megaInner">
+                  <div class="megaCol">
+                    <p class="megaTitle">Balo</p>
+                    <ul>
+                      <li>
+                        <a href="#">Balo laptop Dune</a>
+                      </li>
+                      <li>
+                        <a href="#">Balo laptop Fern</a>
+                      </li>
+                      <li>
+                        <a href="#">Balo Ridge da PU</a>
+                      </li>
+                      <li>
+                        <a href="#">Balo Skyline</a>
+                      </li>
+                      <li>
+                        <a href="#">Balo Daily</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="navItem">
+              <a class="navLink" href="#">Phụ kiện</a>
+            </li>
+            <li class="navItem">
+              <a class="navLink isHot" href="../../../Downloads/ltfe_webvali-master%20(1)/ltfe_webvali-master/ui/index.html#flashSale">Khuyến mại</a>
+            </li>
+            <li class="navItem">
+              <a class="navLink" href="#">
+                Tin tức
+                <svg class="icon iconSm" aria-hidden="true">
+                  <use href="#iChevDown" />
+                </svg>
+              </a>
+              <div class="mega">
+                <div class="container megaInner">
+                  <div class="megaCol">
+                    <p class="megaTitle">Hướng dẫn</p>
+                    <ul>
+                      <li>
+                        <a href="#">Chọn size vali</a>
+                      </li>
+                      <li>
+                        <a href="#">Cẩm nang du lịch</a>
+                      </li>
+                      <li>
+                        <a href="#">Review sản phẩm</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="megaCol">
+                    <p class="megaTitle">Hỗ trợ</p>
+                    <ul>
+                      <li>
+                        <a href="#">Chính sách bảo hành</a>
+                      </li>
+                      <li>
+                        <a href="#">Xử lý lỗi vali</a>
+                      </li>
+                      <li>
+                        <a href="#">Tuyển dụng</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="../../../Downloads/ltfe_webvali-master%20(1)/ltfe_webvali-master/ui/index.html">Trang chủ</a>
+            </li>
+            <li aria-current="page">Vali</li>
+          </ol>
+        </nav>
+        <div class="listHead">
+          <div>
+            <h1 class="listTitle">Vali</h1>
+            <p class="listCount" aria-live="polite">Hiển thị 1 đến 9 trên 11 sản phẩm</p>
+          </div>
+          <div class="listTools">
+            <label for="filterCheck" class="btn btnGhost filterToggle">
+              <svg class="icon" aria-hidden="true">
+                <use href="#iFilter" />
+              </svg>
+              Bộ lọc
+            </label>
+            <div class="sortBox">
+              <label class="sortLabel" for="sortSelect">Sắp xếp</label>
+              <select id="sortSelect" class="sortSelect">
+                <option selected>Mới nhất</option>
+                <option>Bán chạy</option>
+                <option>Giá thấp đến cao</option>
+                <option>Giá cao đến thấp</option>
+                <option>Giảm giá nhiều nhất</option>
+                <option>Đánh giá cao nhất</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container listLayout">
+        <input type="checkbox" id="filterCheck" class="filterCheck" aria-label="Mở bộ lọc">
+        <aside class="sidebar" aria-label="Bộ lọc sản phẩm">
+          <div class="sidebarHead">
+            <h2 class="sidebarTitle">Bộ lọc</h2>
+            <a href="#" class="textLink">Xóa tất cả</a>
+          </div>
+          <fieldset class="filterGroup">
+            <legend class="filterTitle">Size</legend>
+            <div class="filterBody">
+              <label class="checkRow">
+                <input type="checkbox" name="size" value="20">
+                <span class="checkText">20" xách tay</span>
+                <span class="checkCount">12</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="size" value="24" checked>
+                <span class="checkText">24" ký gửi</span>
+                <span class="checkCount">11</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="size" value="28">
+                <span class="checkText">28" cỡ lớn</span>
+                <span class="checkCount">9</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="filterGroup">
+            <legend class="filterTitle">Chất liệu</legend>
+            <div class="filterBody">
+              <label class="checkRow">
+                <input type="checkbox" name="material" value="khung-nhom">
+                <span class="checkText">Vali khung nhôm</span>
+                <span class="checkCount">4</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="material" value="khoa-keo">
+                <span class="checkText">Vali khóa kéo</span>
+                <span class="checkCount">4</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="material" value="nhua-pc">
+                <span class="checkText">Nhựa PC</span>
+                <span class="checkCount">3</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="material" value="nhua-pp">
+                <span class="checkText">Nhựa PP</span>
+                <span class="checkCount">2</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="filterGroup">
+            <legend class="filterTitle">Khoảng giá</legend>
+            <div class="filterBody">
+              <label class="checkRow">
+                <input type="radio" name="price" value="all" checked>
+                <span class="checkText">Tất cả mức giá</span>
+                <span class="checkCount">13</span>
+              </label>
+              <label class="checkRow">
+                <input type="radio" name="price" value="under700">
+                <span class="checkText">Dưới 700.000₫</span>
+                <span class="checkCount">1</span>
+              </label>
+              <label class="checkRow">
+                <input type="radio" name="price" value="700-1000">
+                <span class="checkText">700.000₫ đến 1.000.000₫</span>
+                <span class="checkCount">6</span>
+              </label>
+              <label class="checkRow">
+                <input type="radio" name="price" value="1000-2000">
+                <span class="checkText">1.000.000₫ đến 2.000.000₫</span>
+                <span class="checkCount">5</span>
+              </label>
+              <label class="checkRow">
+                <input type="radio" name="price" value="over2000">
+                <span class="checkText">Trên 2.000.000₫</span>
+                <span class="checkCount">1</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="filterGroup">
+            <legend class="filterTitle">Màu sắc</legend>
+            <div class="colorList">
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Đen" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#2B3038"></span>
+                <span class="visuallyHidden">Đen</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Bạc" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#B9C3CD"></span>
+                <span class="visuallyHidden">Bạc</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Xanh navy" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#27466F"></span>
+                <span class="visuallyHidden">Xanh navy</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Xanh nhạt" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#8EC5E8"></span>
+                <span class="visuallyHidden">Xanh nhạt</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Hồng" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#F2A7B8"></span>
+                <span class="visuallyHidden">Hồng</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Cam" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#F2823A"></span>
+                <span class="visuallyHidden">Cam</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Xanh olive" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#6B7B4A"></span>
+                <span class="visuallyHidden">Xanh olive</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Vàng" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#F2C230"></span>
+                <span class="visuallyHidden">Vàng</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Xanh ngọc" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#2E9E8F"></span>
+                <span class="visuallyHidden">Xanh ngọc</span>
+              </label>
+              <label class="colorOption">
+                <input type="checkbox" name="color" value="Champagne" class="visuallyHidden">
+                <span class="colorDot" style="--bodyColor:#D9BF93"></span>
+                <span class="visuallyHidden">Champagne</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="filterGroup">
+            <legend class="filterTitle">Dòng sản phẩm</legend>
+            <div class="filterBody">
+              <label class="checkRow">
+                <input type="checkbox" name="line" value="atlas">
+                <span class="checkText">Atlas</span>
+                <span class="checkCount">2</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="line" value="zipra">
+                <span class="checkText">Zipra</span>
+                <span class="checkCount">4</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="line" value="sora">
+                <span class="checkText">Sora</span>
+                <span class="checkCount">1</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="line" value="pebble">
+                <span class="checkText">Pebble</span>
+                <span class="checkCount">1</span>
+              </label>
+              <label class="checkRow">
+                <input type="checkbox" name="line" value="orion">
+                <span class="checkText">Orion</span>
+                <span class="checkCount">1</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="filterGroup">
+            <legend class="filterTitle">Đánh giá</legend>
+            <div class="filterBody">
+              <label class="checkRow">
+                <input type="radio" name="rating" value="4">
+                <span class="checkText">Từ 4 sao trở lên</span>
+                <span class="checkCount">11</span>
+              </label>
+              <label class="checkRow">
+                <input type="radio" name="rating" value="3">
+                <span class="checkText">Từ 3 sao trở lên</span>
+                <span class="checkCount">13</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="filterGroup">
+            <legend class="filterTitle">Khuyến mại</legend>
+            <div class="filterBody">
+              <label class="checkRow">
+                <input type="checkbox" name="promo" value="sale">
+                <span class="checkText">Đang giảm giá</span>
+                <span class="checkCount">12</span>
+              </label>
+            </div>
+          </fieldset>
+        </aside>
+        <section class="results" aria-label="Kết quả">
+          <div class="activeFilters">
+            <span class="activeLabel">Đang lọc:</span>
+            <a href="#" class="activeChip" aria-label="Bỏ lọc size 24 inch">
+              Size 24"
+              <svg class="icon" aria-hidden="true">
+                <use href="#iClose" />
+              </svg>
+            </a>
+            <a href="#" class="activeChip" aria-label="Bỏ lọc đang giảm giá">
+              Đang giảm giá
+              <svg class="icon" aria-hidden="true">
+                <use href="#iClose" />
+              </svg>
+            </a>
+            <a href="#" class="textLink">Xóa tất cả</a>
+          </div>
+          <div class="grid gridThree">
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-34%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali khung nhôm Atlas A9 cao cấp">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#B9C3CD" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#B9C3CD"
+                    aria-label="Bạc"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#2B3038"
+                    aria-label="Đen"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#27466F"
+                    aria-label="Xanh navy"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#D9BF93"
+                    aria-label="Champagne"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali khung nhôm Atlas A9 cao cấp</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,8 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:96%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(58)</span>
+                </span>
+                <p class="price">
+                  <strong>1.189.000₫</strong>
+                  <s>1.789.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-30%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali khung nhôm Atlas A7 bản thường">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#B9C3CD" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#B9C3CD"
+                    aria-label="Bạc"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#2B3038"
+                    aria-label="Đen"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#6B7B4A"
+                    aria-label="Xanh olive"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali khung nhôm Atlas A7 bản thường</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,7 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:94%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(41)</span>
+                </span>
+                <p class="price">
+                  <strong>1.039.000₫</strong>
+                  <s>1.489.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-32%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali khung nhôm khóa sập Nova">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#B9C3CD" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#B9C3CD"
+                    aria-label="Bạc"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#27466F"
+                    aria-label="Xanh navy"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#F2A7B8"
+                    aria-label="Hồng"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali khung nhôm khóa sập Nova</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,6 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:92%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(22)</span>
+                </span>
+                <p class="price">
+                  <strong>1.289.000₫</strong>
+                  <s>1.899.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-40%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali khóa kéo Zipra Z8 bản thường">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#2B3038" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#2B3038"
+                    aria-label="Đen"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#27466F"
+                    aria-label="Xanh navy"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#F2A7B8"
+                    aria-label="Hồng"
+                  >
+                  </button>
+                  <button type="button" class="swatch" style="--bodyColor:#8EC5E8" aria-label="Xanh nhạt"></button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali khóa kéo Zipra Z8 bản thường</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,6 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:92%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(32)</span>
+                </span>
+                <p class="price">
+                  <strong>689.000₫</strong>
+                  <s>1.149.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-33%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali khóa kéo Zipra Z8 cao cấp">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#F2C230" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#F2C230"
+                    aria-label="Vàng"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#2B3038"
+                    aria-label="Đen"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#2E9E8F"
+                    aria-label="Xanh ngọc"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali khóa kéo Zipra Z8 cao cấp</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,8 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:96%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(50)</span>
+                </span>
+                <p class="price">
+                  <strong>789.000₫</strong>
+                  <s>1.178.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-44%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali khung nhôm khóa kéo Zipra Ultra">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#8EC5E8" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#8EC5E8"
+                    aria-label="Xanh nhạt"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#B9C3CD"
+                    aria-label="Bạc"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#2B3038"
+                    aria-label="Đen"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali khung nhôm khóa kéo Zipra Ultra</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,5 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:90%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(6)</span>
+                </span>
+                <p class="price">
+                  <strong>939.000₫</strong>
+                  <s>1.678.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-46%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali nhựa PC Sora thời trang">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#8EC5E8" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#8EC5E8"
+                    aria-label="Xanh nhạt"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#B9C3CD"
+                    aria-label="Bạc"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#F2A7B8"
+                    aria-label="Hồng"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali nhựa PC Sora thời trang</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,7 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:94%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(43)</span>
+                </span>
+                <p class="price">
+                  <strong>889.000₫</strong>
+                  <s>1.649.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-50%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali nhựa PP Pebble siêu nhẹ">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#F2823A" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#F2823A"
+                    aria-label="Cam"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#6B7B4A"
+                    aria-label="Xanh olive"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#2B3038"
+                    aria-label="Đen"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali nhựa PP Pebble siêu nhẹ</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,6 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:92%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(10)</span>
+                </span>
+                <p class="price">
+                  <strong>739.000₫</strong>
+                  <s>1.478.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="cardMedia">
+                <span class="badgeSale">-50%</span>
+                <button type="button" class="wish" aria-label="Thêm vào yêu thích">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#iHeart" />
+                  </svg>
+                </button>
+                <a href="#" aria-label="Xem Vali nhựa PP dẻo Corsa chịu va đập">
+                  <svg class="cardImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#6B7B4A" />
+                  </svg>
+                </a>
+                <span class="quickHint">Xem nhanh</span>
+              </div>
+              <div class="cardBody">
+                <div class="swatches" role="group" aria-label="Chọn màu">
+                  <button
+                    type="button"
+                    class="swatch isActive"
+                    style="--bodyColor:#6B7B4A"
+                    aria-label="Xanh olive"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#27466F"
+                    aria-label="Xanh navy"
+                  >
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch"
+                    style="--bodyColor:#8C949C"
+                    aria-label="Xám tro"
+                  >
+                  </button>
+                </div>
+                <h3 class="cardTitle">
+                  <a href="#">Vali nhựa PP dẻo Corsa chịu va đập</a>
+                </h3>
+                <span class="stars">
+                  <span class="starsTrack" role="img" aria-label="Đánh giá 4,5 trên 5 sao">
+                    ★★★★★
+                    <span class="starsFill" style="--rateWidth:90%" aria-hidden="true">★★★★★</span>
+                  </span>
+                  <span class="starsCount">(16)</span>
+                </span>
+                <p class="price">
+                  <strong>839.000₫</strong>
+                  <s>1.678.000₫</s>
+                </p>
+                <button type="button" class="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+              </div>
+            </article>
+          </div>
+          <nav class="pagination" aria-label="Phân trang">
+            <ul class="pageList">
+              <li>
+                <span class="pageBtn isDisabled" aria-disabled="true">
+                  <svg class="icon iconSm" aria-hidden="true">
+                    <use href="#iChevLeft" />
+                  </svg>
+                  Trước
+                </span>
+              </li>
+              <li>
+                <a href="#" class="pageBtn isCurrent" aria-current="page">1</a>
+              </li>
+              <li>
+                <a href="#" class="pageBtn">2</a>
+              </li>
+              <li>
+                <a href="#" class="pageBtn">
+                  Sau
+                  <svg class="icon iconSm" aria-hidden="true">
+                    <use href="#iChevRight" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </main>
+    <section class="newsletter" aria-labelledby="newsletterTitle">
+      <div class="container newsletterInner">
+        <div>
+          <h2 id="newsletterTitle" class="sectionTitle">Nhận mã giảm 10% cho đơn đầu tiên</h2>
+          <p class="sectionSub">
+            Chúng tôi chỉ gửi thông tin khuyến mại và mẹo du lịch, mỗi tuần tối đa một thư.
+          </p>
+        </div>
+        <form class="newsletterForm" action="#">
+          <div class="newsletterRow">
+            <label class="visuallyHidden" for="newsletterEmail">Email của bạn</label>
+            <input
+              id="newsletterEmail"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              placeholder="Email của bạn"
+            >
+            <button type="submit" class="btn btnDark">Đăng ký</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footerGrid">
+        <div class="footerBrand">
+          <p class="footerLogo">Valigo</p>
+          <p>Vali &amp; phụ kiện du lịch. Dự án giao diện cho môn học Frontend.</p>
+          <ul class="footerContact">
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#iStore" />
+              </svg>
+              123 Đường Mẫu, Quận 1, TP. Hồ Chí Minh
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#iPhone" />
+              </svg>
+              <a href="tel:0900000000">0900 000 000</a>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#iMail" />
+              </svg>
+              <a href="mailto:cskh@valigo.vn">cskh@valigo.vn</a>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#iClock" />
+              </svg>
+              8:00 – 21:00 mỗi ngày
+            </li>
+          </ul>
+        </div>
+        <nav aria-label="Hỗ trợ khách hàng">
+          <h2 class="footerTitle">Hỗ trợ khách hàng</h2>
+          <ul>
+            <li>
+              <a href="#">Trang chủ</a>
+            </li>
+            <li>
+              <a href="#">Giới thiệu</a>
+            </li>
+            <li>
+              <a href="#">Tất cả sản phẩm</a>
+            </li>
+            <li>
+              <a href="#">Tin tức</a>
+            </li>
+            <li>
+              <a href="#">Hệ thống cửa hàng</a>
+            </li>
+          </ul>
+        </nav>
+        <nav aria-label="Chính sách">
+          <h2 class="footerTitle">Chính sách</h2>
+          <ul>
+            <li>
+              <a href="#">Chính sách vận chuyển</a>
+            </li>
+            <li>
+              <a href="#">Chính sách bảo hành</a>
+            </li>
+            <li>
+              <a href="#">Chính sách đổi trả</a>
+            </li>
+            <li>
+              <a href="#">Chính sách thanh toán</a>
+            </li>
+            <li>
+              <a href="#">Chính sách bảo mật</a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footerTitle">Thanh toán</h2>
+          <ul class="payList">
+            <li>COD</li>
+            <li>Thẻ ATM</li>
+            <li>Visa / Mastercard</li>
+            <li>Ví điện tử</li>
+            <li>Chuyển khoản</li>
+          </ul>
+          <h2 class="footerTitle footerTitleGap">Kết nối</h2>
+          <ul class="socialList">
+            <li>
+              <a href="#">Facebook</a>
+            </li>
+            <li>
+              <a href="#">YouTube</a>
+            </li>
+            <li>
+              <a href="#">TikTok</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <div class="container">
+          © 2026 Valigo. Dữ liệu và hình ảnh trong dự án chỉ là mẫu để minh hoạ giao diện.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
