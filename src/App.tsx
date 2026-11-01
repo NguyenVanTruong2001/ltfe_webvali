@@ -32,10 +32,10 @@ function App() {
 
       <div className="ticks"></div>
 
-      <section id="next-steps">
+      <section id="nextSteps">
         <div id="docs">
           <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
+            <use href="/icons.svg#documentationIcon"></use>
           </svg>
           <h2>Documentation</h2>
           <p>Your questions, answered</p>
@@ -48,7 +48,7 @@ function App() {
             </li>
             <li>
               <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
+                <img className="buttonIcon" src={reactLogo} alt="" />
                 Learn more
               </a>
             </li>
@@ -56,7 +56,7 @@ function App() {
         </div>
         <div id="social">
           <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
+            <use href="/icons.svg#socialIcon"></use>
           </svg>
           <h2>Connect with us</h2>
           <p>Join the Vite community</p>
@@ -64,11 +64,11 @@ function App() {
             <li>
               <a href="https://github.com/vitejs/vite" target="_blank">
                 <svg
-                  className="button-icon"
+                  className="buttonIcon"
                   role="presentation"
                   aria-hidden="true"
                 >
-                  <use href="/icons.svg#github-icon"></use>
+                  <use href="/icons.svg#githubIcon"></use>
                 </svg>
                 GitHub
               </a>
@@ -76,11 +76,11 @@ function App() {
             <li>
               <a href="https://chat.vite.dev/" target="_blank">
                 <svg
-                  className="button-icon"
+                  className="buttonIcon"
                   role="presentation"
                   aria-hidden="true"
                 >
-                  <use href="/icons.svg#discord-icon"></use>
+                  <use href="/icons.svg#discordIcon"></use>
                 </svg>
                 Discord
               </a>
@@ -88,11 +88,11 @@ function App() {
             <li>
               <a href="https://x.com/vite_js" target="_blank">
                 <svg
-                  className="button-icon"
+                  className="buttonIcon"
                   role="presentation"
                   aria-hidden="true"
                 >
-                  <use href="/icons.svg#x-icon"></use>
+                  <use href="/icons.svg#xIcon"></use>
                 </svg>
                 X.com
               </a>
@@ -100,11 +100,11 @@ function App() {
             <li>
               <a href="https://bsky.app/profile/vite.dev" target="_blank">
                 <svg
-                  className="button-icon"
+                  className="buttonIcon"
                   role="presentation"
                   aria-hidden="true"
                 >
-                  <use href="/icons.svg#bluesky-icon"></use>
+                  <use href="/icons.svg#blueskyIcon"></use>
                 </svg>
                 Bluesky
               </a>

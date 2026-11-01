@@ -30,3 +30,13 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+---
+
+## Giao diện trang chủ (bản HTML/CSS tĩnh)
+
+Thư mục `ui/` chứa giao diện trang chủ cửa hàng vali **Valigo** viết bằng HTML/CSS thuần,
+làm trước khi chuyển sang React. Thư mục này nằm ngoài `src/` nên không ảnh hưởng tới build.
+
+- Xem: mở `ui/index.html` bằng trình duyệt, hoặc chạy `npm run dev` rồi vào `/ui/index.html`.
+- Bảng các khối sẽ thành component React: xem `ui/README.md`.
