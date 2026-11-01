@@ -1,0 +1,370 @@
+.breadcrumb {
+  padding-block: 20px 8px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 6px;
+  color: var(--inkFaint);
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrumb [aria-current='page'] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.navLink.isCurrent {
+  border-bottom-color: var(--strap);
+}
+
+.listHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.listTitle {
+  font-family: var(--fontDisplay);
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.listCount {
+  margin-top: 6px;
+  color: var(--inkSoft);
+}
+
+.listTools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filterToggle {
+  display: none;
+}
+
+.sortBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sortLabel {
+  color: var(--inkSoft);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sortSelect {
+  height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color .15s;
+}
+
+.sortSelect:hover {
+  border-color: var(--ink);
+}
+
+.listLayout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  padding-block: 28px 0;
+}
+
+.filterCheck {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--headerOffset) + 16px);
+  max-height: calc(100dvh - var(--headerOffset) - 32px);
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  overscroll-behavior: contain;
+}
+
+.sidebarHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+}
+
+.sidebarTitle {
+  font-family: var(--fontDisplay);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.filterGroup {
+  min-width: 0;
+  margin: 0;
+  padding: 18px 0 20px;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.filterTitle {
+  float: left;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 0;
+  font-family: var(--fontDisplay);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.filterBody {
+  clear: both;
+  display: grid;
+  gap: 2px;
+}
+
+.colorList {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding-inline: 6px;
+  margin-inline: -6px;
+  border-radius: var(--rSm);
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color .15s;
+}
+
+.checkRow:hover {
+  background: var(--sky);
+}
+
+.checkRow input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--ink);
+  cursor: pointer;
+}
+
+.checkText {
+  flex: 1;
+}
+
+.checkCount {
+  color: var(--inkFaint);
+  font-size: 13px;
+}
+
+.checkRow:has(input:checked) .checkText {
+  font-weight: 600;
+}
+
+.checkRow:has(input:checked) .checkCount {
+  color: var(--ink);
+}
+
+.colorOption {
+  position: relative;
+  display: inline-grid;
+  cursor: pointer;
+}
+
+.colorDot {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--bodyColor);
+  box-shadow: 0 0 0 1px var(--line);
+  transition: box-shadow .15s, transform .15s;
+}
+
+.colorOption:hover .colorDot {
+  box-shadow: 0 0 0 1px var(--inkFaint);
+}
+
+.colorOption input:checked + .colorDot {
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+.colorOption input:focus-visible + .colorDot {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.activeFilters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 20px;
+}
+
+.activeLabel {
+  color: var(--inkSoft);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.activeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 10px 0 14px;
+  border-radius: 4px;
+  background: var(--sky);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color .15s;
+}
+
+.activeChip:hover {
+  background: var(--skyDeep);
+}
+
+.activeChip .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.gridThree {
+  margin-top: 0;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pageList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pageBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 600;
+  transition: border-color .15s, background-color .15s;
+}
+
+a.pageBtn:hover {
+  border-color: var(--ink);
+}
+
+.pageBtn.isCurrent {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.pageBtn.isDisabled {
+  border-color: var(--sky);
+  background: var(--sky);
+  color: var(--inkFaint);
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .filterToggle {
+    display: inline-flex;
+  }
+
+  .listLayout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sidebar {
+    display: none;
+    position: static;
+    max-height: none;
+    margin-bottom: 20px;
+    padding: 0 0 20px;
+    overflow: visible;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .filterCheck:checked ~ .sidebar {
+    display: block;
+  }
+}
+
+@media (max-width: 700px) {
+  .gridThree {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .listTools {
+    width: 100%;
+  }
+
+  .sortBox {
+    flex: 1;
+  }
+
+  .sortLabel {
+    display: none;
+  }
+
+  .sortSelect {
+    width: 100%;
+  }
+}
