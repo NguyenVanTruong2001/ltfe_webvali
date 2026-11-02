@@ -29,10 +29,6 @@
   font-weight: 600;
 }
 
-.navLink.isCurrent {
-  border-bottom-color: var(--strap);
-}
-
 .listHead {
   display: flex;
   align-items: flex-end;

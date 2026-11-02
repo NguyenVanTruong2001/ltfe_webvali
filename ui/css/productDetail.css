@@ -1,7 +1,3 @@
-.navLink.isCurrent {
-  border-bottom-color: var(--strap);
-}
-
 .breadcrumb {
   padding-block: 20px 8px;
   color: var(--inkSoft);

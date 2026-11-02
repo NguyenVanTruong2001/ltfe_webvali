@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Valigo</title>
+    <meta name="description" content="Đăng nhập tài khoản Valigo để xem đơn hàng, danh sách yêu thích và nhận ưu đãi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/login.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung" class="auth">
+      <div class="container">
+        <nav class="crumbs" aria-label="Đường dẫn">
+          <a href="index.html">Trang chủ</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Đăng nhập</span>
+        </nav>
+
+        <div class="authTicket">
+          <section class="authMain" aria-labelledby="loginTitle">
+            <h1 id="loginTitle" class="authTitle">Đăng nhập</h1>
+            <p class="authSub">Xem đơn hàng, lưu sản phẩm yêu thích và thanh toán nhanh hơn.</p>
+
+            <form id="loginForm" class="form" action="#" novalidate>
+              <p id="formStatus" class="formStatus" role="status" aria-live="polite" hidden></p>
+
+              <div class="field">
+                <label class="fieldLabel" for="loginId">Email hoặc số điện thoại</label>
+                <input
+                  id="loginId"
+                  name="loginId"
+                  class="input"
+                  type="text"
+                  inputmode="email"
+                  autocomplete="username"
+                  placeholder="vidu@email.com"
+                  aria-describedby="loginIdError"
+                  required
+                >
+                <p id="loginIdError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true">
+                    <use href="#iAlert" />
+                  </svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <div class="field">
+                <div class="fieldHead">
+                  <label class="fieldLabel" for="loginPassword">Mật khẩu</label>
+                  <a href="#" class="textLink fieldLink">Quên mật khẩu?</a>
+                </div>
+                <div class="inputWrap">
+                  <input
+                    id="loginPassword"
+                    name="password"
+                    class="input"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Nhập mật khẩu"
+                    aria-describedby="loginPasswordError"
+                    required
+                  >
+                  <button
+                    type="button"
+                    class="eyeBtn"
+                    aria-controls="loginPassword"
+                    aria-pressed="false"
+                    aria-label="Hiện mật khẩu"
+                  >
+                    <svg class="icon eyeOn" aria-hidden="true">
+                      <use href="#iEye" />
+                    </svg>
+                    <svg class="icon eyeOff" aria-hidden="true">
+                      <use href="#iEyeOff" />
+                    </svg>
+                  </button>
+                </div>
+                <p id="loginPasswordError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true">
+                    <use href="#iAlert" />
+                  </svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <label class="check">
+                <input type="checkbox" name="remember" class="checkInput">
+                <span class="checkBox" aria-hidden="true">
+                  <svg class="icon iconSm">
+                    <use href="#iCheck" />
+                  </svg>
+                </span>
+                <span>Ghi nhớ đăng nhập trên thiết bị này</span>
+              </label>
+
+              <button type="submit" class="btn btnPrimary btnBlock submitBtn">Đăng nhập</button>
+            </form>
+
+            <div class="divider" role="separator">
+              <span>hoặc đăng nhập bằng</span>
+            </div>
+
+            <div class="socialBtns">
+              <button type="button" class="btn btnGhost">Google</button>
+              <button type="button" class="btn btnGhost">Facebook</button>
+            </div>
+
+            <p class="switchText">
+              Chưa có tài khoản?
+              <a href="#" class="textLink">Tạo tài khoản mới</a>
+            </p>
+          </section>
+
+          <aside class="authStub" aria-label="Quyền lợi thành viên">
+            <svg class="stubImage" viewBox="0 0 200 240" aria-hidden="true">
+              <use href="#suitcase" style="--bodyColor:#27466F" />
+            </svg>
+            <h2 class="stubTitle">Quyền lợi thành viên</h2>
+            <ul class="perks">
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#iPackage" />
+                </svg>
+                Theo dõi đơn hàng từng bước
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#iHeart" />
+                </svg>
+                Lưu sản phẩm yêu thích
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#iShield" />
+                </svg>
+                Tra cứu bảo hành nhanh
+              </li>
+            </ul>
+            <p class="stubCoupon">
+              <span>Đơn đầu tiên</span>
+              <strong>ATLAS10</strong>
+              <span>Giảm 10%</span>
+            </p>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
