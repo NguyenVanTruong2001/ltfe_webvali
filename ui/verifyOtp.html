@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận mã - Valigo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/verifyOtp.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/verifyOtp.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung" class="auth">
+      <div class="container">
+        <nav class="crumbs" aria-label="Đường dẫn">
+          <a href="index.html">Trang chủ</a>
+          <span aria-hidden="true">/</span>
+          <a href="login.html">Đăng nhập</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Xác nhận mã</span>
+        </nav>
+
+        <div class="authTicket">
+          <section class="authMain" aria-labelledby="pageTitle">
+            <h1 id="pageTitle" class="authTitle">Nhập mã xác nhận</h1>
+            <p class="authSub">Chúng tôi đã gửi mã gồm 6 chữ số tới <strong>vidu@email.com</strong>.</p>
+
+            <form class="form" action="resetPassword.html" novalidate>
+              <div class="field">
+                <span class="fieldLabel" id="otpLabel">Mã xác nhận</span>
+                <div class="otp" role="group" aria-labelledby="otpLabel">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="Chữ số 1">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 2">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 3">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 4">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 5">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 6">
+                </div>
+                <p id="otpError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
+                  <span></span>
+                </p>
+              </div>
+              <button type="submit" class="btn btnPrimary btnBlock submitBtn">Xác nhận</button>
+              <p class="resend">
+                Chưa nhận được mã? <button type="button" class="textLink resendBtn">Gửi lại</button>
+                <span class="resendTimer">(sau 59 giây)</span>
+              </p>
+            </form>
+
+            <p class="switchText">
+              Sai email? <a href="forgotPassword.html" class="textLink">Nhập lại</a>
+            </p>
+          </section>
+
+          <aside class="authStub" aria-label="Hỗ trợ">
+            <svg class="stubImage" viewBox="0 0 200 240" aria-hidden="true">
+              <use href="#backpack" style="--bodyColor:#27466F" />
+            </svg>
+            <h2 class="stubTitle">Mã gồm 6 chữ số</h2>
+            <p class="stubText">Không chia sẻ mã này với bất kỳ ai, kể cả nhân viên Valigo.</p>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
