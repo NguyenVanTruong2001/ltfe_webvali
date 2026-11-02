@@ -81,7 +81,6 @@ function checkTerms() {
   return ok
 }
 
-// Độ mạnh mật khẩu: 0 = trống, 1..4 = yếu..rất mạnh
 function updateStrength() {
   const value = password.value
   const labels = ['Tối thiểu 8 ký tự, gồm chữ và số.', 'Yếu', 'Trung bình', 'Khá mạnh', 'Rất mạnh']
@@ -117,7 +116,6 @@ form.querySelectorAll('.eyeBtn').forEach((btn) => {
   })
 })
 
-// Báo lỗi khi rời ô, và cập nhật lại ngay khi người dùng sửa
 const rules = [
   [fullName, checkName],
   [email, checkEmail],
@@ -154,7 +152,6 @@ form.addEventListener('submit', (event) => {
   submitBtn.classList.add('isLoading')
   submitBtn.textContent = 'Đang tạo tài khoản...'
 
-  // Giao diện mẫu: chưa có máy chủ. Khi có API, gọi fetch tại đây.
   setTimeout(() => {
     submitBtn.classList.remove('isLoading')
     submitBtn.textContent = 'Tạo tài khoản'
