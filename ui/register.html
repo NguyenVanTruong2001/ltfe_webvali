@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Valigo</title>
+    <meta name="description" content="Tạo tài khoản Valigo để theo dõi đơn hàng, lưu sản phẩm yêu thích và nhận mã giảm giá đơn đầu tiên.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/register.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung" class="auth">
+      <div class="container">
+        <nav class="crumbs" aria-label="Đường dẫn">
+          <a href="index.html">Trang chủ</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Đăng ký</span>
+        </nav>
+
+        <div class="authTicket">
+          <section class="authMain" aria-labelledby="registerTitle">
+            <h1 id="registerTitle" class="authTitle">Tạo tài khoản</h1>
+            <p class="authSub">Chỉ mất một phút để bắt đầu mua sắm và nhận ưu đãi thành viên.</p>
+
+            <form id="registerForm" class="form" action="#" novalidate>
+              <p id="formStatus" class="formStatus" role="status" aria-live="polite" hidden></p>
+
+              <div class="field">
+                <label class="fieldLabel" for="fullName">Họ và tên</label>
+                <input id="fullName" name="fullName" class="input" type="text" autocomplete="name" placeholder="Nguyễn Văn A" aria-describedby="fullNameError" required>
+                <p id="fullNameError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <div class="fieldRow">
+              <div class="field">
+                <label class="fieldLabel" for="regEmail">Email</label>
+                <input id="regEmail" name="email" class="input" type="email" autocomplete="email" placeholder="vidu@email.com" aria-describedby="regEmailError" inputmode="email" required>
+                <p id="regEmailError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
+                  <span></span>
+                </p>
+              </div>
+              <div class="field">
+                <label class="fieldLabel" for="regPhone">Số điện thoại</label>
+                <input id="regPhone" name="phone" class="input" type="tel" autocomplete="tel" placeholder="0912 345 678" aria-describedby="regPhoneError" inputmode="tel" required>
+                <p id="regPhoneError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
+                  <span></span>
+                </p>
+              </div>
+              </div>
+
+              <div class="field">
+                <label class="fieldLabel" for="regPassword">Mật khẩu</label>
+                <div class="inputWrap">
+                  <input id="regPassword" name="password" class="input" type="password" autocomplete="new-password" placeholder="Tạo mật khẩu" aria-describedby="regPasswordError" required>
+                  <button type="button" class="eyeBtn" aria-controls="regPassword" aria-pressed="false" aria-label="Hiện mật khẩu">
+                    <svg class="icon eyeOn" aria-hidden="true"><use href="#iEye" /></svg>
+                    <svg class="icon eyeOff" aria-hidden="true"><use href="#iEyeOff" /></svg>
+                  </button>
+                </div>
+                <div class="strength" id="strength" data-level="0" aria-live="polite">
+                  <span class="strengthBar"><i></i><i></i><i></i><i></i></span>
+                  <span class="strengthText" id="strengthText">Tối thiểu 8 ký tự, gồm chữ và số.</span>
+                </div>
+                <p id="regPasswordError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <div class="field">
+                <label class="fieldLabel" for="regConfirm">Nhập lại mật khẩu</label>
+                <div class="inputWrap">
+                  <input id="regConfirm" name="confirm" class="input" type="password" autocomplete="new-password" placeholder="Nhập lại mật khẩu" aria-describedby="regConfirmError" required>
+                  <button type="button" class="eyeBtn" aria-controls="regConfirm" aria-pressed="false" aria-label="Hiện mật khẩu">
+                    <svg class="icon eyeOn" aria-hidden="true"><use href="#iEye" /></svg>
+                    <svg class="icon eyeOff" aria-hidden="true"><use href="#iEyeOff" /></svg>
+                  </button>
+                </div>
+                <p id="regConfirmError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <div class="field">
+                <label class="check">
+                  <input type="checkbox" id="regTerms" name="terms" class="checkInput" aria-describedby="regTermsError">
+                  <span class="checkBox" aria-hidden="true"><svg class="icon iconSm"><use href="#iCheck" /></svg></span>
+                  <span>Tôi đồng ý với <a href="#" class="textLink">Điều khoản sử dụng</a> và <a href="#" class="textLink">Chính sách bảo mật</a></span>
+                </label>
+                <p id="regTermsError" class="fieldError" hidden>
+                  <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
+                  <span></span>
+                </p>
+              </div>
+
+              <button type="submit" class="btn btnPrimary btnBlock submitBtn">Tạo tài khoản</button>
+            </form>
+
+            <div class="divider" role="separator">
+              <span>hoặc đăng ký bằng</span>
+            </div>
+
+            <div class="socialBtns">
+              <button type="button" class="btn btnGhost">Google</button>
+              <button type="button" class="btn btnGhost">Facebook</button>
+            </div>
+
+            <p class="switchText">
+              Đã có tài khoản?
+              <a href="login.html" class="textLink">Đăng nhập</a>
+            </p>
+          </section>
+
+          <aside class="authStub" aria-label="Ưu đãi thành viên mới">
+            <svg class="stubImage" viewBox="0 0 200 240" aria-hidden="true">
+              <use href="#backpack" style="--bodyColor:#27466F" />
+            </svg>
+            <h2 class="stubTitle">Chào mừng thành viên mới</h2>
+            <ul class="perks">
+              <li><svg class="icon" aria-hidden="true"><use href="#iTruck" /></svg>Miễn phí vận chuyển đơn từ 500.000đ</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#iShield" /></svg>Bảo hành điện tử, tra cứu nhanh</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#iHeart" /></svg>Lưu sản phẩm yêu thích</li>
+            </ul>
+            <p class="stubCoupon">
+              <span>Đơn đầu tiên</span>
+              <strong>ATLAS10</strong>
+              <span>Giảm 10%</span>
+            </p>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
