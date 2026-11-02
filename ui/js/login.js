@@ -60,7 +60,6 @@ eyeBtn.addEventListener('click', () => {
   password.focus()
 })
 
-// Báo lỗi ngay khi rời ô, và xóa lỗi khi người dùng sửa lại
 loginId.addEventListener('blur', () => loginId.value && checkLoginId())
 password.addEventListener('blur', () => password.value && checkPassword())
 loginId.addEventListener('input', () => loginId.getAttribute('aria-invalid') === 'true' && checkLoginId())
@@ -81,7 +80,6 @@ form.addEventListener('submit', (event) => {
   submitBtn.classList.add('isLoading')
   submitBtn.textContent = 'Đang đăng nhập...'
 
-  // Giao diện mẫu: chưa có máy chủ. Khi có API, gọi fetch tại đây.
   setTimeout(() => {
     submitBtn.classList.remove('isLoading')
     submitBtn.textContent = 'Đăng nhập'

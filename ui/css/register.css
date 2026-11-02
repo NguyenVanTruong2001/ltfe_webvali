@@ -1,0 +1,51 @@
+/* Bổ sung cho trang đăng ký, dùng chung login.css */
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.strength {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.strengthBar {
+  display: grid;
+  flex: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  width: 120px;
+}
+
+.strengthBar i {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--line);
+  transition: background-color .15s;
+}
+
+.strengthText {
+  color: var(--inkSoft);
+  font-size: 13px;
+}
+
+.strength[data-level='1'] i:nth-child(-n + 1) { background: var(--coral); }
+.strength[data-level='2'] i:nth-child(-n + 2) { background: #e6a23c; }
+.strength[data-level='3'] i:nth-child(-n + 3) { background: #7fb069; }
+.strength[data-level='4'] i:nth-child(-n + 4) { background: #2f8f4e; }
+
+@media (max-width: 560px) {
+  .fieldRow {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .strength {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
