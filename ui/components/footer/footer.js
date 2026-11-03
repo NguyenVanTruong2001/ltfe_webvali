@@ -11,7 +11,7 @@ class SiteFooter extends HTMLElement {
 
       this.innerHTML = await response.text()
     } catch (error) {
-      this.innerHTML = '<p class="includeError">Không tải được footer. Hãy mở trang bằng WebStorm hoặc chạy npm run dev.</p>'
+      this.innerHTML = '<p class="includeError">Không tải được footer.</p>'
     }
   }
 }
