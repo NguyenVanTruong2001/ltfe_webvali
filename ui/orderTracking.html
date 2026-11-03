@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra đơn hàng - Valigo</title>
+    <meta
+      name="description"
+      content="Nhập mã đơn hàng và số điện thoại để xem tình trạng vận chuyển đơn hàng tại Valigo."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/orderSuccess.css">
+    <link rel="stylesheet" href="css/orderTracking.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/orderTracking.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li aria-current="page">Kiểm tra đơn hàng</li>
+          </ol>
+        </nav>
+        <div class="checkoutHead">
+          <h1 class="checkoutTitle">Kiểm tra đơn hàng</h1>
+          <p class="trackIntro">Nhập mã đơn hàng trong email xác nhận và số điện thoại đặt hàng.</p>
+        </div>
+        <form class="trackForm" id="trackForm" novalidate>
+          <div class="formField">
+            <label for="orderCode">Mã đơn hàng</label>
+            <input
+              id="orderCode"
+              name="orderCode"
+              type="text"
+              autocomplete="off"
+              required
+              placeholder="VLG-241103-0827"
+            >
+          </div>
+          <div class="formField">
+            <label for="trackPhone">Số điện thoại</label>
+            <input
+              id="trackPhone"
+              name="trackPhone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              required
+              placeholder="0900000000"
+            >
+          </div>
+          <button type="submit" class="btn btnPrimary">Tra cứu</button>
+          <p id="trackStatus" class="trackStatus" role="status" aria-live="polite" hidden></p>
+        </form>
+        <section class="trackResult" id="trackResult" aria-labelledby="resultTitle" hidden>
+          <div class="trackResultHead">
+            <div>
+              <h2 id="resultTitle" class="formTitle">Đơn hàng VLG-241103-0827</h2>
+              <p class="trackMeta">Đặt ngày 03/11/2026 lúc 16:30</p>
+            </div>
+            <span class="statusBadge">Đang vận chuyển</span>
+          </div>
+          <ol class="progress" aria-label="Tiến trình đơn hàng">
+            <li class="progressStep isDone">Đã nhận đơn</li>
+            <li class="progressStep isDone">Đã xác nhận</li>
+            <li class="progressStep isCurrent" aria-current="step">Đang vận chuyển</li>
+            <li class="progressStep">Đã giao</li>
+          </ol>
+          <div class="checkoutLayout">
+            <div>
+              <h3 class="trackSubTitle">Lịch sử vận chuyển</h3>
+              <ol class="timeline">
+                <li class="timelineItem isDone">
+                  <strong>Đang giao đến bạn</strong>
+                  <span>05/11/2026, 08:15 - Bưu cục Quận 1, TP. Hồ Chí Minh</span>
+                </li>
+                <li class="timelineItem isDone">
+                  <strong>Đã đến trung tâm khai thác</strong>
+                  <span>04/11/2026, 21:40 - Trung tâm TP. Hồ Chí Minh</span>
+                </li>
+                <li class="timelineItem isDone">
+                  <strong>Đã bàn giao cho đơn vị vận chuyển</strong>
+                  <span>04/11/2026, 10:05 - Kho Valigo</span>
+                </li>
+                <li class="timelineItem isDone">
+                  <strong>Đã xác nhận đơn hàng</strong>
+                  <span>03/11/2026, 16:52</span>
+                </li>
+              </ol>
+            </div>
+            <aside class="orderSummary" aria-labelledby="trackSummaryTitle">
+              <div class="summaryHead">
+                <h3 id="trackSummaryTitle" class="summaryTitle">Chi tiết đơn</h3>
+              </div>
+              <dl class="summaryRows">
+                <div class="summaryRow">
+                  <dt>Người nhận</dt>
+                  <dd>Nguyễn Văn A</dd>
+                </div>
+                <div class="summaryRow">
+                  <dt>Vận chuyển</dt>
+                  <dd>Giao tiêu chuẩn</dd>
+                </div>
+                <div class="summaryRow">
+                  <dt>Thanh toán</dt>
+                  <dd>COD</dd>
+                </div>
+                <div class="summaryRow">
+                  <dt>Dự kiến giao</dt>
+                  <dd>05/11/2026</dd>
+                </div>
+              </dl>
+              <p class="summaryTotal">
+                <span>Cần thanh toán</span>
+                <strong>2.750.400₫</strong>
+              </p>
+              <ul class="summaryPerks">
+                <li>
+                  <svg class="icon iconSm" aria-hidden="true">
+                    <use href="#iHeadset" />
+                  </svg>
+                  Cần hỗ trợ? Gọi hotline 1900 0000
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>

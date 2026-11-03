@@ -1,0 +1,157 @@
+.successBanner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px 24px;
+  margin-top: 28px;
+  padding: 24px 28px;
+  border: 1.5px solid var(--line);
+  border-left: 6px solid #1e7a5c;
+  background: var(--sky);
+}
+
+.successMark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1e7a5c;
+  color: #fff;
+}
+
+.successHeading {
+  font-family: var(--fontDisplay);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.successText {
+  margin-top: 6px;
+  color: var(--inkSoft);
+}
+
+.orderCode {
+  display: grid;
+  gap: 2px;
+  padding: 12px 18px;
+  border: 1.5px dashed var(--inkFaint);
+  background: #fff;
+  text-align: center;
+}
+
+.orderCodeLabel {
+  color: var(--inkSoft);
+  font-size: 13px;
+}
+
+.orderCodeValue {
+  font-family: var(--fontDisplay);
+  font-size: 26px;
+  letter-spacing: .04em;
+}
+
+.successMain {
+  min-width: 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 24px;
+  clear: both;
+  margin: 0;
+}
+
+.infoItem dt {
+  margin-bottom: 4px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.infoItem dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.timeline {
+  display: grid;
+  gap: 0;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 0 0 22px 32px;
+  border-left: 2px solid var(--line);
+  margin-left: 9px;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: -10px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.timelineItem.isDone::before {
+  border-color: #1e7a5c;
+  background: #1e7a5c;
+}
+
+.timelineItem span {
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.successActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.successActions .btn {
+  min-width: 200px;
+  min-height: 52px;
+}
+
+@media (max-width: 1000px) {
+  .successBanner {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .orderCode {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .successBanner {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .successActions .btn {
+    width: 100%;
+  }
+}
