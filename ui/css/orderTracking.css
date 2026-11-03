@@ -1,0 +1,128 @@
+.trackIntro {
+  max-width: 420px;
+  color: var(--inkSoft);
+}
+
+.trackForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 24px;
+  border: 1.5px solid var(--line);
+  background: var(--sky);
+}
+
+.trackForm .btn {
+  min-width: 160px;
+  min-height: 48px;
+}
+
+.trackForm .formField input[aria-invalid='true'] {
+  border-color: var(--coral);
+}
+
+.trackStatus {
+  grid-column: 1 / -1;
+  padding: 12px 14px;
+  border-left: 4px solid var(--coral);
+  background: #fbe7e8;
+  color: #8f1d22;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.trackStatus[hidden],
+.trackResult[hidden] {
+  display: none;
+}
+
+.trackResult {
+  padding-top: 36px;
+}
+
+.trackResultHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.trackResultHead .formTitle {
+  float: none;
+  margin-bottom: 4px;
+}
+
+.trackMeta {
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.statusBadge {
+  padding: 6px 14px;
+  background: var(--strap);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.progress {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.progressStep {
+  padding-top: 12px;
+  border-top: 4px solid var(--line);
+  color: var(--inkFaint);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.progressStep.isDone {
+  border-top-color: #1e7a5c;
+  color: #1e7a5c;
+}
+
+.progressStep.isCurrent {
+  border-top-color: var(--strap);
+  color: var(--ink);
+}
+
+.trackResult .checkoutLayout {
+  padding-top: 32px;
+}
+
+.trackSubTitle {
+  margin-bottom: 16px;
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .trackForm {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .trackForm .btn {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .trackForm {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .progress {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 8px;
+  }
+}
