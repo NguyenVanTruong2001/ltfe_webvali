@@ -23,7 +23,6 @@
   font-weight: 600;
 }
 
-/* Thẻ vé: cùng ngôn ngữ với banner trang chủ */
 .authTicket {
   position: relative;
   display: grid;
@@ -204,7 +203,6 @@
   display: none;
 }
 
-/* Checkbox tự dựng, vẫn dùng input thật để bàn phím và trình đọc màn hình hoạt động */
 .check {
   display: flex;
   align-items: center;
@@ -293,7 +291,6 @@
   color: var(--ink);
 }
 
-/* Cuống vé */
 .authStub {
   display: flex;
   flex-direction: column;
