@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng thành công - Valigo</title>
+    <meta
+      name="description"
+      content="Cảm ơn bạn đã đặt hàng tại Valigo. Xem mã đơn hàng, thông tin giao hàng và các bước tiếp theo."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/orderSuccess.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li>
+              <a href="checkout.html">Thanh toán</a>
+            </li>
+            <li aria-current="page">Đặt hàng thành công</li>
+          </ol>
+        </nav>
+        <div class="checkoutHead">
+          <h1 class="checkoutTitle">Đặt hàng thành công</h1>
+          <ol class="steps" aria-label="Các bước đặt hàng">
+            <li class="step isDone">
+              <svg class="icon iconSm" aria-hidden="true">
+                <use href="#iCheck" />
+              </svg>
+              Giỏ hàng
+            </li>
+            <li class="step isDone">
+              <svg class="icon iconSm" aria-hidden="true">
+                <use href="#iCheck" />
+              </svg>
+              Thông tin và thanh toán
+            </li>
+            <li class="step isCurrent" aria-current="step">Hoàn tất</li>
+          </ol>
+        </div>
+        <section class="successBanner" aria-labelledby="successHeading">
+          <span class="successMark">
+            <svg class="icon iconLg" aria-hidden="true">
+              <use href="#iCheck" />
+            </svg>
+          </span>
+          <div>
+            <h2 id="successHeading" class="successHeading">Cảm ơn bạn, đơn hàng đã được ghi nhận</h2>
+            <p class="successText">
+              Valigo đã gửi email xác nhận đến <strong>ten@email.com</strong>.
+              Nhân viên sẽ gọi xác nhận đơn trong vòng 30 phút (giờ hành chính).
+            </p>
+          </div>
+          <div class="orderCode">
+            <span class="orderCodeLabel">Mã đơn hàng</span>
+            <strong class="orderCodeValue">VLG-241103-0827</strong>
+          </div>
+        </section>
+        <div class="checkoutLayout">
+          <div class="successMain">
+            <section class="formSection" aria-labelledby="infoTitle">
+              <h2 id="infoTitle" class="formTitle">Thông tin giao hàng</h2>
+              <dl class="infoGrid">
+                <div class="infoItem">
+                  <dt>Người nhận</dt>
+                  <dd>Nguyễn Văn A</dd>
+                  <dd>0900000000</dd>
+                </div>
+                <div class="infoItem">
+                  <dt>Địa chỉ</dt>
+                  <dd>123 Đường Mẫu, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</dd>
+                </div>
+                <div class="infoItem">
+                  <dt>Vận chuyển</dt>
+                  <dd>Giao tiêu chuẩn, nhận hàng sau 2 đến 4 ngày</dd>
+                </div>
+                <div class="infoItem">
+                  <dt>Thanh toán</dt>
+                  <dd>Thanh toán khi nhận hàng (COD)</dd>
+                </div>
+              </dl>
+            </section>
+            <section class="formSection" aria-labelledby="nextTitle">
+              <h2 id="nextTitle" class="formTitle">Các bước tiếp theo</h2>
+              <ol class="timeline">
+                <li class="timelineItem isDone">
+                  <strong>Đã nhận đơn hàng</strong>
+                  <span>Hôm nay, 16:30</span>
+                </li>
+                <li class="timelineItem">
+                  <strong>Xác nhận qua điện thoại</strong>
+                  <span>Nhân viên liên hệ để xác nhận địa chỉ và sản phẩm</span>
+                </li>
+                <li class="timelineItem">
+                  <strong>Đóng gói và bàn giao vận chuyển</strong>
+                  <span>Dự kiến trong 24 giờ sau khi xác nhận</span>
+                </li>
+                <li class="timelineItem">
+                  <strong>Giao hàng</strong>
+                  <span>Nhận hàng sau 2 đến 4 ngày, kiểm tra hàng rồi thanh toán</span>
+                </li>
+              </ol>
+            </section>
+            <div class="successActions">
+              <a href="index.html" class="btn btnPrimary">Tiếp tục mua sắm</a>
+              <a href="productList.html" class="btn btnGhost">Xem thêm sản phẩm</a>
+            </div>
+          </div>
+          <aside class="orderSummary" aria-labelledby="orderTitle">
+            <div class="summaryHead">
+              <h2 id="orderTitle" class="summaryTitle">Tóm tắt đơn hàng</h2>
+            </div>
+            <ul class="summaryItems">
+              <li class="summaryItem">
+                <span class="summaryThumb">
+                  <svg class="summaryImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#B9C3CD" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="summaryName">Vali khung nhôm Atlas A9 cao cấp</strong>
+                  <span class="summaryVariant">Bạc, size 24", số lượng 1</span>
+                </span>
+                <span class="summaryPrice">1.189.000₫</span>
+              </li>
+              <li class="summaryItem">
+                <span class="summaryThumb">
+                  <svg class="summaryImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#F2A7B8" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="summaryName">Vali khóa kéo Zipra Z8 bản thường</strong>
+                  <span class="summaryVariant">Hồng, size 20", số lượng 1</span>
+                </span>
+                <span class="summaryPrice">689.000₫</span>
+              </li>
+              <li class="summaryItem">
+                <span class="summaryThumb">
+                  <svg class="summaryImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#backpack" style="--bodyColor:#8C949C" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="summaryName">Balo laptop Dune 14 inch</strong>
+                  <span class="summaryVariant">Xám tro, số lượng 2</span>
+                </span>
+                <span class="summaryPrice">1.178.000₫</span>
+              </li>
+            </ul>
+            <dl class="summaryRows">
+              <div class="summaryRow">
+                <dt>Tạm tính</dt>
+                <dd>3.056.000₫</dd>
+              </div>
+              <div class="summaryRow isDiscount">
+                <dt>Giảm giá (WELCOME10, 10%)</dt>
+                <dd>-305.600₫</dd>
+              </div>
+              <div class="summaryRow">
+                <dt>Phí vận chuyển</dt>
+                <dd>Miễn phí</dd>
+              </div>
+            </dl>
+            <p class="summaryTotal">
+              <span>Tổng thanh toán</span>
+              <strong>2.750.400₫</strong>
+            </p>
+            <ul class="summaryPerks">
+              <li>
+                <svg class="icon iconSm" aria-hidden="true">
+                  <use href="#iHeadset" />
+                </svg>
+                Cần hỗ trợ? Gọi hotline 1900 0000
+              </li>
+              <li>
+                <svg class="icon iconSm" aria-hidden="true">
+                  <use href="#iRefresh" />
+                </svg>
+                Đổi trả trong 7 ngày nếu lỗi nhà sản xuất
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
