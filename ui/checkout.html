@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Valigo</title>
+    <meta
+      name="description"
+      content="Nhập thông tin giao hàng, chọn phương thức vận chuyển và thanh toán để hoàn tất đơn hàng tại Valigo."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li>
+              <a href="cart.html">Giỏ hàng</a>
+            </li>
+            <li aria-current="page">Thanh toán</li>
+          </ol>
+        </nav>
+        <div class="checkoutHead">
+          <h1 class="checkoutTitle">Thanh toán</h1>
+          <ol class="steps" aria-label="Các bước đặt hàng">
+            <li class="step isDone">
+              <svg class="icon iconSm" aria-hidden="true">
+                <use href="#iCheck" />
+              </svg>
+              Giỏ hàng
+            </li>
+            <li class="step isCurrent" aria-current="step">Thông tin và thanh toán</li>
+            <li class="step">Hoàn tất</li>
+          </ol>
+        </div>
+        <div class="checkoutLayout">
+          <form class="checkoutForm" id="checkoutForm" action="#">
+            <fieldset class="formSection">
+              <legend class="formTitle">Thông tin liên hệ</legend>
+              <div class="fieldGrid">
+                <div class="formField span2">
+                  <label for="fullName">Họ và tên</label>
+                  <input
+                    id="fullName"
+                    name="fullName"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    placeholder="Nguyễn Văn A"
+                  >
+                </div>
+                <div class="formField">
+                  <label for="phone">Số điện thoại</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    required
+                    pattern="0[0-9]{9}"
+                    title="Số điện thoại gồm 10 chữ số, bắt đầu bằng 0"
+                    placeholder="0900000000"
+                  >
+                </div>
+                <div class="formField">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    inputmode="email"
+                    autocomplete="email"
+                    required
+                    placeholder="ten@email.com"
+                  >
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="formSection">
+              <legend class="formTitle">Địa chỉ giao hàng</legend>
+              <div class="fieldGrid">
+                <div class="formField">
+                  <label for="province">Tỉnh, thành phố</label>
+                  <select id="province" name="province" autocomplete="off" required>
+                    <option value="">Chọn tỉnh, thành phố</option>
+                    <option>TP. Hồ Chí Minh</option>
+                    <option>Hà Nội</option>
+                    <option>Đà Nẵng</option>
+                    <option>Cần Thơ</option>
+                  </select>
+                </div>
+                <div class="formField">
+                  <label for="district">Quận, huyện</label>
+                  <select id="district" name="district" autocomplete="off" required>
+                    <option value="">Chọn quận, huyện</option>
+                    <option>Quận 1</option>
+                    <option>Quận 3</option>
+                    <option>Quận 7</option>
+                    <option>TP. Thủ Đức</option>
+                  </select>
+                </div>
+                <div class="formField">
+                  <label for="ward">Phường, xã</label>
+                  <select id="ward" name="ward" autocomplete="off" required>
+                    <option value="">Chọn phường, xã</option>
+                    <option>Phường Bến Nghé</option>
+                    <option>Phường Bến Thành</option>
+                    <option>Phường Đa Kao</option>
+                  </select>
+                </div>
+                <div class="formField">
+                  <label for="address">Số nhà, tên đường</label>
+                  <input
+                    id="address"
+                    name="address"
+                    type="text"
+                    autocomplete="street-address"
+                    required
+                    placeholder="123 Đường Mẫu"
+                  >
+                </div>
+                <div class="formField span2">
+                  <label for="note">Ghi chú cho đơn hàng (không bắt buộc)</label>
+                  <textarea
+                    id="note"
+                    name="note"
+                    rows="3"
+                    placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao"
+                  >
+                  </textarea>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="formSection">
+              <legend class="formTitle">Phương thức vận chuyển</legend>
+              <div class="optionList">
+                <label class="optionCard">
+                  <input type="radio" name="shipping" value="standard" checked>
+                  <span class="optionBody">
+                    <strong>Giao tiêu chuẩn</strong>
+                    <span class="optionNote">Nhận hàng sau 2 đến 4 ngày</span>
+                  </span>
+                  <span class="optionPrice">Miễn phí</span>
+                </label>
+                <label class="optionCard">
+                  <input type="radio" name="shipping" value="express">
+                  <span class="optionBody">
+                    <strong>Giao nhanh</strong>
+                    <span class="optionNote">Nhận hàng sau 1 đến 2 ngày</span>
+                  </span>
+                  <span class="optionPrice">30.000₫</span>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="formSection">
+              <legend class="formTitle">Phương thức thanh toán</legend>
+              <div class="optionList">
+                <label class="optionCard">
+                  <input type="radio" name="payment" value="cod" checked>
+                  <span class="optionBody">
+                    <strong>Thanh toán khi nhận hàng (COD)</strong>
+                    <span class="optionNote">Kiểm tra hàng rồi mới thanh toán</span>
+                  </span>
+                </label>
+                <label class="optionCard">
+                  <input type="radio" name="payment" value="bank">
+                  <span class="optionBody">
+                    <strong>Chuyển khoản ngân hàng</strong>
+                    <span class="optionNote">Thông tin tài khoản được gửi sau khi đặt hàng</span>
+                  </span>
+                </label>
+                <label class="optionCard">
+                  <input type="radio" name="payment" value="card">
+                  <span class="optionBody">
+                    <strong>Thẻ ATM, Visa hoặc Mastercard</strong>
+                    <span class="optionNote">Thanh toán trực tuyến qua cổng bảo mật</span>
+                  </span>
+                </label>
+                <label class="optionCard">
+                  <input type="radio" name="payment" value="wallet">
+                  <span class="optionBody">
+                    <strong>Ví điện tử</strong>
+                    <span class="optionNote">Quét mã để thanh toán trên điện thoại</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+            <label class="checkLine">
+              <input type="checkbox" name="agree" required>
+              <span>
+                Tôi đồng ý với
+                <a href="#" class="textLink">Chính sách đổi trả</a>
+                và
+                <a href="#" class="textLink">Chính sách bảo mật</a>
+                của Valigo.
+              </span>
+            </label>
+            <div class="formActions">
+              <a href="cart.html" class="textLink">Quay lại giỏ hàng</a>
+              <button type="submit" class="btn btnPrimary">Đặt hàng</button>
+            </div>
+          </form>
+          <aside class="orderSummary" aria-labelledby="orderTitle">
+            <div class="summaryHead">
+              <h2 id="orderTitle" class="summaryTitle">Đơn hàng của bạn</h2>
+              <a href="cart.html" class="textLink">Sửa giỏ hàng</a>
+            </div>
+            <ul class="summaryItems">
+              <li class="summaryItem">
+                <span class="summaryThumb">
+                  <svg class="summaryImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#B9C3CD" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="summaryName">Vali khung nhôm Atlas A9 cao cấp</strong>
+                  <span class="summaryVariant">Bạc, size 24", số lượng 1</span>
+                </span>
+                <span class="summaryPrice">1.189.000₫</span>
+              </li>
+              <li class="summaryItem">
+                <span class="summaryThumb">
+                  <svg class="summaryImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#suitcase" style="--bodyColor:#F2A7B8" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="summaryName">Vali khóa kéo Zipra Z8 bản thường</strong>
+                  <span class="summaryVariant">Hồng, size 20", số lượng 1</span>
+                </span>
+                <span class="summaryPrice">689.000₫</span>
+              </li>
+              <li class="summaryItem">
+                <span class="summaryThumb">
+                  <svg class="summaryImage" viewBox="0 0 200 240" aria-hidden="true">
+                    <use href="#backpack" style="--bodyColor:#8C949C" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="summaryName">Balo laptop Dune 14 inch</strong>
+                  <span class="summaryVariant">Xám tro, số lượng 2</span>
+                </span>
+                <span class="summaryPrice">1.178.000₫</span>
+              </li>
+            </ul>
+            <dl class="summaryRows">
+              <div class="summaryRow">
+                <dt>Tạm tính</dt>
+                <dd>3.056.000₫</dd>
+              </div>
+              <div class="summaryRow isDiscount">
+                <dt>Giảm giá (WELCOME10, 10%)</dt>
+                <dd>-305.600₫</dd>
+              </div>
+              <div class="summaryRow">
+                <dt>Phí vận chuyển</dt>
+                <dd>Miễn phí</dd>
+              </div>
+            </dl>
+            <p class="summaryTotal">
+              <span>Tổng cộng</span>
+              <strong>2.750.400₫</strong>
+            </p>
+            <p class="summaryNote">
+              Đã bao gồm thuế VAT. Phí giao nhanh (nếu chọn) được cộng thêm khi đặt hàng.
+            </p>
+            <ul class="summaryPerks">
+              <li>
+                <svg class="icon iconSm" aria-hidden="true">
+                  <use href="#iShield" />
+                </svg>
+                Bảo hành toàn quốc 24 tháng
+              </li>
+              <li>
+                <svg class="icon iconSm" aria-hidden="true">
+                  <use href="#iRefresh" />
+                </svg>
+                Đổi trả trong 7 ngày nếu lỗi nhà sản xuất
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
