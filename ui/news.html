@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức - Valigo</title>
+    <meta
+      name="description"
+      content="Hướng dẫn chọn size vali, cẩm nang du lịch và đánh giá sản phẩm từ Valigo."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/news.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/news.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li aria-current="page">Tin tức</li>
+          </ol>
+        </nav>
+        <div class="checkoutHead">
+          <h1 class="checkoutTitle">Tin tức</h1>
+          <p class="newsIntro">Mẹo chọn vali, kinh nghiệm du lịch và đánh giá sản phẩm từ đội ngũ Valigo.</p>
+        </div>
+        <div class="newsTabs" role="group" aria-label="Chủ đề bài viết">
+          <button type="button" class="newsTab isActive" data-topic="all" aria-pressed="true">Tất cả</button>
+          <button type="button" class="newsTab" data-topic="size" aria-pressed="false">Chọn size vali</button>
+          <button type="button" class="newsTab" data-topic="guide" aria-pressed="false">Cẩm nang du lịch</button>
+          <button type="button" class="newsTab" data-topic="review" aria-pressed="false">Review sản phẩm</button>
+        </div>
+        <ul class="newsList" id="newsList">
+          <li class="newsCard" data-topic="size">
+            <p class="newsTopic">Chọn size vali</p>
+            <h2 class="newsTitle">Vali size 20, 24 hay 28: chọn thế nào cho đúng chuyến đi</h2>
+            <p class="newsExcerpt">Cách tính dung tích theo số ngày đi, hãng bay cho phép xách tay bao nhiêu ký và khi nào nên ký gửi.</p>
+            <p class="newsMeta">01/11/2026 · 6 phút đọc</p>
+          </li>
+          <li class="newsCard" data-topic="guide">
+            <p class="newsTopic">Cẩm nang du lịch</p>
+            <h2 class="newsTitle">Checklist xếp vali cho chuyến đi 5 ngày 4 đêm</h2>
+            <p class="newsExcerpt">Danh sách đồ cần mang, cách xếp gọn để tiết kiệm chỗ và tránh quá cân khi làm thủ tục bay.</p>
+            <p class="newsMeta">28/10/2026 · 5 phút đọc</p>
+          </li>
+          <li class="newsCard" data-topic="review">
+            <p class="newsTopic">Review sản phẩm</p>
+            <h2 class="newsTitle">Đánh giá vali khung nhôm Atlas A9 sau 3 tháng sử dụng</h2>
+            <p class="newsExcerpt">Độ bền khung, bánh xe và khóa số sau nhiều chuyến bay, kèm ưu nhược điểm thực tế.</p>
+            <p class="newsMeta">24/10/2026 · 7 phút đọc</p>
+          </li>
+          <li class="newsCard" data-topic="size">
+            <p class="newsTopic">Chọn size vali</p>
+            <h2 class="newsTitle">Vali nhựa PC và PP khác nhau thế nào</h2>
+            <p class="newsExcerpt">So sánh độ bền, trọng lượng và giá để bạn chọn chất liệu phù hợp nhu cầu.</p>
+            <p class="newsMeta">20/10/2026 · 4 phút đọc</p>
+          </li>
+          <li class="newsCard" data-topic="guide">
+            <p class="newsTopic">Cẩm nang du lịch</p>
+            <h2 class="newsTitle">Bảo quản vali đúng cách để dùng bền hơn</h2>
+            <p class="newsExcerpt">Vệ sinh, cất giữ và xử lý khi bánh xe kẹt hoặc khóa số bị lỗi.</p>
+            <p class="newsMeta">15/10/2026 · 4 phút đọc</p>
+          </li>
+          <li class="newsCard" data-topic="review">
+            <p class="newsTopic">Review sản phẩm</p>
+            <h2 class="newsTitle">Balo laptop Dune 14 inch có đáng mua cho dân văn phòng</h2>
+            <p class="newsExcerpt">Ngăn chống sốc, độ thoáng lưng và khả năng chống nước qua một tuần đi làm.</p>
+            <p class="newsMeta">09/10/2026 · 5 phút đọc</p>
+          </li>
+        </ul>
+        <p id="newsEmpty" class="newsEmpty" hidden>Chưa có bài viết trong chủ đề này.</p>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>

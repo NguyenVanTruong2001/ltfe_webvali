@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống cửa hàng - Valigo</title>
+    <meta
+      name="description"
+      content="Tìm cửa hàng Valigo gần bạn: địa chỉ, giờ mở cửa và số điện thoại của từng chi nhánh."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/stores.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/stores.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li aria-current="page">Hệ thống cửa hàng</li>
+          </ol>
+        </nav>
+        <div class="checkoutHead">
+          <h1 class="checkoutTitle">Hệ thống cửa hàng</h1>
+          <p class="storeIntro">Ghé cửa hàng để xem và thử sản phẩm trực tiếp, nhận tư vấn chọn size vali phù hợp chuyến đi.</p>
+        </div>
+        <div class="storeFilter">
+          <div class="formField">
+            <label for="storeCity">Tỉnh, thành phố</label>
+            <select id="storeCity">
+              <option value="">Tất cả</option>
+              <option value="hcm">TP. Hồ Chí Minh</option>
+              <option value="hn">Hà Nội</option>
+              <option value="dn">Đà Nẵng</option>
+              <option value="ct">Cần Thơ</option>
+            </select>
+          </div>
+          <div class="formField">
+            <label for="storeKeyword">Tìm theo tên đường hoặc quận</label>
+            <input id="storeKeyword" type="search" autocomplete="off" placeholder="Ví dụ: Quận 1, Nguyễn Huệ">
+          </div>
+          <p id="storeCount" class="storeCount" role="status" aria-live="polite"></p>
+        </div>
+        <ul class="storeList" id="storeList">
+          <li class="storeCard" data-city="hcm">
+            <h2 class="storeName">Valigo Nguyễn Huệ</h2>
+            <p class="storeCity">TP. Hồ Chí Minh</p>
+            <dl class="storeInfo">
+              <div>
+                <dt>Địa chỉ</dt>
+                <dd>123 Nguyễn Huệ, Phường Bến Nghé, Quận 1</dd>
+              </div>
+              <div>
+                <dt>Giờ mở cửa</dt>
+                <dd>8:00 - 21:30 mỗi ngày</dd>
+              </div>
+              <div>
+                <dt>Điện thoại</dt>
+                <dd><a href="tel:0900000001" class="textLink">0900 000 001</a></dd>
+              </div>
+            </dl>
+          </li>
+          <li class="storeCard" data-city="hcm">
+            <h2 class="storeName">Valigo Phú Mỹ Hưng</h2>
+            <p class="storeCity">TP. Hồ Chí Minh</p>
+            <dl class="storeInfo">
+              <div>
+                <dt>Địa chỉ</dt>
+                <dd>45 Nguyễn Văn Linh, Phường Tân Phong, Quận 7</dd>
+              </div>
+              <div>
+                <dt>Giờ mở cửa</dt>
+                <dd>9:00 - 22:00 mỗi ngày</dd>
+              </div>
+              <div>
+                <dt>Điện thoại</dt>
+                <dd><a href="tel:0900000002" class="textLink">0900 000 002</a></dd>
+              </div>
+            </dl>
+          </li>
+          <li class="storeCard" data-city="hcm">
+            <h2 class="storeName">Valigo Thủ Đức</h2>
+            <p class="storeCity">TP. Hồ Chí Minh</p>
+            <dl class="storeInfo">
+              <div>
+                <dt>Địa chỉ</dt>
+                <dd>88 Võ Văn Ngân, Phường Linh Chiểu, TP. Thủ Đức</dd>
+              </div>
+              <div>
+                <dt>Giờ mở cửa</dt>
+                <dd>8:30 - 21:30 mỗi ngày</dd>
+              </div>
+              <div>
+                <dt>Điện thoại</dt>
+                <dd><a href="tel:0900000003" class="textLink">0900 000 003</a></dd>
+              </div>
+            </dl>
+          </li>
+          <li class="storeCard" data-city="hn">
+            <h2 class="storeName">Valigo Hoàn Kiếm</h2>
+            <p class="storeCity">Hà Nội</p>
+            <dl class="storeInfo">
+              <div>
+                <dt>Địa chỉ</dt>
+                <dd>27 Hàng Bài, Phường Hàng Bài, Quận Hoàn Kiếm</dd>
+              </div>
+              <div>
+                <dt>Giờ mở cửa</dt>
+                <dd>8:30 - 21:30 mỗi ngày</dd>
+              </div>
+              <div>
+                <dt>Điện thoại</dt>
+                <dd><a href="tel:0900000004" class="textLink">0900 000 004</a></dd>
+              </div>
+            </dl>
+          </li>
+          <li class="storeCard" data-city="hn">
+            <h2 class="storeName">Valigo Cầu Giấy</h2>
+            <p class="storeCity">Hà Nội</p>
+            <dl class="storeInfo">
+              <div>
+                <dt>Địa chỉ</dt>
+                <dd>102 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy</dd>
+              </div>
+              <div>
+                <dt>Giờ mở cửa</dt>
+                <dd>9:00 - 21:30 mỗi ngày</dd>
+              </div>
+              <div>
+                <dt>Điện thoại</dt>
+                <dd><a href="tel:0900000005" class="textLink">0900 000 005</a></dd>
+              </div>
+            </dl>
+          </li>
+          <li class="storeCard" data-city="dn">
+            <h2 class="storeName">Valigo Hải Châu</h2>
+            <p class="storeCity">Đà Nẵng</p>
+            <dl class="storeInfo">
+              <div>
+                <dt>Địa chỉ</dt>
+                <dd>56 Nguyễn Văn Linh, Phường Nam Dương, Quận Hải Châu</dd>
+              </div>
+              <div>
+                <dt>Giờ mở cửa</dt>
+                <dd>8:30 - 21:00 mỗi ngày</dd>
+              </div>
+              <div>
+                <dt>Điện thoại</dt>
+                <dd><a href="tel:0900000006" class="textLink">0900 000 006</a></dd>
+              </div>
+            </dl>
+          </li>
+          <li class="storeCard" data-city="ct">
+            <h2 class="storeName">Valigo Ninh Kiều</h2>
+            <p class="storeCity">Cần Thơ</p>
+            <dl class="storeInfo">
+              <div>
+                <dt>Địa chỉ</dt>
+                <dd>15 Hòa Bình, Phường Tân An, Quận Ninh Kiều</dd>
+              </div>
+              <div>
+                <dt>Giờ mở cửa</dt>
+                <dd>8:30 - 21:00 mỗi ngày</dd>
+              </div>
+              <div>
+                <dt>Điện thoại</dt>
+                <dd><a href="tel:0900000007" class="textLink">0900 000 007</a></dd>
+              </div>
+            </dl>
+          </li>
+        </ul>
+        <p id="storeEmpty" class="storeEmpty" hidden>Không có cửa hàng phù hợp. Thử chọn tỉnh, thành phố khác hoặc xóa từ khóa.</p>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
