@@ -1,0 +1,137 @@
+.policyIntro {
+  max-width: 460px;
+  color: var(--inkSoft);
+}
+
+.policyLayout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+  padding: 32px 0 24px;
+}
+
+.policyNav {
+  min-width: 0;
+  position: sticky;
+  top: calc(var(--headerOffset) + 16px);
+  padding: 20px;
+  border: 1.5px solid var(--line);
+  background: var(--sky);
+}
+
+.policyNavTitle {
+  margin-bottom: 10px;
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.policyNav ul {
+  display: grid;
+  gap: 2px;
+}
+
+.policyNav a {
+  display: block;
+  padding: 8px 12px;
+  border-left: 3px solid transparent;
+  color: var(--inkSoft);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.policyNav a:hover {
+  background: #fff;
+  color: var(--ink);
+}
+
+.policyNav a[aria-current='page'] {
+  border-left-color: var(--strap);
+  background: #fff;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.policyBody {
+  max-width: 760px;
+}
+
+.policySection {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.policySection h2 {
+  margin-bottom: 12px;
+  font-family: var(--fontDisplay);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.policySection p + p,
+.policySection p + ul,
+.policySection ul + p {
+  margin-top: 12px;
+}
+
+.policySection ul,
+.policySection ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 22px;
+  color: var(--inkSoft);
+}
+
+.policySection ul {
+  list-style: disc;
+}
+
+.policySection ol {
+  list-style: decimal;
+}
+
+.policySection p {
+  color: var(--inkSoft);
+}
+
+.policySection li::marker {
+  color: var(--ink);
+}
+
+.policyContact {
+  padding: 18px 20px;
+  border-left: 4px solid var(--strap);
+  background: var(--sky);
+}
+
+@media (max-width: 900px) {
+  .policyLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .policyNav {
+    position: static;
+  }
+
+  .policyNav ul {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 6px;
+    overflow-x: auto;
+  }
+
+  .policyNav a {
+    border-left: 0;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+
+  .policyNav a[aria-current='page'] {
+    border-bottom-color: var(--strap);
+  }
+}
