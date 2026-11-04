@@ -33,6 +33,12 @@
   font-weight: 500;
 }
 
+.trackAlt {
+  grid-column: 1 / -1;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
 .trackStatus[hidden],
 .trackResult[hidden] {
   display: none;
