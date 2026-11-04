@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử đơn hàng - Valigo</title>
+    <meta
+      name="description"
+      content="Xem lại các đơn hàng đã đặt tại Valigo, theo dõi trạng thái và mua lại sản phẩm."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/orderTracking.css">
+    <link rel="stylesheet" href="css/orderHistory.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/orders.js" defer></script>
+    <script src="js/orderHistory.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li aria-current="page">Lịch sử đơn hàng</li>
+          </ol>
+        </nav>
+        <div class="checkoutHead">
+          <h1 class="checkoutTitle">Lịch sử đơn hàng</h1>
+          <p class="historyIntro">Xem lại các đơn đã đặt và theo dõi trạng thái giao hàng.</p>
+        </div>
+        <div class="historyTabs" id="historyTabs" role="group" aria-label="Lọc theo trạng thái">
+          <button type="button" class="historyTab isActive" data-status="all" aria-pressed="true">Tất cả</button>
+          <button type="button" class="historyTab" data-status="pending" aria-pressed="false">Chờ xác nhận</button>
+          <button type="button" class="historyTab" data-status="shipping" aria-pressed="false">Đang vận chuyển</button>
+          <button type="button" class="historyTab" data-status="delivered" aria-pressed="false">Đã giao</button>
+          <button type="button" class="historyTab" data-status="cancelled" aria-pressed="false">Đã hủy</button>
+        </div>
+        <ul class="orderList" id="orderList"></ul>
+        <p id="historyEmpty" class="historyEmpty" hidden>Chưa có đơn hàng nào ở trạng thái này.</p>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
