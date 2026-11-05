@@ -9,7 +9,7 @@ export default function ProductItem({product}: {product:any}) {
                     </svg>
                 </button>
                 <a href="../ui/productDetail.html" aria-label="Xem Vali khung nhôm Atlas A9 cao cấp">
-                    <img className="cardImage" src={product.images[0]} aria-hidden="true">
+                    <img className="cardImage" src={product.images[0]} aria-hidden="true" alt={product.name}>
                     </img>
                 </a>
                 <span className="quickHint">Xem nhanh</span>
