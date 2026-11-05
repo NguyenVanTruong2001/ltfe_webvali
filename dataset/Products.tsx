@@ -153,5 +153,142 @@ export const Products: any = [
             lock: 'Khóa kéo kim loại',
             warranty: '1 năm'
         }
+    },
+    {
+        id: 5,
+        name: 'Vali Trẻ Em Hình Thú Cute Zoo Express',
+        slug: 'vali-tre-em-hinh-thu-cute-zoo',
+        sku: 'KID-ZOO-05',
+        brand: 'Little Traveler',
+        price: 790000,
+        originalPrice: 950000,
+        discountPercent: 17,
+        images: [
+            'https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&q=80&w=800'
+        ],
+        colors: [
+            { name: 'Vàng Khủng Long', hex: '#FFD700' },
+            { name: 'Hồng Thỏ Ngọc', hex: '#FFC0CB' },
+            { name: 'Xanh Chú Voi', hex: '#87CEEB' }
+        ],
+        sizes: ['S'],
+        inStock: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        category: 'suitchase-hard',
+        rating: 4.9,
+        reviewCount: 64,
+        description: 'Vali chuyên dụng cho bé với thiết kế bo tròn an toàn, chất liệu nhựa ABS nhẹ chịu lực tốt, bánh xe phát sáng khi di chuyển.',
+        specs: {
+            material: 'Nhựa ABS + PC an toàn cho trẻ em',
+            weight: '1.6 kg',
+            dimensions: '45 x 30 x 20 cm (Size 18 inch)',
+            capacity: '22 Lít',
+            wheels: '4 Bánh xe xoay 360 độ tích hợp đèn LED phát sáng',
+            lock: 'Khóa kéo tiêu chuẩn',
+            warranty: '2 năm'
+        }
+    },
+    {
+        id: 6,
+        name: 'Vali Khóa Khung Chống Trộm AeroShield Pro',
+        slug: 'vali-khoa-khung-aeroshield-pro',
+        sku: 'AERO-PRO-06',
+        brand: 'Traveler Pro',
+        price: 3190000,
+        originalPrice: 4200000,
+        discountPercent: 24,
+        images: [
+            'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800'
+        ],
+        colors: [
+            { name: 'Xám Titan', hex: '#5A5A5A' },
+            { name: 'Đen Mờ', hex: '#2B2B2B' }
+        ],
+        sizes: ['M', 'L'],
+        inStock: true,
+        isBestSeller: false,
+        isNewArrival: true,
+        category: 'suitchase-hard',
+        rating: 5.0,
+        reviewCount: 19,
+        description: 'Thiết kế nguyên khối không khóa kéo (Zipperless), bộ đôi khóa sập kép TSA viền cao su chống nước xâm nhập tuyệt đối.',
+        specs: {
+            material: '100% German Bayer Polycarbonate',
+            weight: '4.2 kg (Size M) / 5.1 kg (Size L)',
+            dimensions: '67 x 45 x 27 cm (Size M)',
+            capacity: '68 Lít',
+            wheels: '8 Bánh xe giảm chấn công nghệ Lisof Nhật',
+            lock: 'Bộ kép 2 khóa sập TSA chuẩn Quốc tế',
+            warranty: '10 năm 1 đổi 1'
+        }
+    },
+    {
+        id: 7,
+        name: 'Bao Trùm Vali Co Co Co Giặt Được Protective Cover',
+        slug: 'bao-trum-vali-co-dan-protective-cover',
+        sku: 'ACC-COV-07',
+        brand: 'EcoTrip',
+        price: 190000,
+        originalPrice: 250000,
+        discountPercent: 24,
+        images: [
+            'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=800'
+        ],
+        colors: [
+            { name: 'Đen Trơn', hex: '#000000' },
+            { name: 'Họa Tiết Bản Đồ', hex: '#4682B4' }
+        ],
+        sizes: ['S', 'M', 'L'],
+        inStock: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        category: 'accessory',
+        rating: 4.5,
+        reviewCount: 210,
+        description: 'Bao bọc bảo vệ vali khỏi trầy xước, bụi bẩn và rách khi ký gửi tại sân bay. Chất liệu Spandex dày dặn, co giãn 4 chiều.',
+        specs: {
+            material: 'Vải Spandex + Polyester co giãn',
+            weight: '0.2 kg',
+            dimensions: 'Tương thích vali 20-30 inch',
+            capacity: 'N/A',
+            wheels: 'Có lỗ hở cho bánh xe và tay kéo',
+            lock: 'Cố định bằng khóa kéo + đai gài đáy',
+            warranty: '6 tháng'
+        }
+    },
+    {
+        id: 8,
+        name: 'Túi Đựng Đồ Trang Điểm & Mỹ Phẩm Du Lịch Travel Kit',
+        slug: 'tui-dung-do-trang-diem-travel-kit',
+        sku: 'ACC-KIT-08',
+        brand: 'Retro Traveler',
+        price: 280000,
+        originalPrice: 350000,
+        discountPercent: 20,
+        images: [
+            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800'
+        ],
+        colors: [
+            { name: 'Hồng Be', hex: '#F5F5DC' },
+            { name: 'Xanh Mint', hex: '#98FF98' }
+        ],
+        sizes: ['S'],
+        inStock: false, // Hàng tạm hết
+        isBestSeller: false,
+        isNewArrival: true,
+        category: 'accessory',
+        rating: 4.6,
+        reviewCount: 38,
+        description: 'Túi đựng mỹ phẩm 2 tầng có móc treo tiện lợi, ngăn chia chống nước chuẩn chuyên nghiệp.',
+        specs: {
+            material: 'Vải Nylon chống thấm nước',
+            weight: '0.3 kg',
+            dimensions: '24 x 18 x 10 cm',
+            capacity: '4 Lít',
+            wheels: 'Không',
+            lock: 'Khóa kéo đôi',
+            warranty: '6 tháng'
+        }
     }
 ];

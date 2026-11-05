@@ -44,11 +44,15 @@ export default function ProductItem({product}: {product:any}) {
                 <span className="starsCount">(58)</span>
               </span>
                 <p className="price">
-                    <strong>{product.price}₫</strong>
-                    <s>{product.originalPrice}₫</s>
+                    <strong>{stringing(product.price)}</strong>
+                    <s>{stringing(product.originalPrice)}</s>
                 </p>
                 <button type="button" className="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
             </div>
         </article>
     </>);
+}
+
+function stringing(price: number) {
+    return new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'vnd'}).format(price);
 }
