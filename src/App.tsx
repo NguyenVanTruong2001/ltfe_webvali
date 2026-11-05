@@ -209,7 +209,7 @@ function App() {
               <span className="tileText">Chịu lực tốt, ít móp méo, hợp với người đi nhiều.</span>
               <span className="tileCta">Xem vali khung nhôm</span>
             </span>
-              <img className="tileImage"
+              <img className="tileImage" alt=""
                    src={"https://images.unsplash.com/photo-1740470077240-e0ff892c21a5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"}
                    aria-hidden="true">
               </img>
@@ -220,7 +220,7 @@ function App() {
               <span className="tileText">Ngăn laptop 14 đến 16 inch, vải chống thấm nước.</span>
               <span className="tileCta">Xem balo</span>
             </span>
-              <img className="tileImage"
+              <img className="tileImage" alt=""
                    src={"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800"}
                    aria-hidden="true">
               </img>
