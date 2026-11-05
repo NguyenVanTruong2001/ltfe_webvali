@@ -345,13 +345,13 @@ export default function PageHeader() {
                                             <p className="megaTitle">Theo size</p>
                                             <ul>
                                                 <li>
-                                                    <a href="#">Size 20" xách tay</a>
+                                                    <a href="../ui/productList.html?size=20">Size 20" xách tay</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Size 24" ký gửi</a>
+                                                    <a href="../ui/productList.html?size=24">Size 24" ký gửi</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Size 28" cỡ lớn</a>
+                                                    <a href="../ui/productList.html?size=28">Size 28" cỡ lớn</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -359,16 +359,16 @@ export default function PageHeader() {
                                             <p className="megaTitle">Theo chất liệu</p>
                                             <ul>
                                                 <li>
-                                                    <a href="#">Vali khung nhôm</a>
+                                                    <a href="../ui/productList.html?material=aluminum">Vali khung nhôm</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Vali khóa kéo</a>
+                                                    <a href="../ui/productList.html?material=zipper">Vali khóa kéo</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Vali nhựa PC</a>
+                                                    <a href="../ui/productList.html?material=zipper">Vali nhựa PC</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Vali nhựa PP</a>
+                                                    <a href="../ui/productList.html?material=pp">Vali nhựa PP</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -376,19 +376,19 @@ export default function PageHeader() {
                                             <p className="megaTitle">Dòng sản phẩm</p>
                                             <ul>
                                                 <li>
-                                                    <a href="#">Atlas</a>
+                                                    <a href="../ui/productList.html?line=atlas">Atlas</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Orion doanh nhân</a>
+                                                    <a href="../ui/productList.html?line=orion">Orion doanh nhân</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Zipra</a>
+                                                    <a href="../ui/productList.html?line=zipra">Zipra</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Sora</a>
+                                                    <a href="../ui/productList.html?line=sora">Sora</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Pebble</a>
+                                                    <a href="../ui/productList.html?line=pebble">Pebble</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -396,7 +396,7 @@ export default function PageHeader() {
                                 </div>
                             </li>
                             <li className="navItem">
-                                <a className="navLink" href="#">
+                                <a className="navLink" href="../ui/productList.html?category=backpack">
                                     Balo
                                     <svg className="icon iconSm" aria-hidden="true">
                                         <use href="#iChevDown" />
@@ -408,19 +408,19 @@ export default function PageHeader() {
                                             <p className="megaTitle">Balo</p>
                                             <ul>
                                                 <li>
-                                                    <a href="#">Balo laptop Dune</a>
+                                                    <a href="../ui/productList.html?category=backpack&amp;line=dune">Balo laptop Dune</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Balo laptop Fern</a>
+                                                    <a href="../ui/productList.html?category=backpack&amp;line=fern">Balo laptop Fern</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Balo Ridge da PU</a>
+                                                    <a href="../ui/productList.html?category=backpack&amp;line=ridge">Balo Ridge da PU</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Balo Skyline</a>
+                                                    <a href="../ui/productList.html?category=backpack&amp;line=skyline">Balo Skyline</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Balo Daily</a>
+                                                    <a href="../ui/productList.html?category=backpack&amp;line=daily">Balo Daily</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -428,7 +428,7 @@ export default function PageHeader() {
                                 </div>
                             </li>
                             <li className="navItem">
-                                <a className="navLink" href="#">Phụ kiện</a>
+                                <a className="navLink" href="../ui/productList.html?category=accessory">Phụ kiện</a>
                             </li>
                             <li className="navItem">
                                 <a className="navLink isHot" href="index.html">Khuyến mại</a>
@@ -463,7 +463,7 @@ export default function PageHeader() {
                                                     <a href="../ui/warrantyPolicy.html">Chính sách bảo hành</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Xử lý lỗi vali</a>
+                                                    <a href="../ui/warrantyPolicy.html">Xử lý lỗi vali</a>
                                                 </li>
                                                 <li>
                                                     <a href="#">Tuyển dụng</a>
