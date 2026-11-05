@@ -2,7 +2,6 @@ import ProductItem from "./Product-Item.tsx";
 import {Products} from "../dataset/Products.tsx";
 
 export default function ProductList() {
-
     return (<>
         <div className="grid" role="tabpanel">
             {Products.map((product: any) => <ProductItem product={product} key={product.id} />)}
