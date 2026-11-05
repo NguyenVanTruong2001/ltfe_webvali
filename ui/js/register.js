@@ -98,12 +98,6 @@ function updateStrength() {
   strengthText.textContent = labels[score]
 }
 
-function showStatus(message, isError) {
-  status.textContent = message
-  status.classList.toggle('isError', Boolean(isError))
-  status.hidden = false
-}
-
 form.querySelectorAll('.eyeBtn').forEach((btn) => {
   btn.addEventListener('click', () => {
     const input = document.getElementById(btn.getAttribute('aria-controls'))
@@ -153,8 +147,6 @@ form.addEventListener('submit', (event) => {
   submitBtn.textContent = 'Đang tạo tài khoản...'
 
   setTimeout(() => {
-    submitBtn.classList.remove('isLoading')
-    submitBtn.textContent = 'Tạo tài khoản'
-    showStatus('Giao diện mẫu: thông tin hợp lệ, chưa kết nối máy chủ để tạo tài khoản thật.', false)
+    window.location.href = 'login.html'
   }, 700)
 })

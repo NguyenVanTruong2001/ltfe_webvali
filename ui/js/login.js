@@ -45,12 +45,6 @@ function checkPassword() {
   return setError(password, '')
 }
 
-function showStatus(message, isError) {
-  status.textContent = message
-  status.classList.toggle('isError', Boolean(isError))
-  status.hidden = false
-}
-
 eyeBtn.addEventListener('click', () => {
   const show = password.type === 'password'
 
@@ -81,8 +75,6 @@ form.addEventListener('submit', (event) => {
   submitBtn.textContent = 'Đang đăng nhập...'
 
   setTimeout(() => {
-    submitBtn.classList.remove('isLoading')
-    submitBtn.textContent = 'Đăng nhập'
-    showStatus('Giao diện mẫu: thông tin hợp lệ, chưa kết nối máy chủ để đăng nhập thật.', false)
+    window.location.href = 'index.html'
   }, 700)
 })

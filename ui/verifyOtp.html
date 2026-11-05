@@ -36,16 +36,16 @@
             <h1 id="pageTitle" class="authTitle">Nhập mã xác nhận</h1>
             <p class="authSub">Chúng tôi đã gửi mã gồm 6 chữ số tới <strong>vidu@email.com</strong>.</p>
 
-            <form class="form" action="resetPassword.html" novalidate>
+            <form class="form" action="resetPassword.html">
               <div class="field">
                 <span class="fieldLabel" id="otpLabel">Mã xác nhận</span>
                 <div class="otp" role="group" aria-labelledby="otpLabel">
-                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="Chữ số 1">
-                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 2">
-                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 3">
-                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 4">
-                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 5">
-                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" aria-label="Chữ số 6">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" required pattern="[0-9]" autocomplete="one-time-code" aria-label="Chữ số 1">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" required pattern="[0-9]" aria-label="Chữ số 2">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" required pattern="[0-9]" aria-label="Chữ số 3">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" required pattern="[0-9]" aria-label="Chữ số 4">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" required pattern="[0-9]" aria-label="Chữ số 5">
+                  <input class="input otpInput" type="text" inputmode="numeric" maxlength="1" required pattern="[0-9]" aria-label="Chữ số 6">
                 </div>
                 <p id="otpError" class="fieldError" hidden>
                   <svg class="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
