@@ -1,0 +1,227 @@
+.historyIntro {
+  max-width: 420px;
+  color: var(--inkSoft);
+}
+
+.historyTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.historyTab {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--inkSoft);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s;
+}
+
+.historyTab:hover {
+  border-color: var(--inkFaint);
+  color: var(--ink);
+}
+
+.historyTab:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.historyTab.isActive {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.orderList {
+  display: grid;
+  gap: 16px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.orderCard {
+  border: 1.5px solid var(--line);
+  background: #fff;
+  transition: box-shadow .25s var(--ease);
+}
+
+.orderCard:hover {
+  box-shadow: var(--shadowSoft);
+}
+
+.orderCard[hidden],
+.historyEmpty[hidden] {
+  display: none;
+}
+
+.orderCardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--sky);
+}
+
+.orderCardHead > div {
+  display: grid;
+}
+
+.orderCardCode {
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  letter-spacing: .03em;
+}
+
+.orderCardBody {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.orderMore {
+  display: block;
+  margin-top: 2px;
+  color: var(--inkSoft);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.orderCardFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.orderCardTotal strong {
+  margin-left: 6px;
+  font-family: var(--fontDisplay);
+  font-size: 28px;
+}
+
+.orderCardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.orderCardActions .btn {
+  min-width: 140px;
+  min-height: 44px;
+}
+
+.statusBadge.isPending {
+  background: var(--skyDeep);
+  color: var(--ink);
+}
+
+.statusBadge.isShipping {
+  background: var(--strap);
+  color: var(--ink);
+}
+
+.statusBadge.isDelivered {
+  background: #1e7a5c;
+  color: #fff;
+}
+
+.statusBadge.isCancelled {
+  background: #fbe7e8;
+  color: #8f1d22;
+}
+
+.historyEmpty {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1.5px dashed var(--inkFaint);
+  color: var(--inkSoft);
+  text-align: center;
+}
+
+.detailItems {
+  clear: both;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.cancelNote {
+  margin-top: 24px;
+  padding: 14px 18px;
+  border-left: 4px solid var(--coral);
+  background: #fbe7e8;
+  color: #8f1d22;
+  font-weight: 500;
+}
+
+.cancelNote[hidden],
+.detailMissing[hidden],
+.detailBody[hidden] {
+  display: none;
+}
+
+.detailMissing {
+  margin-top: 28px;
+  padding: 32px 24px;
+  border: 1.5px dashed var(--inkFaint);
+  color: var(--inkSoft);
+  text-align: center;
+}
+
+.detailMissing .btn {
+  margin-top: 16px;
+}
+
+.detailActions {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.detailActions .btn {
+  min-height: 48px;
+}
+
+.detailTitleRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+@media (max-width: 700px) {
+  .orderCardBody {
+    grid-template-columns: 56px minmax(0, 1fr);
+    padding: 16px;
+  }
+
+  .orderCardFoot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .orderCardActions .btn {
+    flex: 1;
+  }
+}
+
+.progress[hidden],
+.detailActions .btn[hidden] {
+  display: none;
+}

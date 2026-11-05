@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết đơn hàng - Valigo</title>
+    <meta
+      name="description"
+      content="Xem chi tiết đơn hàng tại Valigo: sản phẩm, trạng thái giao hàng, địa chỉ nhận và thanh toán."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/orderSuccess.css">
+    <link rel="stylesheet" href="css/orderTracking.css">
+    <link rel="stylesheet" href="css/orderHistory.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="js/orders.js" defer></script>
+    <script src="js/orderDetail.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li>
+              <a href="orderHistory.html">Lịch sử đơn hàng</a>
+            </li>
+            <li aria-current="page">Chi tiết đơn hàng</li>
+          </ol>
+        </nav>
+        <p id="detailMissing" class="detailMissing" hidden>
+          Không tìm thấy đơn hàng này.
+          <br>
+          <a href="orderHistory.html" class="btn btnPrimary">Về lịch sử đơn hàng</a>
+        </p>
+        <div id="detailBody" class="detailBody">
+          <div class="checkoutHead">
+            <div>
+              <div class="detailTitleRow">
+                <h1 id="detailTitle" class="checkoutTitle"></h1>
+                <span id="detailBadge" class="statusBadge"></span>
+              </div>
+              <p id="detailMeta" class="trackMeta"></p>
+            </div>
+          </div>
+          <p id="detailCancel" class="cancelNote" role="status" hidden></p>
+          <ol id="detailProgress" class="progress" aria-label="Tiến trình đơn hàng"></ol>
+          <div class="checkoutLayout">
+            <div class="successMain">
+              <section class="formSection" aria-labelledby="itemsTitle">
+                <h2 id="itemsTitle" class="formTitle">Sản phẩm</h2>
+                <ul id="detailItems" class="summaryItems detailItems"></ul>
+              </section>
+              <section class="formSection" aria-labelledby="infoTitle">
+                <h2 id="infoTitle" class="formTitle">Thông tin giao hàng</h2>
+                <dl id="detailInfo" class="infoGrid"></dl>
+              </section>
+              <section aria-labelledby="historyTitle">
+                <h2 id="historyTitle" class="formTitle">Lịch sử đơn hàng</h2>
+                <ol id="detailTimeline" class="timeline"></ol>
+              </section>
+            </div>
+            <aside class="orderSummary" aria-labelledby="totalTitle">
+              <div class="summaryHead">
+                <h2 id="totalTitle" class="summaryTitle">Thanh toán</h2>
+              </div>
+              <dl id="detailRows" class="summaryRows"></dl>
+              <p class="summaryTotal">
+                <span>Tổng cộng</span>
+                <strong id="detailTotal"></strong>
+              </p>
+              <div class="detailActions">
+                <a id="detailAgain" href="productList.html" class="btn btnPrimary" hidden>Mua lại</a>
+                <a href="orderHistory.html" class="btn btnGhost">Quay lại danh sách</a>
+              </div>
+              <ul class="summaryPerks">
+                <li>
+                  <svg class="icon iconSm" aria-hidden="true">
+                    <use href="#iHeadset" />
+                  </svg>
+                  Cần hỗ trợ? Gọi hotline 0900 000 000
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
