@@ -75,6 +75,6 @@ form.addEventListener('submit', (event) => {
   submitBtn.textContent = 'Đang đăng nhập...'
 
   setTimeout(() => {
-    window.location.href = 'index.html'
+    window.location.href = 'account.html'
   }, 700)
 })

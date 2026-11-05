@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản của tôi - Valigo</title>
+    <meta name="description" content="Xem và cập nhật thông tin cá nhân, đổi mật khẩu tại Valigo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/account.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li aria-current="page">Tài khoản của tôi</li>
+          </ol>
+        </nav>
+        <div class="accountLayout">
+          <aside class="accountSide">
+            <div class="userCard">
+              <span class="userAvatar" aria-hidden="true">NA</span>
+              <div>
+                <p class="userName">Nguyễn Văn A</p>
+                <p class="userMail">nguyenvana@email.com</p>
+              </div>
+            </div>
+            <nav class="accountNav" aria-label="Quản lý tài khoản">
+              <ul>
+                <li>
+                  <a href="account.html" aria-current="page">Thông tin tài khoản</a>
+                </li>
+                <li>
+                  <a href="addresses.html">Sổ địa chỉ</a>
+                </li>
+                <li>
+                  <a href="vouchers.html">Ví voucher</a>
+                </li>
+                <li>
+                  <a href="orderHistory.html">Lịch sử đơn hàng</a>
+                </li>
+                <li>
+                  <a href="login.html" class="logoutLink">Đăng xuất</a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+          <div class="accountMain">
+            <div class="pageHead">
+              <h1 class="pageTitle">Tài khoản của tôi</h1>
+              <p class="pageSub">Quản lý thông tin cá nhân và bảo mật tài khoản.</p>
+            </div>
+            <ul class="statGrid" aria-label="Tóm tắt tài khoản">
+              <li>
+                <a href="orderHistory.html" class="statCard">
+                  <strong class="statValue">1</strong>
+                  <span class="statLabel">Đơn đang giao</span>
+                </a>
+              </li>
+              <li>
+                <a href="vouchers.html" class="statCard">
+                  <strong class="statValue">3</strong>
+                  <span class="statLabel">Voucher còn hiệu lực</span>
+                </a>
+              </li>
+              <li>
+                <a href="addresses.html" class="statCard">
+                  <strong class="statValue">3</strong>
+                  <span class="statLabel">Địa chỉ đã lưu</span>
+                </a>
+              </li>
+            </ul>
+            <section class="panel" aria-labelledby="recentTitle">
+              <div class="panelHead">
+                <h2 id="recentTitle" class="panelTitle">Đơn hàng gần đây</h2>
+                <a href="orderHistory.html" class="textLink">Xem tất cả đơn hàng</a>
+              </div>
+              <div class="recentOrder">
+                <div>
+                  <a href="orderDetail.html?code=VLG-241103-0827" class="recentCode">VLG-241103-0827</a>
+                  <p class="recentMeta">Đặt ngày 03/11/2026, 3 sản phẩm</p>
+                </div>
+                <span class="statusChip isShipping">Đang vận chuyển</span>
+                <strong class="recentTotal">2.750.400₫</strong>
+              </div>
+            </section>
+            <section class="panel" aria-labelledby="profileTitle">
+              <div class="panelHead">
+                <h2 id="profileTitle" class="panelTitle">Thông tin cá nhân</h2>
+              </div>
+              <form class="accountForm" action="account.html">
+                <div class="fieldGrid">
+                  <div class="formField">
+                    <label for="profileName">Họ và tên</label>
+                    <input
+                      id="profileName"
+                      type="text"
+                      autocomplete="name"
+                      required
+                      value="Nguyễn Văn A"
+                    >
+                  </div>
+                  <div class="formField">
+                    <label for="profilePhone">Số điện thoại</label>
+                    <input
+                      id="profilePhone"
+                      type="tel"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      required
+                      pattern="0[0-9]{9}"
+                      title="Số điện thoại gồm 10 chữ số, bắt đầu bằng 0"
+                      value="0900000000"
+                    >
+                  </div>
+                  <div class="formField">
+                    <label for="profileEmail">Email</label>
+                    <input
+                      id="profileEmail"
+                      type="email"
+                      autocomplete="email"
+                      value="nguyenvana@email.com"
+                      readonly
+                    >
+                    <p class="fieldHint">Email đăng nhập, không thể thay đổi.</p>
+                  </div>
+                  <div class="formField">
+                    <label for="profileBirthday">Ngày sinh</label>
+                    <input id="profileBirthday" type="date" autocomplete="bday" value="1998-05-20">
+                  </div>
+                  <fieldset class="formField span2 radioGroup">
+                    <legend>Giới tính</legend>
+                    <div class="radioRow">
+                      <label>
+                        <input type="radio" name="gender" checked>
+                        Nam
+                      </label>
+                      <label>
+                        <input type="radio" name="gender">
+                        Nữ
+                      </label>
+                      <label>
+                        <input type="radio" name="gender">
+                        Khác
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="formActions">
+                  <button type="submit" class="btn btnDark">Lưu thay đổi</button>
+                </div>
+              </form>
+            </section>
+            <section class="panel" aria-labelledby="passwordTitle">
+              <div class="panelHead">
+                <h2 id="passwordTitle" class="panelTitle">Đổi mật khẩu</h2>
+              </div>
+              <form class="accountForm" action="account.html">
+                <div class="fieldGrid">
+                  <div class="formField span2">
+                    <label for="passwordCurrent">Mật khẩu hiện tại</label>
+                    <input
+                      id="passwordCurrent"
+                      type="password"
+                      autocomplete="current-password"
+                      required
+                    >
+                  </div>
+                  <div class="formField">
+                    <label for="passwordNew">Mật khẩu mới</label>
+                    <input
+                      id="passwordNew"
+                      type="password"
+                      autocomplete="new-password"
+                      required
+                      minlength="8"
+                      pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,}"
+                      title="Ít nhất 8 ký tự, gồm cả chữ và số"
+                    >
+                    <p class="fieldHint">Ít nhất 8 ký tự, gồm cả chữ và số.</p>
+                  </div>
+                  <div class="formField">
+                    <label for="passwordConfirm">Nhập lại mật khẩu mới</label>
+                    <input
+                      id="passwordConfirm"
+                      type="password"
+                      autocomplete="new-password"
+                      required
+                      minlength="8"
+                    >
+                  </div>
+                </div>
+                <div class="formActions">
+                  <button type="submit" class="btn btnDark">Cập nhật mật khẩu</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>
