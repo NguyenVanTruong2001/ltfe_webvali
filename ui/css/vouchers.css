@@ -1,0 +1,219 @@
+.voucherAdd {
+  display: flex;
+  gap: 8px;
+  max-width: 520px;
+}
+
+.voucherAdd input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rSm);
+  background: #fff;
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.voucherAdd input::placeholder {
+  color: var(--inkFaint);
+  text-transform: none;
+}
+
+.voucherAdd input:hover {
+  border-color: var(--inkFaint);
+}
+
+.voucherAdd input:focus {
+  border-color: var(--ink);
+}
+
+.voucherTabs {
+  position: relative;
+  display: grid;
+  gap: 20px;
+}
+
+.tabBar {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabLabel {
+  flex: none;
+  margin-bottom: -1px;
+  padding: 14px 22px;
+  border-bottom: 3px solid transparent;
+  color: var(--inkSoft);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color .15s;
+}
+
+.tabLabel:hover {
+  color: var(--ink);
+}
+
+.voucherList {
+  display: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tabActive:checked ~ .tabBar .tabLabel[for='tab-active'],
+#tabUsed:checked ~ .tabBar .tabLabel[for='tab-used'],
+#tabExpired:checked ~ .tabBar .tabLabel[for='tab-expired'] {
+  border-bottom-color: var(--strap);
+  color: var(--ink);
+}
+
+#tabActive:focus-visible ~ .tabBar .tabLabel[for='tab-active'],
+#tabUsed:focus-visible ~ .tabBar .tabLabel[for='tab-used'],
+#tabExpired:focus-visible ~ .tabBar .tabLabel[for='tab-expired'] {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+#tabActive:checked ~ .panelActive,
+#tabUsed:checked ~ .panelUsed,
+#tabExpired:checked ~ .panelExpired {
+  display: grid;
+}
+
+.voucher {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rMd);
+  background: #fff;
+  transition: border-color .15s, box-shadow .25s var(--ease);
+}
+
+.voucher:hover {
+  border-color: var(--ink);
+  box-shadow: var(--shadowSoft);
+}
+
+.voucherValue {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 2px;
+  padding: 20px 12px;
+  border-right: 2px dashed var(--skyDeep);
+  background: var(--sky);
+  text-align: center;
+}
+
+.voucherValue strong {
+  font-family: var(--fontDisplay);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.voucherValue span {
+  color: var(--inkSoft);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.voucherBody {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 18px 24px;
+}
+
+.voucherTitle {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.voucherNote {
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.voucherExpiry {
+  color: var(--inkFaint);
+  font-size: 13px;
+}
+
+.voucherSide {
+  display: grid;
+  align-content: center;
+  justify-items: end;
+  gap: 10px;
+  padding: 18px 24px;
+}
+
+.voucherCode {
+  padding: 4px 12px;
+  border: 2px dashed var(--ink);
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.2;
+}
+
+.voucher.isMuted {
+  background: #fafbfc;
+}
+
+.voucher.isMuted .voucherValue {
+  background: var(--line);
+}
+
+.voucher.isMuted .voucherTitle,
+.voucher.isMuted .voucherCode {
+  color: var(--inkSoft);
+}
+
+.voucher.isMuted .voucherCode {
+  border-color: var(--inkFaint);
+}
+
+.expiredNote {
+  color: var(--coral);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .voucher {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+
+  .voucherValue {
+    grid-row: 1 / span 2;
+    padding: 12px 8px;
+  }
+
+  .voucherValue strong {
+    font-size: 30px;
+  }
+
+  .voucherBody {
+    padding: 14px 16px 6px;
+  }
+
+  .voucherSide {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    justify-items: start;
+    align-items: center;
+    padding: 6px 16px 14px;
+  }
+
+  .voucherAdd {
+    flex-direction: column;
+  }
+}

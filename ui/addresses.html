@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sổ địa chỉ - Valigo</title>
+    <meta
+      name="description"
+      content="Quản lý các địa chỉ giao hàng đã lưu để chọn nhanh khi thanh toán tại Valigo."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/addresses.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li>
+              <a href="account.html">Tài khoản của tôi</a>
+            </li>
+            <li aria-current="page">Sổ địa chỉ</li>
+          </ol>
+        </nav>
+        <div class="accountLayout">
+          <aside class="accountSide">
+            <div class="userCard">
+              <span class="userAvatar" aria-hidden="true">NA</span>
+              <div>
+                <p class="userName">Nguyễn Văn A</p>
+                <p class="userMail">nguyenvana@email.com</p>
+              </div>
+            </div>
+            <nav class="accountNav" aria-label="Quản lý tài khoản">
+              <ul>
+                <li>
+                  <a href="account.html">Thông tin tài khoản</a>
+                </li>
+                <li>
+                  <a href="addresses.html" aria-current="page">Sổ địa chỉ</a>
+                </li>
+                <li>
+                  <a href="vouchers.html">Ví voucher</a>
+                </li>
+                <li>
+                  <a href="orderHistory.html">Lịch sử đơn hàng</a>
+                </li>
+                <li>
+                  <a href="login.html" class="logoutLink">Đăng xuất</a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+          <div class="accountMain">
+            <div class="pageHead pageHeadRow">
+              <div>
+                <h1 class="pageTitle">Sổ địa chỉ</h1>
+                <p class="pageSub">Lưu nhiều địa chỉ để chọn nhanh khi thanh toán. Đang lưu 3 địa chỉ.</p>
+              </div>
+            </div>
+            <details class="addAddress">
+              <summary class="btn btnPrimary">Thêm địa chỉ mới</summary>
+              <form class="panel addressForm" action="addresses.html">
+                <h2 class="panelTitle">Địa chỉ mới</h2>
+                <div class="fieldGrid">
+                  <div class="formField">
+                    <label for="newName">Họ và tên người nhận</label>
+                    <input
+                      id="newName"
+                      type="text"
+                      autocomplete="name"
+                      required
+                      placeholder="Nguyễn Văn A"
+                    >
+                  </div>
+                  <div class="formField">
+                    <label for="newPhone">Số điện thoại</label>
+                    <input
+                      id="newPhone"
+                      type="tel"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      required
+                      pattern="0[0-9]{9}"
+                      title="Số điện thoại gồm 10 chữ số, bắt đầu bằng 0"
+                      placeholder="0900000000"
+                    >
+                  </div>
+                  <div class="formField">
+                    <label for="newProvince">Tỉnh, thành phố</label>
+                    <select id="newProvince" autocomplete="off" required>
+                      <option value="">Chọn tỉnh, thành phố</option>
+                      <option>TP. Hồ Chí Minh</option>
+                      <option>Hà Nội</option>
+                      <option>Đà Nẵng</option>
+                      <option>Cần Thơ</option>
+                    </select>
+                  </div>
+                  <div class="formField">
+                    <label for="newDistrict">Quận, huyện</label>
+                    <select id="newDistrict" autocomplete="off" required>
+                      <option value="">Chọn quận, huyện</option>
+                      <option>Quận 1</option>
+                      <option>Quận 3</option>
+                      <option>Quận 7</option>
+                      <option>TP. Thủ Đức</option>
+                    </select>
+                  </div>
+                  <div class="formField">
+                    <label for="newWard">Phường, xã</label>
+                    <select id="newWard" autocomplete="off" required>
+                      <option value="">Chọn phường, xã</option>
+                      <option>Phường Bến Nghé</option>
+                      <option>Phường Bến Thành</option>
+                      <option>Phường Đa Kao</option>
+                    </select>
+                  </div>
+                  <div class="formField">
+                    <label for="newStreet">Số nhà, tên đường</label>
+                    <input
+                      id="newStreet"
+                      type="text"
+                      autocomplete="street-address"
+                      required
+                      placeholder="123 Đường Mẫu"
+                    >
+                  </div>
+                  <fieldset class="formField span2 radioGroup">
+                    <legend>Loại địa chỉ</legend>
+                    <div class="radioRow">
+                      <label>
+                        <input type="radio" name="addressType" checked>
+                        Nhà riêng
+                      </label>
+                      <label>
+                        <input type="radio" name="addressType">
+                        Văn phòng
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+                <label class="checkLine">
+                  <input type="checkbox">
+                  <span>Đặt làm địa chỉ mặc định</span>
+                </label>
+                <div class="formActions">
+                  <button type="reset" class="btn btnGhost">Xóa nhập liệu</button>
+                  <button type="submit" class="btn btnDark">Lưu địa chỉ</button>
+                </div>
+              </form>
+            </details>
+            <ul class="addressList" aria-label="Địa chỉ đã lưu">
+              <li class="addressCard isDefault">
+                <div>
+                  <p class="addressName">
+                    <span>Nguyễn Văn A</span>
+                    <span class="addressPhone">0900000000</span>
+                    <span class="tag isDefault">Mặc định</span>
+                    <span class="tag">Nhà riêng</span>
+                  </p>
+                  <p class="addressText">123 Đường Mẫu, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
+                </div>
+                <div class="addressActions">
+                  <button type="button" class="textAction">Sửa</button>
+                  <button type="button" class="textAction">Xóa</button>
+                </div>
+              </li>
+              <li class="addressCard">
+                <div>
+                  <p class="addressName">
+                    <span>Nguyễn Văn A</span>
+                    <span class="addressPhone">0900000000</span>
+                    <span class="tag">Văn phòng</span>
+                  </p>
+                  <p class="addressText">45 Đường Thử, Phường Đa Kao, Quận 1, TP. Hồ Chí Minh</p>
+                </div>
+                <div class="addressActions">
+                  <button type="button" class="textAction">Sửa</button>
+                  <button type="button" class="textAction">Xóa</button>
+                  <button type="button" class="textAction">Đặt làm mặc định</button>
+                </div>
+              </li>
+              <li class="addressCard">
+                <div>
+                  <p class="addressName">
+                    <span>Trần Thị B</span>
+                    <span class="addressPhone">0911111111</span>
+                    <span class="tag">Nhà riêng</span>
+                  </p>
+                  <p class="addressText">8 Đường Mẫu, Phường Hải Châu 1, Quận Hải Châu, Đà Nẵng</p>
+                </div>
+                <div class="addressActions">
+                  <button type="button" class="textAction">Sửa</button>
+                  <button type="button" class="textAction">Xóa</button>
+                  <button type="button" class="textAction">Đặt làm mặc định</button>
+                </div>
+              </li>
+            </ul>
+            <p class="pageNote">
+              Khi thanh toán, bạn có thể dùng địa chỉ mặc định hoặc nhập địa chỉ khác.
+              <a href="checkout.html" class="textLink">Đến trang thanh toán</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>

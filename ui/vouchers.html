@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ví voucher - Valigo</title>
+    <meta
+      name="description"
+      content="Xem các mã giảm giá còn hiệu lực, đã dùng và hết hạn trong ví voucher của bạn tại Valigo."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/vouchers.css">
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+  </head>
+  <body>
+    <site-header></site-header>
+    <main id="noiDung">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a href="index.html">Trang chủ</a>
+            </li>
+            <li>
+              <a href="account.html">Tài khoản của tôi</a>
+            </li>
+            <li aria-current="page">Ví voucher</li>
+          </ol>
+        </nav>
+        <div class="accountLayout">
+          <aside class="accountSide">
+            <div class="userCard">
+              <span class="userAvatar" aria-hidden="true">NA</span>
+              <div>
+                <p class="userName">Nguyễn Văn A</p>
+                <p class="userMail">nguyenvana@email.com</p>
+              </div>
+            </div>
+            <nav class="accountNav" aria-label="Quản lý tài khoản">
+              <ul>
+                <li>
+                  <a href="account.html">Thông tin tài khoản</a>
+                </li>
+                <li>
+                  <a href="addresses.html">Sổ địa chỉ</a>
+                </li>
+                <li>
+                  <a href="vouchers.html" aria-current="page">Ví voucher</a>
+                </li>
+                <li>
+                  <a href="orderHistory.html">Lịch sử đơn hàng</a>
+                </li>
+                <li>
+                  <a href="login.html" class="logoutLink">Đăng xuất</a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+          <div class="accountMain">
+            <div class="pageHead">
+              <h1 class="pageTitle">Ví voucher</h1>
+              <p class="pageSub">Mã giảm giá của bạn. Chọn "Dùng ngay" để áp dụng khi thanh toán.</p>
+            </div>
+            <form class="voucherAdd" action="vouchers.html">
+              <label class="visuallyHidden" for="voucherCode">Mã voucher</label>
+              <input
+                id="voucherCode"
+                type="text"
+                autocomplete="off"
+                required
+                placeholder="Nhập mã voucher để lưu vào ví"
+              >
+              <button type="submit" class="btn btnDark">Lưu vào ví</button>
+            </form>
+            <div class="voucherTabs">
+              <input type="radio" name="voucher-tab" id="tabActive" class="visuallyHidden" checked>
+              <input type="radio" name="voucher-tab" id="tabUsed" class="visuallyHidden">
+              <input type="radio" name="voucher-tab" id="tabExpired" class="visuallyHidden">
+              <div class="tabBar">
+                <label class="tabLabel" for="tabActive">Còn hiệu lực (3)</label>
+                <label class="tabLabel" for="tabUsed">Đã dùng (1)</label>
+                <label class="tabLabel" for="tabExpired">Hết hạn (1)</label>
+              </div>
+              <ul class="voucherList panelActive">
+                <li class="voucher">
+                  <p class="voucherValue">
+                    <strong>10%</strong>
+                    <span>giảm</span>
+                  </p>
+                  <div class="voucherBody">
+                    <h3 class="voucherTitle">Giảm 10% cho đơn đầu tiên</h3>
+                    <p class="voucherNote">Áp dụng cho đơn từ 500.000₫</p>
+                    <p class="voucherExpiry">Hạn dùng: 30/11/2026</p>
+                  </div>
+                  <div class="voucherSide">
+                    <span class="voucherCode">WELCOME10</span>
+                    <a href="cart.html" class="btn btnPrimary">Dùng ngay</a>
+                  </div>
+                </li>
+                <li class="voucher">
+                  <p class="voucherValue">
+                    <strong>10%</strong>
+                    <span>giảm</span>
+                  </p>
+                  <div class="voucherBody">
+                    <h3 class="voucherTitle">Giảm 10% dòng Atlas khung nhôm</h3>
+                    <p class="voucherNote">Áp dụng cho Atlas A7 và Atlas A9</p>
+                    <p class="voucherExpiry">Hạn dùng: 15/12/2026</p>
+                  </div>
+                  <div class="voucherSide">
+                    <span class="voucherCode">ATLAS10</span>
+                    <a href="cart.html" class="btn btnPrimary">Dùng ngay</a>
+                  </div>
+                </li>
+                <li class="voucher">
+                  <p class="voucherValue">
+                    <strong>30K</strong>
+                    <span>giảm</span>
+                  </p>
+                  <div class="voucherBody">
+                    <h3 class="voucherTitle">Giảm 30.000₫ phí giao nhanh</h3>
+                    <p class="voucherNote">Áp dụng cho mọi đơn hàng chọn giao nhanh</p>
+                    <p class="voucherExpiry">Hạn dùng: 30/11/2026</p>
+                  </div>
+                  <div class="voucherSide">
+                    <span class="voucherCode">FASTSHIP30</span>
+                    <a href="cart.html" class="btn btnPrimary">Dùng ngay</a>
+                  </div>
+                </li>
+              </ul>
+              <ul class="voucherList panelUsed">
+                <li class="voucher isMuted">
+                  <p class="voucherValue">
+                    <strong>20%</strong>
+                    <span>giảm</span>
+                  </p>
+                  <div class="voucherBody">
+                    <h3 class="voucherTitle">Giảm 20% khi mua combo</h3>
+                    <p class="voucherNote">Đã dùng cho đơn VLG-241018-0412</p>
+                    <p class="voucherExpiry">Đã dùng ngày 18/10/2026</p>
+                  </div>
+                  <div class="voucherSide">
+                    <span class="voucherCode">COMBO20</span>
+                    <a href="orderDetail.html?code=VLG-241018-0412" class="textLink">Xem đơn hàng</a>
+                  </div>
+                </li>
+              </ul>
+              <ul class="voucherList panelExpired">
+                <li class="voucher isMuted">
+                  <p class="voucherValue">
+                    <strong>50%</strong>
+                    <span>giảm</span>
+                  </p>
+                  <div class="voucherBody">
+                    <h3 class="voucherTitle">Flash sale cuối tuần</h3>
+                    <p class="voucherNote">Giảm đến 50% cho sản phẩm trong flash sale</p>
+                    <p class="voucherExpiry">Hết hạn ngày 31/10/2026</p>
+                  </div>
+                  <div class="voucherSide">
+                    <span class="voucherCode">BAY50</span>
+                    <span class="expiredNote">Đã hết hạn</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <site-footer></site-footer>
+  </body>
+</html>

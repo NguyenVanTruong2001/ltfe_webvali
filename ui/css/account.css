@@ -1,0 +1,430 @@
+.breadcrumb {
+  padding-block: 20px 8px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 6px;
+  color: var(--inkFaint);
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrumb [aria-current='page'] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.accountLayout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  padding-top: 12px;
+}
+
+.accountSide {
+  position: sticky;
+  top: calc(var(--headerOffset) + 16px);
+}
+
+.userCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rMd);
+  background: #fff;
+  box-shadow: var(--shadowSoft);
+}
+
+.userAvatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--rSm);
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.userName {
+  font-weight: 700;
+}
+
+.userMail {
+  color: var(--inkSoft);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.accountNav {
+  margin-top: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rMd);
+  background: #fff;
+}
+
+.accountNav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accountNav a {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 20px;
+  border-left: 4px solid transparent;
+  font-weight: 600;
+  transition: background-color .15s;
+}
+
+.accountNav li + li a {
+  border-top: 1px solid var(--line);
+}
+
+.accountNav a:hover {
+  background: var(--sky);
+}
+
+.accountNav a[aria-current='page'] {
+  border-left-color: var(--strap);
+  background: var(--sky);
+}
+
+.accountNav .logoutLink {
+  color: var(--coral);
+}
+
+.accountMain {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+
+.pageTitle {
+  font-family: var(--fontDisplay);
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.pageSub {
+  margin-top: 6px;
+  color: var(--inkSoft);
+}
+
+.pageNote {
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.statCard {
+  display: grid;
+  gap: 4px;
+  padding: 20px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rMd);
+  background: #fff;
+  transition: border-color .15s, box-shadow .25s var(--ease);
+}
+
+.statCard:hover {
+  border-color: var(--ink);
+  box-shadow: var(--shadowSoft);
+}
+
+.statValue {
+  font-family: var(--fontDisplay);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.statLabel {
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.panel {
+  padding: 28px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rMd);
+  background: #fff;
+}
+
+.panelHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+
+.panelTitle {
+  font-family: var(--fontDisplay);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.recentOrder {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.recentCode {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.recentMeta {
+  margin-top: 2px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.recentTotal {
+  font-family: var(--fontDisplay);
+  font-size: 24px;
+}
+
+.statusChip {
+  padding: 4px 12px;
+  border-radius: 2px;
+  background: var(--sky);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.statusChip.isShipping {
+  background: #e1ecf7;
+  color: #1d4f86;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.span2 {
+  grid-column: 1 / -1;
+}
+
+.formField {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.formField label,
+.formField legend {
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.formField input[type='text'],
+.formField input[type='tel'],
+.formField input[type='email'],
+.formField input[type='password'],
+.formField input[type='date'],
+.formField select {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rSm);
+  background: #fff;
+  font: inherit;
+  transition: border-color .15s;
+}
+
+.formField input::placeholder {
+  color: var(--inkFaint);
+}
+
+.formField input:hover,
+.formField select:hover {
+  border-color: var(--inkFaint);
+}
+
+.formField input:focus,
+.formField select:focus {
+  border-color: var(--ink);
+}
+
+.formField input:user-invalid,
+.formField select:user-invalid {
+  border-color: var(--coral);
+}
+
+.formField input[readonly] {
+  background: var(--sky);
+  color: var(--inkSoft);
+}
+
+.fieldHint {
+  color: var(--inkFaint);
+  font-size: 13px;
+}
+
+.radioRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+}
+
+.radioRow label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.radioRow input,
+.checkLine input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--ink);
+}
+
+.checkLine {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.formActions .btn {
+  min-width: 160px;
+}
+
+.textAction {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--inkSoft);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color .15s;
+}
+
+.textAction:hover {
+  color: var(--coral);
+}
+
+@media (max-width: 900px) {
+  .accountLayout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .accountSide {
+    position: static;
+  }
+
+  .accountNav ul {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .accountNav li {
+    flex: none;
+  }
+
+  .accountNav a {
+    height: 100%;
+    border-left: 0;
+    border-bottom: 4px solid transparent;
+  }
+
+  .accountNav li + li a {
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+
+  .accountNav a[aria-current='page'] {
+    border-bottom-color: var(--strap);
+  }
+}
+
+@media (max-width: 700px) {
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .recentOrder {
+    grid-template-columns: 1fr auto;
+  }
+
+  .recentOrder .statusChip {
+    justify-self: start;
+  }
+
+  .formActions .btn {
+    width: 100%;
+  }
+}
