@@ -73,6 +73,9 @@ export default function PageFooter() {
                         <li>
                             <a href="../ui/stores.html">Hệ thống cửa hàng</a>
                         </li>
+                        <li>
+                            <a href="../ui/orderHistory.html">Lịch sử đơn hàng</a>
+                        </li>
                     </ul>
                 </nav>
                 <nav aria-label="Chính sách">
