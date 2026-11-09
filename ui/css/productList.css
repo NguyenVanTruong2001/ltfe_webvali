@@ -364,3 +364,42 @@ a.pageBtn:hover {
     width: 100%;
   }
 }
+
+/* Khối thông báo: đang tải / lỗi / không có kết quả */
+.emptyState {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 64px 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--rSm);
+  color: var(--inkSoft);
+  text-align: center;
+}
+
+.emptyTitle {
+  color: var(--ink);
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Nút "Xóa tất cả" / chip lọc dùng <button> thay cho <a href="#"> */
+.linkButton {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.activeChip {
+  border: 0;
+}
+
+.checkRow:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.checkRow input:disabled {
+  cursor: not-allowed;
+}
