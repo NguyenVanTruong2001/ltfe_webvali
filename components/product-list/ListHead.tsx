@@ -1,10 +1,13 @@
 import {SORT_OPTIONS} from "../../lib/productList/filterConfig.ts";
+import type {SortKey} from "../../lib/productList/filterConfig.ts";
 
 interface ListHeadProps {
     total: number
+    sort: SortKey
+    onSortChange: (sort: SortKey) => void
 }
 
-export default function ListHead({total}: ListHeadProps) {
+export default function ListHead({total, sort, onSortChange}: ListHeadProps) {
     return (
         <div className="listHead">
             <div>
@@ -20,7 +23,12 @@ export default function ListHead({total}: ListHeadProps) {
                 </label>
                 <div className="sortBox">
                     <label className="sortLabel" htmlFor="sortSelect">Sắp xếp</label>
-                    <select id="sortSelect" className="sortSelect" defaultValue={SORT_OPTIONS[0].value}>
+                    <select
+                        id="sortSelect"
+                        className="sortSelect"
+                        value={sort}
+                        onChange={(event) => onSortChange(event.target.value as SortKey)}
+                    >
                         {SORT_OPTIONS.map((option) => (
                             <option key={option.value} value={option.value}>{option.label}</option>
                         ))}

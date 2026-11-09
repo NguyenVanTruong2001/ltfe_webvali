@@ -14,7 +14,6 @@ export const loadProducts = createAsyncThunk<Product[], void, {state: {products:
     'products/load',
     (_arg, {signal}) => fetchProducts(signal),
     {
-        // Không gọi lại khi đang tải / đã tải xong (StrictMode chạy useEffect hai lần ở môi trường dev)
         condition: (_arg, {getState}) => ['idle', 'failed'].includes(getState().products.status),
     },
 )

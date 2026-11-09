@@ -1,22 +1,37 @@
 import type {CSSProperties} from "react";
 import type {Product} from "../../types/Product.ts";
 import {FILTER_GROUPS} from "../../lib/productList/filterConfig.ts";
-import type {FilterGroup, FilterOption} from "../../lib/productList/filterConfig.ts";
+import type {FilterGroup} from "../../lib/productList/filterConfig.ts";
+import {countOption, isChecked} from "../../lib/productList/filtering.ts";
+import type {FilterState} from "../../lib/productList/filtering.ts";
 
 interface FilterSidebarProps {
     products: Product[]
+    filters: FilterState
+    onToggle: (groupKey: string, value: string) => void
+    onClear: () => void
 }
 
-function countOption(products: Product[], option: FilterOption): number {
-    return option.test ? products.filter(option.test).length : products.length;
+interface GroupProps {
+    group: FilterGroup
+    products: Product[]
+    filters: FilterState
+    onToggle: (groupKey: string, value: string) => void
 }
 
-function ColorGroup({group}: {group: FilterGroup}) {
+function ColorGroup({group, filters, onToggle}: GroupProps) {
     return (
         <div className="colorList">
             {group.options.map((option) => (
                 <label className="colorOption" key={option.value}>
-                    <input type="checkbox" name={group.key} value={option.value} className="visuallyHidden" />
+                    <input
+                        type="checkbox"
+                        name={group.key}
+                        value={option.value}
+                        className="visuallyHidden"
+                        checked={isChecked(filters, group, option)}
+                        onChange={() => onToggle(group.key, option.value)}
+                    />
                     <span className="colorDot" style={{"--bodyColor": option.swatch} as CSSProperties}></span>
                     <span className="visuallyHidden">{option.label}</span>
                 </label>
@@ -25,40 +40,48 @@ function ColorGroup({group}: {group: FilterGroup}) {
     );
 }
 
-function CheckGroup({group, products}: {group: FilterGroup, products: Product[]}) {
+function CheckGroup({group, products, filters, onToggle}: GroupProps) {
     return (
         <div className="filterBody">
-            {group.options.map((option) => (
-                <label className="checkRow" key={option.value}>
-                    <input
-                        type={group.input === "radio" ? "radio" : "checkbox"}
-                        name={group.key}
-                        value={option.value}
-                        defaultChecked={group.input === "radio" && option.value === "all"}
-                    />
-                    <span className="checkText">{option.label}</span>
-                    <span className="checkCount">{countOption(products, option)}</span>
-                </label>
-            ))}
+            {group.options.map((option) => {
+                const count = countOption(products, filters, group, option);
+                const checked = isChecked(filters, group, option);
+
+                return (
+                    <label className="checkRow" key={option.value}>
+                        <input
+                            type={group.input === "radio" ? "radio" : "checkbox"}
+                            name={group.key}
+                            value={option.value}
+                            checked={checked}
+                            // Hết hàng thì khóa lại, trừ khi đang chọn (để còn bỏ chọn được)
+                            disabled={count === 0 && !checked}
+                            onChange={() => onToggle(group.key, option.value)}
+                        />
+                        <span className="checkText">{option.label}</span>
+                        <span className="checkCount">{count}</span>
+                    </label>
+                );
+            })}
         </div>
     );
 }
 
-export default function FilterSidebar({products}: FilterSidebarProps) {
+export default function FilterSidebar({products, filters, onToggle, onClear}: FilterSidebarProps) {
     return (
         <>
             <input type="checkbox" id="filterCheck" className="filterCheck" aria-label="Mở bộ lọc" />
             <aside className="sidebar" aria-label="Bộ lọc sản phẩm">
                 <div className="sidebarHead">
                     <h2 className="sidebarTitle">Bộ lọc</h2>
-                    <a href="#" className="textLink">Xóa tất cả</a>
+                    <button type="button" className="textLink linkButton" onClick={onClear}>Xóa tất cả</button>
                 </div>
                 {FILTER_GROUPS.map((group) => (
                     <fieldset className="filterGroup" key={group.key}>
                         <legend className="filterTitle">{group.title}</legend>
                         {group.input === "color"
-                            ? <ColorGroup group={group} />
-                            : <CheckGroup group={group} products={products} />}
+                            ? <ColorGroup group={group} products={products} filters={filters} onToggle={onToggle} />
+                            : <CheckGroup group={group} products={products} filters={filters} onToggle={onToggle} />}
                     </fieldset>
                 ))}
             </aside>
