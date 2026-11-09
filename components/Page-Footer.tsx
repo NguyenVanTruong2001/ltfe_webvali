@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export default function PageFooter() {
     return (<>
         <section className="newsletter" aria-labelledby="newsletterTitle">
@@ -59,13 +61,13 @@ export default function PageFooter() {
                     <h2 className="footerTitle">Hỗ trợ khách hàng</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Trang chủ</a>
+                            <Link to="/">Trang chủ</Link>
                         </li>
                         <li>
                             <a href="../ui/about.html">Giới thiệu</a>
                         </li>
                         <li>
-                            <a href="../ui/productList.html">Tất cả sản phẩm</a>
+                            <Link to="/products">Tất cả sản phẩm</Link>
                         </li>
                         <li>
                             <a href="../ui/news.html">Tin tức</a>

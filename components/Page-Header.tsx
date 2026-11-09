@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export default function PageHeader({current}: {current?: string}) {
     return (<>
         <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true" focusable="false">
@@ -265,7 +267,7 @@ export default function PageHeader({current}: {current?: string}) {
                             <use href="#iMenu" />
                         </svg>
                     </label>
-                    <a href="index.html" className="logo" aria-label="Valigo - trang chủ">
+                    <Link to="/" className="logo" aria-label="Valigo - trang chủ">
                         <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
                             <path
                                 d="M15 11V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"
@@ -284,7 +286,7 @@ export default function PageHeader({current}: {current?: string}) {
                             <rect x="22" y="22" width="14" height="9" rx="2.5" fill="#FFC400" />
                         </svg>
                         <span className="logoText">Valigo</span>
-                    </a>
+                    </Link>
                     <form className="search" role="search" action="#">
                         <label className="visuallyHidden" htmlFor="siteSearch">Tìm sản phẩm</label>
                         <input
@@ -333,25 +335,25 @@ export default function PageHeader({current}: {current?: string}) {
                                 <a className="navLink" href="../ui/about.html">Về chúng tôi</a>
                             </li>
                             <li className="navItem">
-                                <a className={current === "vali" ? "navLink isCurrent" : "navLink"} data-nav="vali" href="../ui/productList.html">
+                                <Link className={current === "vali" ? "navLink isCurrent" : "navLink"} data-nav="vali" to="/products">
                                     Vali
                                     <svg className="icon iconSm" aria-hidden="true">
                                         <use href="#iChevDown" />
                                     </svg>
-                                </a>
+                                </Link>
                                 <div className="mega">
                                     <div className="container megaInner">
                                         <div className="megaCol">
                                             <p className="megaTitle">Theo size</p>
                                             <ul>
                                                 <li>
-                                                    <a href="../ui/productList.html?size=20">Size 20" xách tay</a>
+                                                    <Link to="/products?size=20">Size 20" xách tay</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?size=24">Size 24" ký gửi</a>
+                                                    <Link to="/products?size=24">Size 24" ký gửi</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?size=28">Size 28" cỡ lớn</a>
+                                                    <Link to="/products?size=28">Size 28" cỡ lớn</Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -359,16 +361,16 @@ export default function PageHeader({current}: {current?: string}) {
                                             <p className="megaTitle">Theo chất liệu</p>
                                             <ul>
                                                 <li>
-                                                    <a href="../ui/productList.html?material=aluminum">Vali khung nhôm</a>
+                                                    <Link to="/products?material=aluminum">Vali khung nhôm</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?material=zipper">Vali khóa kéo</a>
+                                                    <Link to="/products?material=zipper">Vali khóa kéo</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?material=zipper">Vali nhựa PC</a>
+                                                    <Link to="/products?material=zipper">Vali nhựa PC</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?material=pp">Vali nhựa PP</a>
+                                                    <Link to="/products?material=pp">Vali nhựa PP</Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -376,19 +378,19 @@ export default function PageHeader({current}: {current?: string}) {
                                             <p className="megaTitle">Dòng sản phẩm</p>
                                             <ul>
                                                 <li>
-                                                    <a href="../ui/productList.html?line=atlas">Atlas</a>
+                                                    <Link to="/products?line=atlas">Atlas</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?line=orion">Orion doanh nhân</a>
+                                                    <Link to="/products?line=orion">Orion doanh nhân</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?line=zipra">Zipra</a>
+                                                    <Link to="/products?line=zipra">Zipra</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?line=sora">Sora</a>
+                                                    <Link to="/products?line=sora">Sora</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?line=pebble">Pebble</a>
+                                                    <Link to="/products?line=pebble">Pebble</Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -396,31 +398,31 @@ export default function PageHeader({current}: {current?: string}) {
                                 </div>
                             </li>
                             <li className="navItem">
-                                <a className="navLink" href="../ui/productList.html?category=backpack">
+                                <Link className="navLink" to="/products?category=backpack">
                                     Balo
                                     <svg className="icon iconSm" aria-hidden="true">
                                         <use href="#iChevDown" />
                                     </svg>
-                                </a>
+                                </Link>
                                 <div className="mega">
                                     <div className="container megaInner">
                                         <div className="megaCol">
                                             <p className="megaTitle">Balo</p>
                                             <ul>
                                                 <li>
-                                                    <a href="../ui/productList.html?category=backpack&amp;line=dune">Balo laptop Dune</a>
+                                                    <Link to="/products?category=backpack&line=dune">Balo laptop Dune</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?category=backpack&amp;line=fern">Balo laptop Fern</a>
+                                                    <Link to="/products?category=backpack&line=fern">Balo laptop Fern</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?category=backpack&amp;line=ridge">Balo Ridge da PU</a>
+                                                    <Link to="/products?category=backpack&line=ridge">Balo Ridge da PU</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?category=backpack&amp;line=skyline">Balo Skyline</a>
+                                                    <Link to="/products?category=backpack&line=skyline">Balo Skyline</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="../ui/productList.html?category=backpack&amp;line=daily">Balo Daily</a>
+                                                    <Link to="/products?category=backpack&line=daily">Balo Daily</Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -428,10 +430,10 @@ export default function PageHeader({current}: {current?: string}) {
                                 </div>
                             </li>
                             <li className="navItem">
-                                <a className="navLink" href="../ui/productList.html?category=accessory">Phụ kiện</a>
+                                <Link className="navLink" to="/products?category=accessory">Phụ kiện</Link>
                             </li>
                             <li className="navItem">
-                                <a className="navLink isHot" href="index.html">Khuyến mại</a>
+                                <Link className="navLink isHot" to="/">Khuyến mại</Link>
                             </li>
                             <li className="navItem">
                                 <a className="navLink" href="../ui/news.html">
