@@ -10,6 +10,7 @@ import Pagination from "./Pagination.tsx";
 import {useProductFilters} from "../../hooks/useProductFilters.ts";
 import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
 import {selectWishIds, toggleWish} from "../../store/wishlistSlice.ts";
+import "../../ui/css/productList.css";
 import {loadProducts, selectProducts, selectProductsError, selectProductsStatus} from "../../store/productsSlice.ts";
 
 export default function ProductListPage() {
