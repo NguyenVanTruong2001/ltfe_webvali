@@ -1,4 +1,4 @@
-export default function PageHeader() {
+export default function PageHeader({current}: {current?: string}) {
     return (<>
         <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true" focusable="false">
             <defs>
@@ -333,7 +333,7 @@ export default function PageHeader() {
                                 <a className="navLink" href="../ui/about.html">Về chúng tôi</a>
                             </li>
                             <li className="navItem">
-                                <a className="navLink" data-nav="vali" href="../ui/productList.html">
+                                <a className={current === "vali" ? "navLink isCurrent" : "navLink"} data-nav="vali" href="../ui/productList.html">
                                     Vali
                                     <svg className="icon iconSm" aria-hidden="true">
                                         <use href="#iChevDown" />

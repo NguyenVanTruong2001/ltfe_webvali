@@ -364,3 +364,22 @@ a.pageBtn:hover {
     width: 100%;
   }
 }
+
+/* Khối thông báo: đang tải / lỗi / không có kết quả */
+.emptyState {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 64px 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--rSm);
+  color: var(--inkSoft);
+  text-align: center;
+}
+
+.emptyTitle {
+  color: var(--ink);
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
