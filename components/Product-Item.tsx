@@ -1,15 +1,29 @@
+import {memo, useState} from "react";
 import type {CSSProperties} from "react";
 import type {Product} from "../types/Product.ts";
 import {formatPrice} from "../lib/productList/format.ts";
 
-export default function ProductItem({product}: {product: Product}) {
+interface ProductItemProps {
+    product: Product
+    wished?: boolean
+    onToggleWish?: (id: number) => void
+}
+
+function ProductItem({product, wished = false, onToggleWish}: ProductItemProps) {
+    const [activeColor, setActiveColor] = useState(product.colors[0]?.name);
     const hasDiscount = product.discountPercent > 0;
 
     return (<>
         <article className="card">
             <div className="cardMedia">
                 {hasDiscount && <span className="badgeSale">-{product.discountPercent}%</span>}
-                <button type="button" className="wish" aria-label="Thêm vào yêu thích">
+                <button
+                    type="button"
+                    className={wished ? "wish isActive" : "wish"}
+                    aria-label={wished ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
+                    aria-pressed={wished}
+                    onClick={() => onToggleWish?.(product.id)}
+                >
                     <svg className="icon" aria-hidden="true">
                         <use href="#iHeart" />
                     </svg>
@@ -21,11 +35,13 @@ export default function ProductItem({product}: {product: Product}) {
             </div>
             <div className="cardBody">
                 <div className="swatches" role="group" aria-label="Chọn màu">
-                    {product.colors.map((color, index) => (
+                    {product.colors.map((color) => (
                         <button
                             key={color.name}
                             type="button"
-                            className={index === 0 ? "swatch isActive" : "swatch"}
+                            className={color.name === activeColor ? "swatch isActive" : "swatch"}
+                            aria-pressed={color.name === activeColor}
+                            onClick={() => setActiveColor(color.name)}
                             style={{"--bodyColor": color.hex} as CSSProperties}
                             aria-label={color.name}
                         >
@@ -52,3 +68,5 @@ export default function ProductItem({product}: {product: Product}) {
         </article>
     </>);
 }
+
+export default memo(ProductItem);

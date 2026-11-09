@@ -3,16 +3,18 @@ import type {SortKey} from "../../lib/productList/filterConfig.ts";
 
 interface ListHeadProps {
     total: number
+    from: number
+    to: number
     sort: SortKey
     onSortChange: (sort: SortKey) => void
 }
 
-export default function ListHead({total, sort, onSortChange}: ListHeadProps) {
+export default function ListHead({total, from, to, sort, onSortChange}: ListHeadProps) {
     return (
         <div className="listHead">
             <div>
                 <h1 className="listTitle">Vali</h1>
-                <p className="listCount" aria-live="polite">Hiển thị {total} sản phẩm</p>
+                <p className="listCount" aria-live="polite">{total === 0 ? "Không có sản phẩm nào" : `Hiển thị ${from} đến ${to} trên ${total} sản phẩm`}</p>
             </div>
             <div className="listTools">
                 <label htmlFor="filterCheck" className="btn btnGhost filterToggle">
