@@ -4,6 +4,8 @@ import ProductGallery from "./ProductGallery.tsx";
 import ProductInfo from "./ProductInfo.tsx";
 import ProductOptions from "./ProductOptions.tsx";
 import ProductBuyRow from "./ProductBuyRow.tsx";
+import ProductTabs from "./ProductTabs.tsx";
+import RelatedProducts from "./RelatedProducts.tsx";
 import {useProductOptions} from "../../hooks/useProductOptions.ts";
 
 export default function ProductDetail({product}: {product: Product}) {
@@ -32,6 +34,8 @@ export default function ProductDetail({product}: {product: Product}) {
                     <ProductBuyRow quantity={options.quantity} onQuantityChange={options.setQuantity} />
                 </ProductInfo>
             </section>
+            <ProductTabs product={product} />
+            <RelatedProducts product={product} />
         </>
     );
 }

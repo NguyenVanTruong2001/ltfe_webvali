@@ -1,4 +1,5 @@
 import type {CSSProperties, ReactNode} from "react";
+import {Link} from "react-router-dom";
 import type {Product} from "../../types/Product.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {PERKS} from "../../lib/productDetail/content.ts";
@@ -33,7 +34,9 @@ export default function ProductInfo({product, children}: {product: Product, chil
                             aria-hidden="true"
                         >★★★★★</span>
                     </span>
-                    <span className="starsCount">({product.reviewCount} đánh giá)</span>
+                    <Link className="starsCount" to={{search: "?tab=review", hash: "#danhGia"}}>
+                        ({product.reviewCount} đánh giá)
+                    </Link>
                 </span>
                 <span className="metaSep" aria-hidden="true"></span>
                 <span>Mã sản phẩm: {product.sku}</span>

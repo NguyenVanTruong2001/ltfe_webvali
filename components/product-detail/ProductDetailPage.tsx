@@ -24,6 +24,10 @@ export default function ProductDetailPage() {
     }, [dispatch]);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+
+    useEffect(() => {
         document.title = product ? `${product.name} - Valigo` : "Sản phẩm - Valigo";
     }, [product]);
 

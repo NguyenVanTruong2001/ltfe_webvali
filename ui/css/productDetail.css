@@ -718,62 +718,6 @@
   }
 }
 
-#tabDesc:checked ~ .tabBar .tabLabel[for="tabDesc"] {
-  border-bottom-color: var(--strap);
-  color: var(--ink);
-}
-
-#tabDesc:focus-visible ~ .tabBar .tabLabel[for="tabDesc"] {
-  outline: 3px solid var(--focus);
-  outline-offset: -3px;
-}
-
-#tabDesc:checked ~ .panelDesc {
-  display: block;
-}
-
-#tabSpec:checked ~ .tabBar .tabLabel[for="tabSpec"] {
-  border-bottom-color: var(--strap);
-  color: var(--ink);
-}
-
-#tabSpec:focus-visible ~ .tabBar .tabLabel[for="tabSpec"] {
-  outline: 3px solid var(--focus);
-  outline-offset: -3px;
-}
-
-#tabSpec:checked ~ .panelSpec {
-  display: block;
-}
-
-#tabReview:checked ~ .tabBar .tabLabel[for="tabReview"] {
-  border-bottom-color: var(--strap);
-  color: var(--ink);
-}
-
-#tabReview:focus-visible ~ .tabBar .tabLabel[for="tabReview"] {
-  outline: 3px solid var(--focus);
-  outline-offset: -3px;
-}
-
-#tabReview:checked ~ .panelReview {
-  display: block;
-}
-
-#tabWarranty:checked ~ .tabBar .tabLabel[for="tabWarranty"] {
-  border-bottom-color: var(--strap);
-  color: var(--ink);
-}
-
-#tabWarranty:focus-visible ~ .tabBar .tabLabel[for="tabWarranty"] {
-  outline: 3px solid var(--focus);
-  outline-offset: -3px;
-}
-
-#tabWarranty:checked ~ .panelWarranty {
-  display: block;
-}
-
 .galleryItem.isActive {
   display: grid;
 }
@@ -853,4 +797,18 @@
 .qtyBox button:disabled {
   cursor: not-allowed;
   opacity: .4;
+}
+
+.tabLabel.isActive {
+  border-bottom-color: var(--strap);
+  color: var(--ink);
+}
+
+.tabLabel:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.tabPanel.isActive {
+  display: block;
 }

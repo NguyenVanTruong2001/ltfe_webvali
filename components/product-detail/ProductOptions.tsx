@@ -1,4 +1,5 @@
 import type {CSSProperties} from "react";
+import {Link} from "react-router-dom";
 import type {ProductColor} from "../../types/Product.ts";
 import {SIZE_GUIDE} from "../../lib/productDetail/sizeGuide.ts";
 
@@ -41,7 +42,12 @@ export default function ProductOptions({colors, sizes, color, size, onColorChang
             )}
             {sizes.length > 0 && (
                 <fieldset className="optionGroup sizeGroup">
-                    <legend className="optionTitle">Size</legend>
+                    <legend className="optionTitle">
+                        Size
+                        <Link to={{search: "?tab=spec", hash: "#huongDanSize"}} className="textLink sizeGuide">
+                            Hướng dẫn chọn size
+                        </Link>
+                    </legend>
                     <div className="sizeRow">
                         {sizes.map((item) => (
                             <label className={item === size ? "sizeChip isActive" : "sizeChip"} key={item}>
