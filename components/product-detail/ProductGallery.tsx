@@ -3,9 +3,10 @@ interface ProductGalleryProps {
     name: string
     discountPercent: number
     activeIndex: number
+    onSelect: (index: number) => void
 }
 
-export default function ProductGallery({images, name, discountPercent, activeIndex}: ProductGalleryProps) {
+export default function ProductGallery({images, name, discountPercent, activeIndex, onSelect}: ProductGalleryProps) {
     return (
         <div className="gallery">
             <div className="galleryMain">
@@ -18,9 +19,16 @@ export default function ProductGallery({images, name, discountPercent, activeInd
             </div>
             <div className="thumbs">
                 {images.map((src, index) => (
-                    <span className={index === activeIndex ? "thumb isActive" : "thumb"} key={src}>
+                    <button
+                        type="button"
+                        className={index === activeIndex ? "thumb isActive" : "thumb"}
+                        key={src}
+                        aria-label={`Xem ảnh ${index + 1}`}
+                        aria-pressed={index === activeIndex}
+                        onClick={() => onSelect(index)}
+                    >
                         <img className="thumbPhoto" src={src} alt="" />
-                    </span>
+                    </button>
                 ))}
             </div>
         </div>

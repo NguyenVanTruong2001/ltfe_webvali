@@ -1,4 +1,4 @@
-import type {CSSProperties} from "react";
+import type {CSSProperties, ReactNode} from "react";
 import type {Product} from "../../types/Product.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {PERKS} from "../../lib/productDetail/content.ts";
@@ -11,7 +11,7 @@ function Icon({id, className = "icon iconSm"}: {id: string, className?: string})
     );
 }
 
-export default function ProductInfo({product}: {product: Product}) {
+export default function ProductInfo({product, children}: {product: Product, children?: ReactNode}) {
     const ratingText = String(product.rating).replace(".", ",");
     const highlights = [
         product.specs.material,
@@ -56,6 +56,7 @@ export default function ProductInfo({product}: {product: Product}) {
                     </li>
                 ))}
             </ul>
+            {children}
             <ul className="perkList">
                 {PERKS.map((perk) => (
                     <li className="perk" key={perk.title}>

@@ -718,155 +718,6 @@
   }
 }
 
-#colorSilver:checked ~ .gallery .itemSilver {
-  display: grid;
-}
-
-#colorSilver:checked ~ .gallery .thumb[for="colorSilver"] {
-  border-color: var(--ink);
-}
-
-#colorSilver:focus-visible ~ .gallery .thumb[for="colorSilver"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#colorSilver:checked ~ .info .nameSilver {
-  display: inline;
-}
-
-#colorSilver:checked ~ .info .colorPick[for="colorSilver"] .colorSwatch {
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-#colorSilver:focus-visible ~ .info .colorPick[for="colorSilver"] .colorSwatch {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-#colorBlack:checked ~ .gallery .itemBlack {
-  display: grid;
-}
-
-#colorBlack:checked ~ .gallery .thumb[for="colorBlack"] {
-  border-color: var(--ink);
-}
-
-#colorBlack:focus-visible ~ .gallery .thumb[for="colorBlack"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#colorBlack:checked ~ .info .nameBlack {
-  display: inline;
-}
-
-#colorBlack:checked ~ .info .colorPick[for="colorBlack"] .colorSwatch {
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-#colorBlack:focus-visible ~ .info .colorPick[for="colorBlack"] .colorSwatch {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-#colorNavy:checked ~ .gallery .itemNavy {
-  display: grid;
-}
-
-#colorNavy:checked ~ .gallery .thumb[for="colorNavy"] {
-  border-color: var(--ink);
-}
-
-#colorNavy:focus-visible ~ .gallery .thumb[for="colorNavy"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#colorNavy:checked ~ .info .nameNavy {
-  display: inline;
-}
-
-#colorNavy:checked ~ .info .colorPick[for="colorNavy"] .colorSwatch {
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-#colorNavy:focus-visible ~ .info .colorPick[for="colorNavy"] .colorSwatch {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-#colorChampagne:checked ~ .gallery .itemChampagne {
-  display: grid;
-}
-
-#colorChampagne:checked ~ .gallery .thumb[for="colorChampagne"] {
-  border-color: var(--ink);
-}
-
-#colorChampagne:focus-visible ~ .gallery .thumb[for="colorChampagne"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#colorChampagne:checked ~ .info .nameChampagne {
-  display: inline;
-}
-
-#colorChampagne:checked ~ .info .colorPick[for="colorChampagne"] .colorSwatch {
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-#colorChampagne:focus-visible ~ .info .colorPick[for="colorChampagne"] .colorSwatch {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-#size20:checked ~ .sizeRow .sizeChip[for="size20"] {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
-}
-
-#size20:focus-visible ~ .sizeRow .sizeChip[for="size20"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#size20:checked ~ .sizeNotes .note20 {
-  display: block;
-}
-
-#size24:checked ~ .sizeRow .sizeChip[for="size24"] {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
-}
-
-#size24:focus-visible ~ .sizeRow .sizeChip[for="size24"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#size24:checked ~ .sizeNotes .note24 {
-  display: block;
-}
-
-#size28:checked ~ .sizeRow .sizeChip[for="size28"] {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
-}
-
-#size28:focus-visible ~ .sizeRow .sizeChip[for="size28"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#size28:checked ~ .sizeNotes .note28 {
-  display: block;
-}
-
 #tabDesc:checked ~ .tabBar .tabLabel[for="tabDesc"] {
   border-bottom-color: var(--strap);
   color: var(--ink);
@@ -933,8 +784,18 @@
   object-fit: contain;
 }
 
+.thumb {
+  padding: 0;
+  overflow: hidden;
+}
+
 .thumb.isActive {
   border-color: var(--ink);
+}
+
+.thumb:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
 }
 
 .thumbPhoto {
@@ -959,4 +820,37 @@
   font-family: var(--fontDisplay);
   font-size: 22px;
   font-weight: 700;
+}
+
+.colorName.isActive {
+  display: inline;
+}
+
+.colorPick.isActive .colorSwatch {
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+.colorPick:has(input:focus-visible) .colorSwatch {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.sizeChip.isActive {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.sizeChip:has(input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.sizeNote.isActive {
+  display: block;
+}
+
+.qtyBox button:disabled {
+  cursor: not-allowed;
+  opacity: .4;
 }

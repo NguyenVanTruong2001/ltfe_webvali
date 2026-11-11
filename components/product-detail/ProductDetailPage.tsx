@@ -32,7 +32,7 @@ export default function ProductDetailPage() {
             <PageHeader current="vali" />
             <main id="noiDung">
                 <div className="container">
-                    {product && <ProductDetail product={product} />}
+                    {product && <ProductDetail product={product} key={product.id} />}
                     {!product && status === "failed" && (
                         <div className="emptyState" role="alert">
                             <p className="emptyTitle">Không tải được sản phẩm</p>
