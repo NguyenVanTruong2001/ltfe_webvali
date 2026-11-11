@@ -31,5 +31,5 @@ export interface Product {
     reviewCount: number
     description: string
     specs: Record<string, string>
-    reviews: ProductReview[]
+    reviews?: ProductReview[]
 }

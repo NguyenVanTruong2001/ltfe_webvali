@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         productList: resolve(import.meta.dirname, 'ui/productList.html'),
+        productDetail: resolve(import.meta.dirname, 'ui/productDetail.html'),
       },
     },
   },

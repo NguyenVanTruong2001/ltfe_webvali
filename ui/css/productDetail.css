@@ -922,3 +922,41 @@
 #tabWarranty:checked ~ .panelWarranty {
   display: block;
 }
+
+.galleryItem.isActive {
+  display: grid;
+}
+
+.galleryPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumb.isActive {
+  border-color: var(--ink);
+}
+
+.thumbPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.emptyState {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 64px 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--rSm);
+  color: var(--inkSoft);
+  text-align: center;
+}
+
+.emptyTitle {
+  color: var(--ink);
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
