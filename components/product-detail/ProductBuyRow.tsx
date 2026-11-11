@@ -2,18 +2,26 @@ import {MAX_QUANTITY, MIN_QUANTITY} from "../../lib/productDetail/options.ts";
 
 interface ProductBuyRowProps {
     quantity: number
+    inStock: boolean
+    wished: boolean
+    notice: string | null
     onQuantityChange: (quantity: number) => void
+    onAddToCart: () => void
+    onBuyNow: () => void
+    onToggleWish: () => void
 }
 
-function Icon({id}: {id: string}) {
+function Icon({id, className = "icon"}: {id: string, className?: string}) {
     return (
-        <svg className="icon" aria-hidden="true">
+        <svg className={className} aria-hidden="true">
             <use href={`#${id}`} />
         </svg>
     );
 }
 
-export default function ProductBuyRow({quantity, onQuantityChange}: ProductBuyRowProps) {
+export default function ProductBuyRow({
+    quantity, inStock, wished, notice, onQuantityChange, onAddToCart, onBuyNow, onToggleWish,
+}: ProductBuyRowProps) {
     return (
         <>
             <div className="buyRow">
@@ -45,12 +53,27 @@ export default function ProductBuyRow({quantity, onQuantityChange}: ProductBuyRo
                         <Icon id="iPlus" />
                     </button>
                 </div>
-                <a href="../ui/cart.html" className="btn btnPrimary addBtn">
+                <button type="button" className="btn btnPrimary addBtn" disabled={!inStock} onClick={onAddToCart}>
                     <Icon id="iBag" />
                     Thêm vào giỏ hàng
-                </a>
+                </button>
+                <button
+                    type="button"
+                    className={wished ? "wishBtn isActive" : "wishBtn"}
+                    aria-label={wished ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
+                    aria-pressed={wished}
+                    onClick={onToggleWish}
+                >
+                    <Icon id="iHeart" className="icon iconLg" />
+                </button>
             </div>
-            <a href="../ui/checkout.html" className="btn btnDark btnBlock">Mua ngay</a>
+            <button type="button" className="btn btnDark btnBlock" disabled={!inStock} onClick={onBuyNow}>
+                Mua ngay
+            </button>
+            <p className="addNotice" role="status">
+                {notice}
+                {notice && <> <a href="../ui/cart.html" className="textLink">Xem giỏ hàng</a></>}
+            </p>
         </>
     );
 }

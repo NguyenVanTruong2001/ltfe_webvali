@@ -812,3 +812,28 @@
 .tabPanel.isActive {
   display: block;
 }
+
+.wishBtn.isActive {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+.wishBtn.isActive .icon {
+  fill: currentColor;
+}
+
+.addBtn:disabled,
+.buyBar .btn:disabled,
+.btnBlock:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.addNotice {
+  min-height: 1.5em;
+  margin: 0;
+  color: #1e7a5c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
