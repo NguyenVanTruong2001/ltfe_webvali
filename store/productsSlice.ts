@@ -46,3 +46,6 @@ type WithProducts = {products: ProductsState}
 export const selectProducts = (state: WithProducts) => state.products.items
 export const selectProductsStatus = (state: WithProducts) => state.products.status
 export const selectProductsError = (state: WithProducts) => state.products.error
+
+export const selectProductById = (state: WithProducts, id: number) =>
+    state.products.items.find((product) => product.id === id)

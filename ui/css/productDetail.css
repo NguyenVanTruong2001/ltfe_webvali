@@ -718,207 +718,122 @@
   }
 }
 
-#colorSilver:checked ~ .gallery .itemSilver {
+.galleryItem.isActive {
   display: grid;
 }
 
-#colorSilver:checked ~ .gallery .thumb[for="colorSilver"] {
+.galleryPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumb {
+  padding: 0;
+  overflow: hidden;
+}
+
+.thumb.isActive {
   border-color: var(--ink);
 }
 
-#colorSilver:focus-visible ~ .gallery .thumb[for="colorSilver"] {
+.thumb:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
 
-#colorSilver:checked ~ .info .nameSilver {
-  display: inline;
+.thumbPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-#colorSilver:checked ~ .info .colorPick[for="colorSilver"] .colorSwatch {
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-#colorSilver:focus-visible ~ .info .colorPick[for="colorSilver"] .colorSwatch {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-#colorBlack:checked ~ .gallery .itemBlack {
+.emptyState {
   display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 64px 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--rSm);
+  color: var(--inkSoft);
+  text-align: center;
 }
 
-#colorBlack:checked ~ .gallery .thumb[for="colorBlack"] {
-  border-color: var(--ink);
+.emptyTitle {
+  color: var(--ink);
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
 }
 
-#colorBlack:focus-visible ~ .gallery .thumb[for="colorBlack"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#colorBlack:checked ~ .info .nameBlack {
+.colorName.isActive {
   display: inline;
 }
 
-#colorBlack:checked ~ .info .colorPick[for="colorBlack"] .colorSwatch {
+.colorPick.isActive .colorSwatch {
   box-shadow: 0 0 0 2px var(--ink);
 }
 
-#colorBlack:focus-visible ~ .info .colorPick[for="colorBlack"] .colorSwatch {
+.colorPick:has(input:focus-visible) .colorSwatch {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
 
-#colorNavy:checked ~ .gallery .itemNavy {
-  display: grid;
-}
-
-#colorNavy:checked ~ .gallery .thumb[for="colorNavy"] {
-  border-color: var(--ink);
-}
-
-#colorNavy:focus-visible ~ .gallery .thumb[for="colorNavy"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#colorNavy:checked ~ .info .nameNavy {
-  display: inline;
-}
-
-#colorNavy:checked ~ .info .colorPick[for="colorNavy"] .colorSwatch {
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-#colorNavy:focus-visible ~ .info .colorPick[for="colorNavy"] .colorSwatch {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-#colorChampagne:checked ~ .gallery .itemChampagne {
-  display: grid;
-}
-
-#colorChampagne:checked ~ .gallery .thumb[for="colorChampagne"] {
-  border-color: var(--ink);
-}
-
-#colorChampagne:focus-visible ~ .gallery .thumb[for="colorChampagne"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#colorChampagne:checked ~ .info .nameChampagne {
-  display: inline;
-}
-
-#colorChampagne:checked ~ .info .colorPick[for="colorChampagne"] .colorSwatch {
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-#colorChampagne:focus-visible ~ .info .colorPick[for="colorChampagne"] .colorSwatch {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-#size20:checked ~ .sizeRow .sizeChip[for="size20"] {
+.sizeChip.isActive {
   border-color: var(--ink);
   background: var(--ink);
   color: #fff;
 }
 
-#size20:focus-visible ~ .sizeRow .sizeChip[for="size20"] {
+.sizeChip:has(input:focus-visible) {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
 
-#size20:checked ~ .sizeNotes .note20 {
+.sizeNote.isActive {
   display: block;
 }
 
-#size24:checked ~ .sizeRow .sizeChip[for="size24"] {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
+.qtyBox button:disabled {
+  cursor: not-allowed;
+  opacity: .4;
 }
 
-#size24:focus-visible ~ .sizeRow .sizeChip[for="size24"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#size24:checked ~ .sizeNotes .note24 {
-  display: block;
-}
-
-#size28:checked ~ .sizeRow .sizeChip[for="size28"] {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
-}
-
-#size28:focus-visible ~ .sizeRow .sizeChip[for="size28"] {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-#size28:checked ~ .sizeNotes .note28 {
-  display: block;
-}
-
-#tabDesc:checked ~ .tabBar .tabLabel[for="tabDesc"] {
+.tabLabel.isActive {
   border-bottom-color: var(--strap);
   color: var(--ink);
 }
 
-#tabDesc:focus-visible ~ .tabBar .tabLabel[for="tabDesc"] {
+.tabLabel:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: -3px;
 }
 
-#tabDesc:checked ~ .panelDesc {
+.tabPanel.isActive {
   display: block;
 }
 
-#tabSpec:checked ~ .tabBar .tabLabel[for="tabSpec"] {
-  border-bottom-color: var(--strap);
-  color: var(--ink);
+.wishBtn.isActive {
+  border-color: var(--coral);
+  color: var(--coral);
 }
 
-#tabSpec:focus-visible ~ .tabBar .tabLabel[for="tabSpec"] {
-  outline: 3px solid var(--focus);
-  outline-offset: -3px;
+.wishBtn.isActive .icon {
+  fill: currentColor;
 }
 
-#tabSpec:checked ~ .panelSpec {
-  display: block;
+.addBtn:disabled,
+.buyBar .btn:disabled,
+.btnBlock:disabled {
+  cursor: not-allowed;
+  opacity: .5;
 }
 
-#tabReview:checked ~ .tabBar .tabLabel[for="tabReview"] {
-  border-bottom-color: var(--strap);
-  color: var(--ink);
+.addNotice {
+  min-height: 1.5em;
+  margin: 0;
+  color: #1e7a5c;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-#tabReview:focus-visible ~ .tabBar .tabLabel[for="tabReview"] {
-  outline: 3px solid var(--focus);
-  outline-offset: -3px;
-}
-
-#tabReview:checked ~ .panelReview {
-  display: block;
-}
-
-#tabWarranty:checked ~ .tabBar .tabLabel[for="tabWarranty"] {
-  border-bottom-color: var(--strap);
-  color: var(--ink);
-}
-
-#tabWarranty:focus-visible ~ .tabBar .tabLabel[for="tabWarranty"] {
-  outline: 3px solid var(--focus);
-  outline-offset: -3px;
-}
-
-#tabWarranty:checked ~ .panelWarranty {
-  display: block;
-}

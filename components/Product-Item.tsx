@@ -1,5 +1,6 @@
 import {memo, useState} from "react";
 import type {CSSProperties} from "react";
+import {Link} from "react-router-dom";
 import type {Product} from "../types/Product.ts";
 import {formatPrice} from "../lib/productList/format.ts";
 
@@ -12,6 +13,7 @@ interface ProductItemProps {
 function ProductItem({product, wished = false, onToggleWish}: ProductItemProps) {
     const [activeColor, setActiveColor] = useState(product.colors[0]?.name);
     const hasDiscount = product.discountPercent > 0;
+    const detailPath = `/products/${product.id}/${product.slug}`;
 
     return (<>
         <article className="card">
@@ -28,9 +30,9 @@ function ProductItem({product, wished = false, onToggleWish}: ProductItemProps) 
                         <use href="#iHeart" />
                     </svg>
                 </button>
-                <a href="../ui/productDetail.html" aria-label={`Xem ${product.name}`}>
+                <Link to={detailPath} aria-label={`Xem ${product.name}`}>
                     <img className="cardImage" src={product.images[0]} alt={product.name} />
-                </a>
+                </Link>
                 <span className="quickHint">Xem nhanh</span>
             </div>
             <div className="cardBody">
@@ -49,7 +51,7 @@ function ProductItem({product, wished = false, onToggleWish}: ProductItemProps) 
                     ))}
                 </div>
                 <h3 className="cardTitle">
-                    <a href="../ui/productDetail.html">{product.name}</a>
+                    <Link to={detailPath}>{product.name}</Link>
                 </h3>
                 <span className="stars">
                     <span className="starsTrack" role="img"
@@ -63,7 +65,7 @@ function ProductItem({product, wished = false, onToggleWish}: ProductItemProps) 
                     <strong>{formatPrice(product.price)}</strong>
                     {hasDiscount && <s>{formatPrice(product.originalPrice)}</s>}
                 </p>
-                <button type="button" className="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+                <Link to={detailPath} className="btn btnGhost btnBlock cardBtn">Tùy chọn</Link>
             </div>
         </article>
     </>);
