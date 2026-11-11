@@ -2,7 +2,6 @@ import type {Product} from '../../types/Product.ts'
 import {FILTER_GROUPS} from './filterConfig.ts'
 import type {FilterGroup, FilterOption, SortKey} from './filterConfig.ts'
 
-/** key của nhóm -> các value đang chọn. Nhóm radio chỉ có tối đa 1 phần tử. */
 export type FilterState = Record<string, string[]>
 
 export interface ActiveFilter {
@@ -21,20 +20,19 @@ export function isChecked(state: FilterState, group: FilterGroup, option: Filter
     return selected.includes(option.value)
 }
 
-/** Trong cùng một nhóm: chọn nhiều giá trị thì lấy sản phẩm khớp ÍT NHẤT một giá trị (OR). */
 function matchesGroup(product: Product, group: FilterGroup, selected: string[]): boolean {
     if (selected.length === 0) return true
     return group.options.some((o) => selected.includes(o.value) && (o.test ? o.test(product) : true))
 }
 
-/** Giữa các nhóm khác nhau: phải khớp TẤT CẢ (AND). `skipKey` dùng để đếm số lượng cho một nhóm. */
+
 export function applyFilters(products: Product[], state: FilterState, skipKey?: string): Product[] {
     return products.filter((product) =>
         FILTER_GROUPS.every((group) => group.key === skipKey || matchesGroup(product, group, selectedOf(state, group))),
     )
 }
 
-/** Số sản phẩm sẽ có nếu bấm vào `option`, giữ nguyên các nhóm lọc khác. */
+
 export function countOption(products: Product[], state: FilterState, group: FilterGroup, option: FilterOption): number {
     const pool = applyFilters(products, state, group.key)
     return option.test ? pool.filter(option.test).length : pool.length
@@ -44,7 +42,7 @@ export function toggleOption(state: FilterState, group: FilterGroup, value: stri
     const selected = selectedOf(state, group)
 
     if (group.input === 'radio') {
-        // "Tất cả" hoặc bấm lại lựa chọn đang chọn = bỏ lọc nhóm này
+
         const next = value === 'all' || selected.includes(value) ? [] : [value]
         return {...state, [group.key]: next}
     }
@@ -73,7 +71,7 @@ function chipLabel(group: FilterGroup, option: FilterOption): string {
 }
 
 const comparators: Record<SortKey, (a: Product, b: Product) => number> = {
-    // dữ liệu chưa có ngày tạo: hàng mới về lên trước, sau đó id lớn hơn là mới hơn
+
     'newest': (a, b) => Number(b.isNewArrival) - Number(a.isNewArrival) || b.id - a.id,
     'bestseller': (a, b) => Number(b.isBestSeller) - Number(a.isBestSeller) || b.reviewCount - a.reviewCount,
     'price-asc': (a, b) => a.price - b.price,
