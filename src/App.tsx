@@ -1,7 +1,7 @@
 import PageHeader from "../components/Page-Header.tsx";
 import PageFooter from "../components/Page-Footer.tsx";
 import ProductList from "../components/Product-List.tsx";
-import FlashSaleList from "../components/FlashSale-ProductList.tsx";
+import FlashSaleList from "../components/home/FlashSale-ProductList.tsx";
 
 function App() {
   return (

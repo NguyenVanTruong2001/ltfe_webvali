@@ -1,4 +1,4 @@
-import {Products} from "../dataset/Products.tsx";
+import {Products} from "../../dataset/Products.tsx";
 import FlashSaleItem from "./FlashSale-ProductItem.tsx";
 
 export default function FlashSaleList() {
