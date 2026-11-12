@@ -1,27 +1,27 @@
 import type {CSSProperties} from "react";
 import {Link} from "react-router-dom";
-import type {Product} from "../../types/Product.ts";
 import {formatRating} from "../../lib/productReviews/summary.ts";
 import type {StarCount} from "../../lib/productReviews/summary.ts";
 import StarRating from "./StarRating.tsx";
 
 interface ReviewSummaryProps {
-    product: Product
+    rating: number
+    count: number
     rows: StarCount[]
     detailedCount: number
     activeStar: number | null
     searchForStar: (star: number) => string
 }
 
-export default function ReviewSummary({product, rows, detailedCount, activeStar, searchForStar}: ReviewSummaryProps) {
-    const ratingText = formatRating(product.rating);
+export default function ReviewSummary({rating, count, rows, detailedCount, activeStar, searchForStar}: ReviewSummaryProps) {
+    const ratingText = formatRating(rating);
 
     return (
         <div className="reviewSummary">
             <div className="scoreBox">
                 <p className="score">{ratingText}</p>
-                <StarRating rating={product.rating} label={`Đánh giá ${ratingText} trên 5 sao`} />
-                <p className="scoreNote">Dựa trên {product.reviewCount} đánh giá</p>
+                <StarRating rating={rating} label={`Đánh giá ${ratingText} trên 5 sao`} />
+                <p className="scoreNote">Dựa trên {count} đánh giá</p>
             </div>
             <div>
                 <ul className="barList">

@@ -1,6 +1,7 @@
 import {useMemo} from "react";
 import {Link} from "react-router-dom";
 import type {Product} from "../../types/Product.ts";
+import {useProductReviews} from "../../hooks/useProductReviews.ts";
 import {countByStar} from "../../lib/productReviews/summary.ts";
 import {useReviewFilters} from "../../hooks/useReviewFilters.ts";
 import Pagination from "../product-list/Pagination.tsx";
@@ -8,9 +9,10 @@ import ReviewsBreadcrumb from "./ReviewsBreadcrumb.tsx";
 import ReviewSummary from "./ReviewSummary.tsx";
 import ReviewList from "./ReviewList.tsx";
 import ReviewToolbar from "./ReviewToolbar.tsx";
+import ReviewComposer from "./ReviewComposer.tsx";
 
 export default function ProductReviews({product}: {product: Product}) {
-    const reviews = useMemo(() => product.reviews ?? [], [product.reviews]);
+    const {reviews, rating, count} = useProductReviews(product);
     const counts = useMemo(() => countByStar(reviews), [reviews]);
     const filters = useReviewFilters(reviews);
     const emptyText = reviews.length === 0
@@ -31,12 +33,14 @@ export default function ProductReviews({product}: {product: Product}) {
                     </Link>
                 </header>
                 <ReviewSummary
-                    product={product}
+                    rating={rating}
+                    count={count}
                     rows={counts}
                     detailedCount={reviews.length}
                     activeStar={filters.star}
                     searchForStar={filters.searchForStar}
                 />
+                <ReviewComposer productId={product.id} onSubmitted={filters.reset} />
                 <ReviewToolbar
                     counts={counts}
                     totalAll={reviews.length}

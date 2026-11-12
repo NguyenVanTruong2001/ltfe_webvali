@@ -1,7 +1,7 @@
 import "../../ui/css/productDetail.css";
 import "../../ui/css/productReviews.css";
 import {useEffect} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import ProductReviews from "./ProductReviews.tsx";
@@ -15,6 +15,7 @@ import {
 
 export default function ProductReviewsPage() {
     const {id} = useParams();
+    const {hash} = useLocation();
     const dispatch = useAppDispatch();
     const status = useAppSelector(selectProductsStatus);
     const error = useAppSelector(selectProductsError);
@@ -24,9 +25,13 @@ export default function ProductReviewsPage() {
         dispatch(loadProducts());
     }, [dispatch]);
 
+    const productId = product?.id;
+
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [id]);
+        if (productId === undefined) return;
+        if (hash) document.getElementById(hash.slice(1))?.scrollIntoView({block: "start"});
+        else window.scrollTo(0, 0);
+    }, [productId, hash]);
 
     useEffect(() => {
         document.title = product ? `Đánh giá ${product.name} - Valigo` : "Đánh giá sản phẩm - Valigo";

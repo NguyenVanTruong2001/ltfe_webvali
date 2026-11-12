@@ -1,15 +1,17 @@
-import type {ProductReview} from "../../types/Product.ts";
+import type {DisplayReview} from "../../lib/productReviews/merge.ts";
 import {formatReviewDate, initials} from "../../lib/productDetail/reviews.ts";
 import StarRating from "./StarRating.tsx";
 
-export default function ReviewItem({review}: {review: ProductReview}) {
+export default function ReviewItem({review}: {review: DisplayReview}) {
     return (
         <li className="reviewItem">
             <span className="avatar" aria-hidden="true">{initials(review.userName)}</span>
             <div className="reviewBody">
                 <p className="reviewHead">
                     <strong>{review.userName}</strong>
-                    <span className="reviewTag">Đã mua hàng</span>
+                    {review.own
+                        ? <span className="reviewTag reviewTagOwn">Của bạn</span>
+                        : <span className="reviewTag">Đã mua hàng</span>}
                 </p>
                 <StarRating rating={review.rating} label={`Đánh giá ${review.rating} trên 5 sao`} />
                 <time className="reviewDate" dateTime={review.date}>{formatReviewDate(review.date)}</time>

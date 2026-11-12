@@ -1,12 +1,14 @@
 import {useCallback, useMemo} from 'react'
-import {useSearchParams} from 'react-router-dom'
+import {useLocation, useNavigate, useSearchParams} from 'react-router-dom'
 import type {ProductReview} from '../types/Product.ts'
 import {filterByStar, paginate, sortReviews} from '../lib/productReviews/filtering.ts'
 import {buildReviewSearch, parseReviewSearch, REVIEW_PAGE_SIZE} from '../lib/productReviews/urlState.ts'
 import type {ReviewListState, ReviewSortKey} from '../lib/productReviews/urlState.ts'
 
-export function useReviewFilters(reviews: ProductReview[]) {
+export function useReviewFilters<T extends ProductReview>(reviews: T[]) {
     const [searchParams, setSearchParams] = useSearchParams()
+    const navigate = useNavigate()
+    const {hash} = useLocation()
     const state = useMemo(() => parseReviewSearch(searchParams), [searchParams])
 
     const filtered = useMemo(
@@ -27,6 +29,10 @@ export function useReviewFilters(reviews: ProductReview[]) {
         update((current) => ({...current, sort, page: 1}))
     }, [update])
 
+    const reset = useCallback(() => {
+        navigate({search: '', hash}, {replace: true})
+    }, [navigate, hash])
+
     const searchForPage = useCallback((page: number) => {
         return buildReviewSearch({...state, page}).toString()
     }, [state])
@@ -44,6 +50,7 @@ export function useReviewFilters(reviews: ProductReview[]) {
         items: view.items,
         setStar,
         setSort,
+        reset,
         searchForPage,
         searchForStar,
     }

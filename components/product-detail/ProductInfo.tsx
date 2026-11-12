@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import type {Product} from "../../types/Product.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {PERKS} from "../../lib/productDetail/content.ts";
+import {useProductReviews} from "../../hooks/useProductReviews.ts";
+import {formatRating} from "../../lib/productReviews/summary.ts";
 
 function Icon({id, className = "icon iconSm"}: {id: string, className?: string}) {
     return (
@@ -13,7 +15,8 @@ function Icon({id, className = "icon iconSm"}: {id: string, className?: string})
 }
 
 export default function ProductInfo({product, children}: {product: Product, children?: ReactNode}) {
-    const ratingText = String(product.rating).replace(".", ",");
+    const {rating, count} = useProductReviews(product);
+    const ratingText = formatRating(rating);
     const highlights = [
         product.specs.material,
         product.specs.lock,
@@ -30,12 +33,12 @@ export default function ProductInfo({product, children}: {product: Product, chil
                         ★★★★★
                         <span
                             className="starsFill"
-                            style={{"--rateWidth": `${product.rating * 20}%`} as CSSProperties}
+                            style={{"--rateWidth": `${rating * 20}%`} as CSSProperties}
                             aria-hidden="true"
                         >★★★★★</span>
                     </span>
                     <Link className="starsCount" to={{search: "?tab=review", hash: "#danhGia"}}>
-                        ({product.reviewCount} đánh giá)
+                        ({count} đánh giá)
                     </Link>
                 </span>
                 <span className="metaSep" aria-hidden="true"></span>

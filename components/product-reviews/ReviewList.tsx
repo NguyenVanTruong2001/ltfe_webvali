@@ -1,8 +1,8 @@
-import type {ProductReview} from "../../types/Product.ts";
+import type {DisplayReview} from "../../lib/productReviews/merge.ts";
 import ReviewItem from "./ReviewItem.tsx";
 
 interface ReviewListProps {
-    reviews: ProductReview[]
+    reviews: DisplayReview[]
     emptyText: string
 }
 

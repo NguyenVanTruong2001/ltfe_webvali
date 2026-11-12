@@ -164,3 +164,131 @@ a.pageBtn:hover {
     font-size: 28px;
   }
 }
+
+.composer {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.composerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.composerTitle {
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.reviewForm {
+  display: grid;
+  gap: 20px;
+  max-width: 640px;
+  margin-top: 24px;
+}
+
+.ratingField {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ratingField legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.ratingPick {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ratingStar {
+  position: relative;
+  color: var(--line);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ratingStar input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ratingStar.isActive {
+  color: #f5a400;
+}
+
+.ratingStar:has(input:focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.ratingText {
+  margin-left: 12px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.fieldRow {
+  display: grid;
+  gap: 6px;
+}
+
+.fieldRow label {
+  font-weight: 600;
+}
+
+.fieldRow input,
+.fieldRow textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.fieldRow textarea {
+  resize: vertical;
+}
+
+.fieldRow [aria-invalid='true'] {
+  border-color: #c0392b;
+}
+
+.fieldHint {
+  color: var(--inkFaint);
+  font-size: 13px;
+  text-align: right;
+}
+
+.fieldError {
+  color: #c0392b;
+  font-size: 14px;
+}
+
+.formActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.formNotice {
+  color: #1e7a5c;
+  font-weight: 600;
+}
+
+.reviewTagOwn {
+  background: var(--sky);
+  color: var(--ink);
+}

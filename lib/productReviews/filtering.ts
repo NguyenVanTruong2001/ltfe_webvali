@@ -1,12 +1,12 @@
 import type {ProductReview} from '../../types/Product.ts'
 import type {ReviewSortKey} from './urlState.ts'
 
-export function filterByStar(reviews: ProductReview[], star: number | null): ProductReview[] {
+export function filterByStar<T extends ProductReview>(reviews: T[], star: number | null): T[] {
     return star === null ? reviews : reviews.filter((review) => review.rating === star)
 }
 
-export function sortReviews(reviews: ProductReview[], sort: ReviewSortKey): ProductReview[] {
-    const byDate = (a: ProductReview, b: ProductReview) => a.date.localeCompare(b.date)
+export function sortReviews<T extends ProductReview>(reviews: T[], sort: ReviewSortKey): T[] {
+    const byDate = (a: T, b: T) => a.date.localeCompare(b.date)
     const sorted = [...reviews]
 
     switch (sort) {
