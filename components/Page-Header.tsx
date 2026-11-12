@@ -436,25 +436,25 @@ export default function PageHeader({current}: {current?: string}) {
                             <Link className="navLink isHot" to="/">Khuyến mại</Link>
                         </li>
                         <li className="navItem">
-                            <a className="navLink" href="../ui/news.html">
+                            <Link className="navLink" to="/news">
                                 Tin tức
                                 <svg className="icon iconSm" aria-hidden="true">
                                     <use href="#iChevDown" />
                                 </svg>
-                            </a>
+                            </Link>
                             <div className="mega">
                                 <div className="container megaInner">
                                     <div className="megaCol">
                                         <p className="megaTitle">Hướng dẫn</p>
                                         <ul>
                                             <li>
-                                                <a href="../ui/news.html?topic=size">Chọn size vali</a>
+                                                <Link to="/news?topic=size">Chọn size vali</Link>
                                             </li>
                                             <li>
-                                                <a href="../ui/news.html?topic=guide">Cẩm nang du lịch</a>
+                                                <Link to="/news?topic=guide">Cẩm nang du lịch</Link>
                                             </li>
                                             <li>
-                                                <a href="../ui/news.html?topic=review">Review sản phẩm</a>
+                                                <Link to="/news?topic=review">Review sản phẩm</Link>
                                             </li>
                                         </ul>
                                     </div>
@@ -468,7 +468,7 @@ export default function PageHeader({current}: {current?: string}) {
                                                 <a href="../ui/warrantyPolicy.html">Xử lý lỗi vali</a>
                                             </li>
                                             <li>
-                                                <a href="#">Tuyển dụng</a>
+                                                <Link to="/news">Tuyển dụng</Link>
                                             </li>
                                         </ul>
                                     </div>
