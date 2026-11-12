@@ -21,7 +21,7 @@ export default function ReviewPanel({product}: {product: Product}) {
             {reviews.length > 0 ? (
                 <ul className="reviewList">
                     {reviews.map((review) => (
-                        <ReviewItem review={review} key={review.id} />
+                        <ReviewItem review={review} productId={product.id} key={review.id} />
                     ))}
                 </ul>
             ) : (

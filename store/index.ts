@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'
 import cartReducer, {saveCart} from './cartSlice.ts'
 import productsReducer from './productsSlice.ts'
-import reviewsReducer, {saveReviews} from './reviewsSlice.ts'
+import reviewsReducer, {saveHelpful, saveReviews} from './reviewsSlice.ts'
 import wishlistReducer, {saveWishlist} from './wishlistSlice.ts'
 
 export const store = configureStore({
@@ -27,6 +27,7 @@ function persistOnChange<T>(select: (state: ReturnType<typeof store.getState>) =
 persistOnChange((state) => state.wishlist.ids, saveWishlist)
 persistOnChange((state) => state.cart.lines, saveCart)
 persistOnChange((state) => state.reviews.items, saveReviews)
+persistOnChange((state) => state.reviews.helpful, saveHelpful)
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

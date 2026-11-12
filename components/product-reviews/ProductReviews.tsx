@@ -49,7 +49,7 @@ export default function ProductReviews({product}: {product: Product}) {
                     onStarChange={filters.setStar}
                     onSortChange={filters.setSort}
                 />
-                <ReviewList reviews={filters.items} emptyText={emptyText} />
+                <ReviewList reviews={filters.items} productId={product.id} emptyText={emptyText} manageable />
                 <Pagination page={filters.page} totalPages={filters.totalPages} searchFor={filters.searchForPage} />
             </section>
         </>
