@@ -28,6 +28,133 @@
   font-size: 13px;
 }
 
+.reviewToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0 8px;
+}
+
+.starFilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.starChip {
+  height: 40px;
+  padding: 0 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s;
+}
+
+.starChip:hover {
+  border-color: var(--ink);
+}
+
+.starChip.isActive {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.barLink {
+  color: inherit;
+}
+
+.barLink:hover {
+  text-decoration: underline;
+}
+
+.barRow.isActive .barLink {
+  font-weight: 700;
+}
+
+.reviewEmpty {
+  padding: 32px 0;
+  color: var(--inkSoft);
+}
+
+.sortBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sortLabel {
+  color: var(--inkSoft);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sortSelect {
+  height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color .15s;
+}
+
+.sortSelect:hover {
+  border-color: var(--ink);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pageList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pageBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 600;
+  transition: border-color .15s, background-color .15s;
+}
+
+a.pageBtn:hover {
+  border-color: var(--ink);
+}
+
+.pageBtn.isCurrent {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.pageBtn.isDisabled {
+  border-color: var(--sky);
+  background: var(--sky);
+  color: var(--inkFaint);
+  cursor: not-allowed;
+}
+
 .reviewsPage .reviewList {
   margin-top: 8px;
 }

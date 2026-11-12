@@ -1,16 +1,20 @@
 import type {CSSProperties} from "react";
-import type {Product, ProductReview} from "../../types/Product.ts";
-import {countByStar, formatRating} from "../../lib/productReviews/summary.ts";
+import {Link} from "react-router-dom";
+import type {Product} from "../../types/Product.ts";
+import {formatRating} from "../../lib/productReviews/summary.ts";
+import type {StarCount} from "../../lib/productReviews/summary.ts";
 import StarRating from "./StarRating.tsx";
 
 interface ReviewSummaryProps {
     product: Product
-    reviews: ProductReview[]
+    rows: StarCount[]
+    detailedCount: number
+    activeStar: number | null
+    searchForStar: (star: number) => string
 }
 
-export default function ReviewSummary({product, reviews}: ReviewSummaryProps) {
+export default function ReviewSummary({product, rows, detailedCount, activeStar, searchForStar}: ReviewSummaryProps) {
     const ratingText = formatRating(product.rating);
-    const rows = countByStar(reviews);
 
     return (
         <div className="reviewSummary">
@@ -22,8 +26,14 @@ export default function ReviewSummary({product, reviews}: ReviewSummaryProps) {
             <div>
                 <ul className="barList">
                     {rows.map((row) => (
-                        <li className="barRow" key={row.star}>
-                            <span>{row.star} sao</span>
+                        <li className={row.star === activeStar ? "barRow isActive" : "barRow"} key={row.star}>
+                            <Link
+                                className="barLink"
+                                to={{search: searchForStar(row.star)}}
+                                aria-label={`Lọc ${row.star} sao`}
+                            >
+                                {row.star} sao
+                            </Link>
                             <span className="barTrack">
                                 <span className="barFill" style={{"--barWidth": `${row.percent}%`} as CSSProperties}></span>
                             </span>
@@ -31,7 +41,7 @@ export default function ReviewSummary({product, reviews}: ReviewSummaryProps) {
                         </li>
                     ))}
                 </ul>
-                <p className="scoreNote barNote">Biểu đồ tính trên {reviews.length} nhận xét chi tiết đang hiển thị.</p>
+                <p className="scoreNote barNote">Biểu đồ tính trên {detailedCount} nhận xét chi tiết đang hiển thị.</p>
             </div>
         </div>
     );
