@@ -2,7 +2,7 @@ import {Link, Navigate, Route, Routes, useLocation} from "react-router-dom";
 import App from "../src/App.tsx";
 import ProductListPage from "./product-list/ProductListPage.tsx";
 import ProductDetailPage from "./product-detail/ProductDetailPage.tsx";
-import News from "./news/News.tsx";
+import News from "./news/News-List.tsx";
 
 function NotFound() {
     return (
