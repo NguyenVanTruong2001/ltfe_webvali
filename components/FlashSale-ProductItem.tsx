@@ -1,4 +1,6 @@
-export default function FlashSaleItem({product}: {product:any}) {
+import type {Product} from "../types/Product.ts";
+
+export default function FlashSaleItem({product}: {product: Product}) {
     if (product.isBestSeller) {
     return (<>
         <article className="card">
