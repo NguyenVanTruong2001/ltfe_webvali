@@ -1,5 +1,5 @@
 import FlashSaleItem from "./FlashSale-ProductItem.tsx";
-import {useProducts} from "../hooks/useProducts.ts";
+import {useProducts} from "../../hooks/useProducts.ts";
 
 export default function FlashSaleList() {
     const {products, status} = useProducts();
