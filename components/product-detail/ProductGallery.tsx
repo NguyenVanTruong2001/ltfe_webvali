@@ -12,7 +12,7 @@ export default function ProductGallery({images, name, discountPercent, activeInd
             <div className="galleryMain">
                 {discountPercent > 0 && <span className="badgeSale">-{discountPercent}%</span>}
                 {images.map((src, index) => (
-                    <figure className={index === activeIndex ? "galleryItem isActive" : "galleryItem"} key={src}>
+                    <figure className={index === activeIndex ? "galleryItem isActive" : "galleryItem"} key={`${index}-${src}`}>
                         <img className="galleryPhoto" src={src} alt={`${name} - ảnh ${index + 1}`} />
                     </figure>
                 ))}
@@ -22,7 +22,7 @@ export default function ProductGallery({images, name, discountPercent, activeInd
                     <button
                         type="button"
                         className={index === activeIndex ? "thumb isActive" : "thumb"}
-                        key={src}
+                        key={`${index}-${src}`}
                         aria-label={`Xem ảnh ${index + 1}`}
                         aria-pressed={index === activeIndex}
                         onClick={() => onSelect(index)}
