@@ -837,3 +837,51 @@
   font-weight: 500;
 }
 
+
+.reviewMore {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.reviewTagOwn {
+  background: var(--sky);
+  color: var(--ink);
+}
+
+.reviewActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  margin-top: 8px;
+}
+
+.reviewAction {
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--inkSoft);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reviewAction:hover,
+.reviewAction.isActive {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.reviewAction.isDanger {
+  color: #c0392b;
+}
+
+.reviewConfirm {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}

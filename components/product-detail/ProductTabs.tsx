@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {Link, useLocation, useSearchParams} from "react-router-dom";
 import type {Product} from "../../types/Product.ts";
 import {parseTab, TABS} from "../../lib/productDetail/content.ts";
+import {useProductReviews} from "../../hooks/useProductReviews.ts";
 import DescriptionPanel from "./DescriptionPanel.tsx";
 import SpecPanel from "./SpecPanel.tsx";
 import ReviewPanel from "./ReviewPanel.tsx";
@@ -11,6 +12,7 @@ export default function ProductTabs({product}: {product: Product}) {
     const [searchParams] = useSearchParams();
     const {hash} = useLocation();
     const tab = parseTab(searchParams.get("tab"));
+    const {count} = useProductReviews(product);
 
     useEffect(() => {
         if (hash) document.getElementById(hash.slice(1))?.scrollIntoView({block: "start"});
@@ -26,7 +28,7 @@ export default function ProductTabs({product}: {product: Product}) {
                         className={item.key === tab ? "tabLabel isActive" : "tabLabel"}
                         aria-current={item.key === tab ? "true" : undefined}
                     >
-                        {item.key === "review" ? `${item.label} (${product.reviewCount})` : item.label}
+                        {item.key === "review" ? `${item.label} (${count})` : item.label}
                     </Link>
                 ))}
             </div>
