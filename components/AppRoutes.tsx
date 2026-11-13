@@ -3,6 +3,7 @@ import App from "../src/App.tsx";
 import ProductListPage from "./product-list/ProductListPage.tsx";
 import ProductDetailPage from "./product-detail/ProductDetailPage.tsx";
 import ProductReviewsPage from "./product-reviews/ProductReviewsPage.tsx";
+import News from "./news/News-List.tsx";
 
 function NotFound() {
     return (
@@ -22,6 +23,7 @@ export default function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<App />} />
+            <Route path="/news" element={<News />} />
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id/reviews" element={<ProductReviewsPage />} />
             <Route path="/products/:id/:slug?" element={<ProductDetailPage />} />
