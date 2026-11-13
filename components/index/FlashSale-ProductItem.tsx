@@ -4,7 +4,13 @@ import type {CSSProperties} from "react"
 import {Link} from "react-router-dom";
 import {formatPrice} from "../../lib/productList/format.ts";
 
-export default function FlashSaleItem({product}: {product: Product}) {
+interface ProductItemProps {
+    product: Product
+    wished?: boolean
+    onToggleWish?: (id: number) => void
+}
+
+export default function FlashSaleItem({product, wished = false, onToggleWish}: ProductItemProps) {
     const [activeColor, setActiveColor] = useState(product.colors[0]?.name);
     const hasDiscount = product.discountPercent > 0;
     const detailPath = `/products/${product.id}/${product.slug}`;
@@ -14,7 +20,13 @@ export default function FlashSaleItem({product}: {product: Product}) {
         <article className="card">
             <div className="cardMedia">
                 <span className="badgeSale">-{product.discountPercent}%</span>
-                <button type="button" className="wish" aria-label="Thêm vào yêu thích">
+                <button
+                    type="button"
+                    className={wished ? "wish isActive" : "wish"}
+                    aria-label={wished ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
+                    aria-pressed={wished}
+                    onClick={() => onToggleWish?.(product.id)}
+                >
                     <svg className="icon" aria-hidden="true">
                         <use href="#iHeart" />
                     </svg>
@@ -40,7 +52,7 @@ export default function FlashSaleItem({product}: {product: Product}) {
                     ))}
                 </div>
                 <h3 className="cardTitle">
-                    <a href="../../ui/productDetail.html">Vali khóa kéo Zipra Z8 bản thường</a>
+                    <Link to={detailPath}>{product.name}</Link>
                 </h3>
                 <span className="stars">
                   <span className="starsTrack" role="img" aria-label="Đánh giá 4,6 trên 5 sao">
@@ -53,7 +65,9 @@ export default function FlashSaleItem({product}: {product: Product}) {
                     <strong>{formatPrice(product.price)}</strong>
                     {hasDiscount && <s>{formatPrice(product.originalPrice)}</s>}
                 </p>
-                <button type="button" className="btn btnGhost btnBlock cardBtn">Tùy chọn</button>
+                <button type="button" className="btn btnGhost btnBlock cardBtn">
+                    <Link to={detailPath}>Tùy chọn</Link>
+                </button>
             </div>
         </article>
     </>);}
