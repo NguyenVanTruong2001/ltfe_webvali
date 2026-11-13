@@ -291,3 +291,8 @@ a.pageBtn:hover {
 .reviewEditing {
   display: block;
 }
+
+.composerLocked {
+  margin: 8px 0 12px;
+  color: var(--inkSoft);
+}

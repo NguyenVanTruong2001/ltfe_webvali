@@ -1,12 +1,14 @@
 import {Link} from "react-router-dom";
 import type {Product} from "../../types/Product.ts";
 import {useProductReviews} from "../../hooks/useProductReviews.ts";
+import {useReviewEligibility} from "../../hooks/useReviewEligibility.ts";
 import {formatRating} from "../../lib/productReviews/summary.ts";
 import ReviewItem from "../product-reviews/ReviewItem.tsx";
 import StarRating from "../product-reviews/StarRating.tsx";
 
 export default function ReviewPanel({product}: {product: Product}) {
     const {reviews, rating, count} = useProductReviews(product);
+    const canWrite = useReviewEligibility(product.id) === "allowed";
     const ratingText = formatRating(rating);
 
     return (
@@ -31,9 +33,11 @@ export default function ReviewPanel({product}: {product: Product}) {
                 <Link to={`/products/${product.id}/reviews`} className="btn btnDark">
                     Xem tất cả đánh giá
                 </Link>
-                <Link to={{pathname: `/products/${product.id}/reviews`, hash: "#viet-danh-gia"}} className="btn btnGhost">
-                    Viết đánh giá
-                </Link>
+                {canWrite && (
+                    <Link to={{pathname: `/products/${product.id}/reviews`, hash: "#viet-danh-gia"}} className="btn btnGhost">
+                        Viết đánh giá
+                    </Link>
+                )}
             </div>
         </div>
     );

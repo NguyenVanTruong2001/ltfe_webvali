@@ -1,7 +1,8 @@
 import {useId, useState} from "react";
 import type {FormEvent} from "react";
 import {useAppDispatch} from "../../store/hooks.ts";
-import {addReview, updateReview} from "../../store/reviewsSlice.ts";
+import {updateReview} from "../../store/reviewsSlice.ts";
+import {submitReview} from "../../store/reviewThunks.ts";
 import type {ReviewEdit} from "../../store/reviewsSlice.ts";
 import {
     COMMENT_MAX,
@@ -29,6 +30,7 @@ export default function ReviewForm({productId, initial, onSubmitted, onCancel}: 
     const [comment, setComment] = useState(initial?.comment ?? "");
     const [errors, setErrors] = useState<ReviewErrors>({});
     const [notice, setNotice] = useState<string | null>(null);
+    const [rejected, setRejected] = useState(false);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -43,7 +45,13 @@ export default function ReviewForm({productId, initial, onSubmitted, onCancel}: 
         if (initial) {
             dispatch(updateReview({id: initial.id, ...draft}));
         } else {
-            dispatch(addReview({id: newReviewId(), productId, date: todayIso(), ...draft}));
+            const accepted = dispatch(submitReview({id: newReviewId(), productId, date: todayIso(), ...draft}));
+            if (!accepted) {
+                setRejected(true);
+                setNotice(null);
+                return;
+            }
+            setRejected(false);
             setRating(0);
             setUserName("");
             setComment("");
@@ -109,6 +117,11 @@ export default function ReviewForm({productId, initial, onSubmitted, onCancel}: 
                 <button type="submit" className="btn btnDark">{initial ? "Lưu thay đổi" : "Gửi đánh giá"}</button>
                 {onCancel && <button type="button" className="btn btnGhost" onClick={onCancel}>Hủy</button>}
                 {notice && <p className="formNotice" role="status">{notice}</p>}
+                {rejected && (
+                    <p className="fieldError" role="alert">
+                        Bạn chỉ có thể đánh giá sau khi đơn hàng chứa sản phẩm này được giao thành công.
+                    </p>
+                )}
             </div>
         </form>
     );

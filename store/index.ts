@@ -1,5 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit'
 import cartReducer, {saveCart} from './cartSlice.ts'
+import ordersReducer from './ordersSlice.ts'
 import productsReducer from './productsSlice.ts'
 import reviewsReducer, {saveHelpful, saveReviews} from './reviewsSlice.ts'
 import wishlistReducer, {saveWishlist} from './wishlistSlice.ts'
@@ -10,6 +11,7 @@ export const store = configureStore({
         wishlist: wishlistReducer,
         cart: cartReducer,
         reviews: reviewsReducer,
+        orders: ordersReducer,
     },
 })
 
