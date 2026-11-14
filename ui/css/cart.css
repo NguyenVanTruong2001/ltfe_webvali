@@ -91,7 +91,7 @@
 .cartCols,
 .cartItem {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr) 140px 120px;
+  grid-template-columns: 112px minmax(0, 1fr) 120px 140px;
   gap: 20px;
 }
 
@@ -235,7 +235,8 @@
 
 .cartLineTotal {
   font-family: var(--fontDisplay);
-  font-size: 24px;
+  font-size: 20px;
+  white-space: nowrap;
   font-weight: 700;
   line-height: 1.2;
   text-align: right;
@@ -461,4 +462,42 @@
   .summary {
     padding: 20px;
   }
+}
+
+.cartPhoto {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--rSm);
+  object-fit: cover;
+}
+
+.cartThumb {
+  overflow: hidden;
+}
+
+.cartQtyText {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-weight: 600;
+}
+
+.cartEmpty {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin: 32px 0 72px;
+  padding: 64px 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--rSm);
+  color: var(--inkSoft);
+  text-align: center;
+}
+
+.cartEmptyTitle {
+  color: var(--ink);
+  font-family: var(--fontDisplay);
+  font-size: 26px;
+  font-weight: 700;
 }
