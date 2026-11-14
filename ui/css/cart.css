@@ -501,3 +501,29 @@
   font-size: 26px;
   font-weight: 700;
 }
+
+.cartNotice {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: var(--rSm);
+  background: var(--sky);
+  font-weight: 600;
+}
+
+.cartConfirm {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.cartQty button:disabled {
+  color: var(--inkFaint);
+  cursor: not-allowed;
+}
+
+.cartQty button:disabled:hover {
+  background: transparent;
+}

@@ -26,3 +26,10 @@ export function totalQuantity(entries: CartEntry[]): number {
 export function variantLabel(line: CartLine): string {
     return [line.color && `Màu: ${line.color}`, line.size && `Size: ${line.size}`].filter(Boolean).join(', ')
 }
+
+export function savingsOf(entries: CartEntry[]): number {
+    return entries.reduce((sum, entry) => {
+        if (!entry.product) return sum
+        return sum + Math.max(0, entry.product.originalPrice - entry.product.price) * entry.line.quantity
+    }, 0)
+}
