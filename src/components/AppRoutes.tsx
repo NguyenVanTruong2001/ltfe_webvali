@@ -29,6 +29,7 @@ export default function AppRoutes() {
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id/reviews" element={<ProductReviewsPage />} />
             <Route path="/products/:id/:slug?" element={<ProductDetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/index.html" element={<RedirectTo pathname="/" />} />
             <Route path="/ui/productList.html" element={<RedirectTo pathname="/products" />} />
             <Route path="/ui/productDetail.html" element={<RedirectTo pathname="/products" />} />
