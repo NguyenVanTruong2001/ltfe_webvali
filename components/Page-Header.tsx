@@ -1,6 +1,25 @@
-import {Link} from "react-router-dom";
+import { useState, useEffect, type SyntheticEvent } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 export default function PageHeader({current}: {current?: string}) {
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const [keyword, setKeyword] = useState(searchParams.get("q") ?? "");
+
+    useEffect(() => {
+        setKeyword(searchParams.get("q") ?? "");
+    }, [searchParams]);
+
+    const handleSearch = (e: SyntheticEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const trimmed = keyword.trim();
+        if (trimmed) {
+            navigate(`/products?q=${encodeURIComponent(trimmed)}`);
+        } else {
+            navigate("/products");
+        }
+    };
+
     return (<>
         <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true" focusable="false">
             <defs>
@@ -287,13 +306,15 @@ export default function PageHeader({current}: {current?: string}) {
                     </svg>
                     <span className="logoText">Valigo</span>
                 </Link>
-                <form className="search" role="search" action="#">
+                <form className="search" role="search" onSubmit={handleSearch}>
                     <label className="visuallyHidden" htmlFor="siteSearch">Tìm sản phẩm</label>
                     <input
                         id="siteSearch"
                         type="search"
                         autoComplete="off"
                         placeholder="Tìm vali, balo, phụ kiện..."
+                        value={keyword}
+                        onChange={(e) => setKeyword(e.target.value)}
                     />
                     <button type="submit" className="searchBtn" aria-label="Tìm kiếm">
                         <svg className="icon" aria-hidden="true">
