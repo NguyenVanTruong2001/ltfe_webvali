@@ -1,4 +1,7 @@
 import {formatPrice} from "../../lib/productList/format.ts";
+import type {CartEntry} from "../../lib/cart/pricing.ts";
+import type {CartTotals} from "../../lib/cart/totals.ts";
+import VoucherPicker from "./VoucherPicker.tsx";
 
 function Icon({id}: {id: string}) {
     return (
@@ -8,23 +11,42 @@ function Icon({id}: {id: string}) {
     );
 }
 
-export default function CartSummary({subtotal}: {subtotal: number}) {
+interface CartSummaryProps {
+    entries: CartEntry[]
+    totals: CartTotals
+    voucherCode: string | null
+}
+
+export default function CartSummary({entries, totals, voucherCode}: CartSummaryProps) {
     return (
         <aside className="summary" aria-labelledby="summaryTitle">
             <h2 id="summaryTitle" className="summaryTitle">Tóm tắt đơn hàng</h2>
+            <VoucherPicker entries={entries} totals={totals} voucherCode={voucherCode} />
             <dl className="summaryRows">
                 <div className="summaryRow">
                     <dt>Tạm tính</dt>
-                    <dd>{formatPrice(subtotal)}</dd>
+                    <dd>{formatPrice(totals.subtotal)}</dd>
                 </div>
+                {totals.voucher && totals.discount > 0 && (
+                    <div className="summaryRow isDiscount">
+                        <dt>Giảm giá ({totals.voucher.code}, {totals.voucher.value}%)</dt>
+                        <dd>-{formatPrice(totals.discount)}</dd>
+                    </div>
+                )}
                 <div className="summaryRow">
                     <dt>Phí vận chuyển</dt>
-                    <dd>Tính ở bước thanh toán</dd>
+                    <dd>{totals.shippingFee === 0 ? "Miễn phí" : formatPrice(totals.shippingFee)}</dd>
                 </div>
+                {totals.voucher && totals.shippingDiscount > 0 && (
+                    <div className="summaryRow isDiscount">
+                        <dt>Giảm phí vận chuyển ({totals.voucher.code})</dt>
+                        <dd>-{formatPrice(totals.shippingDiscount)}</dd>
+                    </div>
+                )}
             </dl>
             <p className="summaryTotal">
                 <span>Tổng cộng</span>
-                <strong>{formatPrice(subtotal)}</strong>
+                <strong>{formatPrice(totals.total)}</strong>
             </p>
             <p className="summaryNote">Đã bao gồm thuế VAT</p>
             <a href="/ui/checkout.html" className="btn btnPrimary btnBlock">Tiến hành thanh toán</a>

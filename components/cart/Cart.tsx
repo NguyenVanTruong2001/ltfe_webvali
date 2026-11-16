@@ -5,10 +5,11 @@ import CartBreadcrumb from "./CartBreadcrumb.tsx";
 import CartEmpty from "./CartEmpty.tsx";
 import CartBottom from "./CartBottom.tsx";
 import CartItem from "./CartItem.tsx";
+import ShipMeter from "./ShipMeter.tsx";
 import CartSummary from "./CartSummary.tsx";
 
 export default function Cart() {
-    const {entries, subtotal, quantity, savings} = useCartEntries();
+    const {entries, quantity, savings, totals, voucherCode} = useCartEntries();
     const [notice, setNotice] = useState<string | null>(null);
 
     return (
@@ -29,6 +30,7 @@ export default function Cart() {
             ) : (
                 <div className="cartLayout">
                     <section aria-label="Sản phẩm trong giỏ">
+                        <ShipMeter totals={totals} />
                         <div className="cartCols" aria-hidden="true">
                             <span></span>
                             <span>Sản phẩm</span>
@@ -42,7 +44,7 @@ export default function Cart() {
                         </ul>
                         <CartBottom savings={savings} onNotice={setNotice} />
                     </section>
-                    <CartSummary subtotal={subtotal} />
+                    <CartSummary entries={entries} totals={totals} voucherCode={voucherCode} />
                 </div>
             )}
         </>

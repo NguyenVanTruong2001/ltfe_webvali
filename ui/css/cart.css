@@ -527,3 +527,180 @@
 .cartQty button:disabled:hover {
   background: transparent;
 }
+
+.voucherPicker {
+  margin-top: 16px;
+}
+
+.voucherPickTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.voucherCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1.5px dashed var(--strap);
+  border-radius: var(--rSm);
+  background: #fffaf0;
+  font-size: 14px;
+}
+
+.voucherCard.isApplied {
+  border: 1.5px solid #1e7a5c;
+  background: #e1f3ec;
+  color: #1e7a5c;
+}
+
+.voucherCard.isWarning {
+  border: 1.5px solid #b3261e;
+  background: #fdecea;
+  color: #b3261e;
+}
+
+.voucherCardText {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.voucherCard .btn {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+.voucherCardEmpty {
+  margin-top: 12px;
+  color: var(--inkSoft);
+  font-size: 14px;
+}
+
+.voucherMore {
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.voucherDialog {
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100vh - 64px);
+  padding: 24px;
+  border: 0;
+  border-radius: var(--rMd);
+  background: #fff;
+  color: var(--ink);
+}
+
+.voucherDialog::backdrop {
+  background: rgba(15, 30, 46, 0.55);
+}
+
+.voucherDialogHead,
+.voucherDialogFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.voucherDialogTitle {
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.voucherDialogFoot {
+  margin-top: 20px;
+}
+
+.voucherPick {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.voucherPickItem {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--rSm);
+  background: #fff;
+}
+
+.voucherPickItem.isSelected {
+  border-color: #1e7a5c;
+  background: #f1faf6;
+}
+
+.voucherPickItem.isDisabled {
+  background: var(--sky);
+}
+
+.voucherPickItem.isDisabled .voucherPickValue,
+.voucherPickItem.isDisabled .voucherPickName {
+  opacity: 0.6;
+}
+
+.voucherPickValue {
+  display: grid;
+  place-items: center;
+  height: 52px;
+  border-radius: var(--rSm);
+  background: var(--strap);
+  font-weight: 800;
+}
+
+.voucherPickBody {
+  display: grid;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.voucherPickName,
+.voucherPickNote,
+.voucherPickReason,
+.voucherPickSaving {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.voucherPickNote {
+  color: var(--inkSoft);
+}
+
+.voucherPickSaving {
+  color: #1e7a5c;
+  font-weight: 600;
+}
+
+.voucherPickReason {
+  color: #b3261e;
+}
+
+.voucherPickItem input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--ink);
+}
+
+.voucherCard .textAction {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
