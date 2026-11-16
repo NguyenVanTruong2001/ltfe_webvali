@@ -1,5 +1,5 @@
 import {Link, Navigate, Route, Routes, useLocation} from "react-router-dom";
-import App from "../src/App.tsx";
+import App from "../App.tsx";
 import ProductListPage from "./product-list/ProductListPage.tsx";
 import ProductDetailPage from "./product-detail/ProductDetailPage.tsx";
 import ProductReviewsPage from "./product-reviews/ProductReviewsPage.tsx";
