@@ -704,3 +704,34 @@
   flex-shrink: 0;
   white-space: nowrap;
 }
+
+.cartItem.isUnavailable .cartPhoto,
+.cartItem.isUnavailable .cartName,
+.cartItem.isUnavailable .cartUnitPrice {
+  opacity: 0.55;
+}
+
+.cartItem.isUnavailable .cartLineTotal {
+  color: var(--inkFaint);
+}
+
+.cartUnavailable {
+  margin-top: 6px;
+  color: #b3261e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.summaryWarn {
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-radius: var(--rSm);
+  background: #fdecea;
+  color: #b3261e;
+  font-size: 14px;
+}
+
+.summary .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

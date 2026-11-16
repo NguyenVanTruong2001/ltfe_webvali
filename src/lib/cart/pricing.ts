@@ -11,8 +11,16 @@ export function buildEntries(lines: CartLine[], products: Product[]): CartEntry[
     return lines.map((line) => ({line, product: byId.get(line.productId)}))
 }
 
+export function isPurchasable(entry: CartEntry): boolean {
+    return entry.product !== undefined && entry.product.inStock
+}
+
+export function isUnavailable(entry: CartEntry): boolean {
+    return entry.product !== undefined && !entry.product.inStock
+}
+
 export function lineTotal(entry: CartEntry): number {
-    return entry.product ? entry.product.price * entry.line.quantity : 0
+    return entry.product && entry.product.inStock ? entry.product.price * entry.line.quantity : 0
 }
 
 export function subtotalOf(entries: CartEntry[]): number {
@@ -29,7 +37,7 @@ export function variantLabel(line: CartLine): string {
 
 export function savingsOf(entries: CartEntry[]): number {
     return entries.reduce((sum, entry) => {
-        if (!entry.product) return sum
+        if (!entry.product || !entry.product.inStock) return sum
         return sum + Math.max(0, entry.product.originalPrice - entry.product.price) * entry.line.quantity
     }, 0)
 }

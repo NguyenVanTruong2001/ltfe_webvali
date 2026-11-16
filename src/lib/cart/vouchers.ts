@@ -1,5 +1,5 @@
-import type {CartEntry} from './pricing.ts'
 import {lineTotal} from './pricing.ts'
+import type {CartEntry} from './pricing.ts'
 
 export interface Voucher {
     code: string

@@ -6,6 +6,7 @@ import CartEmpty from "./CartEmpty.tsx";
 import CartBottom from "./CartBottom.tsx";
 import CartItem from "./CartItem.tsx";
 import ShipMeter from "./ShipMeter.tsx";
+import CartSuggestions from "./CartSuggestions.tsx";
 import CartSummary from "./CartSummary.tsx";
 
 export default function Cart() {
@@ -47,6 +48,7 @@ export default function Cart() {
                     <CartSummary entries={entries} totals={totals} voucherCode={voucherCode} />
                 </div>
             )}
+            <CartSuggestions entries={entries} />
         </>
     );
 }

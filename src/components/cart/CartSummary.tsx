@@ -49,7 +49,18 @@ export default function CartSummary({entries, totals, voucherCode}: CartSummaryP
                 <strong>{formatPrice(totals.total)}</strong>
             </p>
             <p className="summaryNote">Đã bao gồm thuế VAT</p>
-            <a href="/ui/checkout.html" className="btn btnPrimary btnBlock">Tiến hành thanh toán</a>
+            {totals.unavailableCount > 0 && (
+                <p className="summaryWarn" role="status">
+                    {totals.unavailableCount} sản phẩm đang tạm hết hàng và không được tính vào đơn.
+                </p>
+            )}
+            {totals.purchasableCount > 0 ? (
+                <a href="/ui/checkout.html" className="btn btnPrimary btnBlock">Tiến hành thanh toán</a>
+            ) : (
+                <button type="button" className="btn btnPrimary btnBlock" disabled>
+                    Tiến hành thanh toán
+                </button>
+            )}
             <ul className="methodList" aria-label="Phương thức thanh toán">
                 <li className="methodChip">COD</li>
                 <li className="methodChip">Thẻ ATM</li>

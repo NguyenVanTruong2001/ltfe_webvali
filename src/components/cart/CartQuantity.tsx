@@ -5,6 +5,7 @@ import {clampQuantity, MAX_QUANTITY, MIN_QUANTITY} from "../../lib/productDetail
 interface CartQuantityProps {
     name: string
     quantity: number
+    disabled?: boolean
     onChange: (quantity: number) => void
 }
 
@@ -16,7 +17,7 @@ function Icon({id}: {id: string}) {
     );
 }
 
-export default function CartQuantity({name, quantity, onChange}: CartQuantityProps) {
+export default function CartQuantity({name, quantity, disabled = false, onChange}: CartQuantityProps) {
     const [draft, setDraft] = useState(String(quantity));
 
     useEffect(() => {
@@ -46,7 +47,7 @@ export default function CartQuantity({name, quantity, onChange}: CartQuantityPro
             <button
                 type="button"
                 aria-label={`Giảm số lượng ${name}`}
-                disabled={quantity <= MIN_QUANTITY}
+                disabled={disabled || quantity <= MIN_QUANTITY}
                 onClick={() => onChange(quantity - 1)}
             >
                 <Icon id="iMinus" />
@@ -57,6 +58,7 @@ export default function CartQuantity({name, quantity, onChange}: CartQuantityPro
                 min={MIN_QUANTITY}
                 max={MAX_QUANTITY}
                 value={draft}
+                disabled={disabled}
                 aria-label={`Số lượng ${name}`}
                 onChange={(event) => setDraft(event.target.value)}
                 onBlur={commit}
@@ -65,7 +67,7 @@ export default function CartQuantity({name, quantity, onChange}: CartQuantityPro
             <button
                 type="button"
                 aria-label={`Tăng số lượng ${name}`}
-                disabled={quantity >= MAX_QUANTITY}
+                disabled={disabled || quantity >= MAX_QUANTITY}
                 onClick={() => onChange(quantity + 1)}
             >
                 <Icon id="iPlus" />

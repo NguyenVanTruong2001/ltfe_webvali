@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import {formatPrice} from "../../lib/productList/format.ts";
-import {lineTotal, variantLabel} from "../../lib/cart/pricing.ts";
+import {isUnavailable, lineTotal, variantLabel} from "../../lib/cart/pricing.ts";
 import type {CartEntry} from "../../lib/cart/pricing.ts";
 import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
 import {removeFromCart, setLineQuantity} from "../../store/cartSlice.ts";
@@ -49,11 +49,12 @@ export default function CartItem({entry, onNotice}: CartItemProps) {
         );
     }
 
+    const unavailable = isUnavailable(entry);
     const detailPath = `/products/${product.id}/${product.slug}`;
     const hasDiscount = product.discountPercent > 0;
 
     return (
-        <li className="cartItem">
+        <li className={unavailable ? "cartItem isUnavailable" : "cartItem"}>
             <Link to={detailPath} className="cartThumb" aria-label={`Xem ${product.name}`}>
                 <img className="cartPhoto" src={product.images[0]} alt={product.name} />
             </Link>
@@ -62,6 +63,9 @@ export default function CartItem({entry, onNotice}: CartItemProps) {
                     <Link to={detailPath}>{product.name}</Link>
                 </h3>
                 <p className="cartVariant">{variantLabel(line)}</p>
+                {unavailable && (
+                    <p className="cartUnavailable" role="status">Tạm hết hàng, sản phẩm này không được tính vào đơn.</p>
+                )}
                 <p className="cartUnitPrice">
                     <strong>{formatPrice(product.price)}</strong>
                     {hasDiscount && <s>{formatPrice(product.originalPrice)}</s>}
@@ -77,10 +81,11 @@ export default function CartItem({entry, onNotice}: CartItemProps) {
                 <CartQuantity
                     name={product.name}
                     quantity={line.quantity}
+                    disabled={unavailable}
                     onChange={(quantity) => dispatch(setLineQuantity({key: line.key, quantity}))}
                 />
             </div>
-            <p className="cartLineTotal">{formatPrice(lineTotal(entry))}</p>
+            <p className="cartLineTotal">{unavailable ? "—" : formatPrice(lineTotal(entry))}</p>
         </li>
     );
 }
