@@ -1,11 +1,15 @@
 import { useState, useEffect, type SyntheticEvent } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useAppSelector } from "../store/hooks.ts";
+import { selectCartCount } from "../store/cartSlice.ts";
+import { selectWishIds } from "../store/wishlistSlice.ts";
 
 export default function PageHeader({current}: {current?: string}) {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [keyword, setKeyword] = useState(searchParams.get("q") ?? "");
-
+    const cartCount = useAppSelector(selectCartCount);
+    const wishCount = useAppSelector(selectWishIds).length;
     useEffect(() => {
         setKeyword(searchParams.get("q") ?? "");
     }, [searchParams]);
@@ -329,24 +333,24 @@ export default function PageHeader({current}: {current?: string}) {
                         </svg>
                         <span className="actionLabel">Tài khoản</span>
                     </a>
-                    <a href="#" className="action" aria-label="Yêu thích, 2 sản phẩm">
-        <span className="actionIcon">
-          <svg className="icon iconLg" aria-hidden="true">
-            <use href="#iHeart" />
-          </svg>
-          <span className="count">2</span>
-        </span>
+                    <Link to="/products" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
+                     <span className="actionIcon">
+                         <svg className="icon iconLg" aria-hidden="true">
+                             <use href="#iHeart" />
+                         </svg>
+                         <span className="count">{wishCount}</span>
+                     </span>
                         <span className="actionLabel">Yêu thích</span>
-                    </a>
-                    <a href="../ui/cart.html" className="action" aria-label="Giỏ hàng, 1 sản phẩm">
-        <span className="actionIcon">
-          <svg className="icon iconLg" aria-hidden="true">
-            <use href="#iBag" />
-          </svg>
-          <span className="count">1</span>
-        </span>
+                    </Link>
+                    <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
+                     <span className="actionIcon">
+                         <svg className="icon iconLg" aria-hidden="true">
+                             <use href="#iBag" />
+                         </svg>
+                         <span className="count">{cartCount}</span>
+                     </span>
                         <span className="actionLabel">Giỏ hàng</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
             <nav className="mainnav" aria-label="Danh mục chính">

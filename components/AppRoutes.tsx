@@ -4,6 +4,7 @@ import ProductListPage from "./product-list/ProductListPage.tsx";
 import ProductDetailPage from "./product-detail/ProductDetailPage.tsx";
 import ProductReviewsPage from "./product-reviews/ProductReviewsPage.tsx";
 import News from "./news/News-List.tsx";
+import CartPage from "./cart/CartPage.tsx";
 
 function NotFound() {
     return (
@@ -27,9 +28,11 @@ export default function AppRoutes() {
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id/reviews" element={<ProductReviewsPage />} />
             <Route path="/products/:id/:slug?" element={<ProductDetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/index.html" element={<RedirectTo pathname="/" />} />
             <Route path="/ui/productList.html" element={<RedirectTo pathname="/products" />} />
             <Route path="/ui/productDetail.html" element={<RedirectTo pathname="/products" />} />
+            <Route path="/ui/cart.html" element={<RedirectTo pathname="/cart" />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
