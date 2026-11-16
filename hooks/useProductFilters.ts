@@ -16,10 +16,11 @@ import type {ListState} from '../lib/productList/urlState.ts'
 export function useProductFilters(products: Product[]) {
     const [searchParams, setSearchParams] = useSearchParams()
     const state = useMemo(() => parseSearch(searchParams), [searchParams])
+    const keyword = searchParams.get('q') ?? ''
 
     const filtered = useMemo(
-        () => sortProducts(applyFilters(products, state.filters), state.sort),
-        [products, state.filters, state.sort],
+        () => sortProducts(applyFilters(products, state.filters, undefined, keyword), state.sort),
+        [products, state.filters, state.sort, keyword],
     )
     const activeFilters = useMemo(() => listActiveFilters(state.filters), [state.filters])
 
@@ -30,26 +31,52 @@ export function useProductFilters(products: Product[]) {
         [filtered, page],
     )
 
-    const update = useCallback((change: (current: ListState) => ListState) => {
-        setSearchParams((previous) => buildSearchParams(change(parseSearch(previous))))
+    const update = useCallback(
+        (change: (current: ListState) => ListState) => {
+            setSearchParams((previous) => {
+                const nextParams = buildSearchParams(change(parseSearch(previous)))
+                const currentQ = previous.get('q')
+                if (currentQ) {
+                    nextParams.set('q', currentQ)
+                }
+                return nextParams
+            })
+        },
+        [setSearchParams],
+    )
+
+    const toggle = useCallback(
+        (groupKey: string, value: string) => {
+            const group = FILTER_GROUPS.find((g) => g.key === groupKey)
+            if (group) update((s) => ({...s, page: 1, filters: toggleOption(s.filters, group, value)}))
+        },
+        [update],
+    )
+
+    const remove = useCallback(
+        (groupKey: string, value: string) => {
+            update((s) => ({...s, page: 1, filters: removeOption(s.filters, groupKey, value)}))
+        },
+        [update],
+    )
+
+    const clear = useCallback(() => {
+        setSearchParams({})
     }, [setSearchParams])
 
-    const toggle = useCallback((groupKey: string, value: string) => {
-        const group = FILTER_GROUPS.find((g) => g.key === groupKey)
-        if (group) update((s) => ({...s, page: 1, filters: toggleOption(s.filters, group, value)}))
-    }, [update])
-
-    const remove = useCallback((groupKey: string, value: string) => {
-        update((s) => ({...s, page: 1, filters: removeOption(s.filters, groupKey, value)}))
-    }, [update])
-
-    const clear = useCallback(() => update((s) => ({...s, page: 1, filters: {}})), [update])
     const setSort = useCallback((sort: SortKey) => update((s) => ({...s, page: 1, sort})), [update])
 
-    const searchFor = useCallback((target: number) => {
-        const query = buildSearchParams({...state, page: target}).toString()
-        return query ? `?${query}` : ''
-    }, [state])
+    const searchFor = useCallback(
+        (target: number) => {
+            const nextParams = buildSearchParams({...state, page: target})
+            if (keyword) {
+                nextParams.set('q', keyword)
+            }
+            const query = nextParams.toString()
+            return query ? `?${query}` : ''
+        },
+        [state, keyword],
+    )
 
     return {
         filters: state.filters,
