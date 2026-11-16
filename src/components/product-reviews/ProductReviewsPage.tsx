@@ -1,9 +1,10 @@
-import "../../ui/css/productDetail.css";
+import "../../../ui/css/productDetail.css";
+import "../../../ui/css/productReviews.css";
 import {useEffect} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
-import ProductDetail from "./ProductDetail.tsx";
+import ProductReviews from "./ProductReviews.tsx";
 import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
 import {
     loadProducts,
@@ -12,8 +13,9 @@ import {
     selectProductsStatus,
 } from "../../store/productsSlice.ts";
 
-export default function ProductDetailPage() {
+export default function ProductReviewsPage() {
     const {id} = useParams();
+    const {hash} = useLocation();
     const dispatch = useAppDispatch();
     const status = useAppSelector(selectProductsStatus);
     const error = useAppSelector(selectProductsError);
@@ -23,12 +25,16 @@ export default function ProductDetailPage() {
         dispatch(loadProducts());
     }, [dispatch]);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [id]);
+    const productId = product?.id;
 
     useEffect(() => {
-        document.title = product ? `${product.name} - Valigo` : "Sản phẩm - Valigo";
+        if (productId === undefined) return;
+        if (hash) document.getElementById(hash.slice(1))?.scrollIntoView({block: "start"});
+        else window.scrollTo(0, 0);
+    }, [productId, hash]);
+
+    useEffect(() => {
+        document.title = product ? `Đánh giá ${product.name} - Valigo` : "Đánh giá sản phẩm - Valigo";
     }, [product]);
 
     return (
@@ -36,10 +42,10 @@ export default function ProductDetailPage() {
             <PageHeader current="vali" />
             <main id="noiDung">
                 <div className="container">
-                    {product && <ProductDetail product={product} key={product.id} />}
+                    {product && <ProductReviews product={product} key={product.id} />}
                     {!product && status === "failed" && (
                         <div className="emptyState" role="alert">
-                            <p className="emptyTitle">Không tải được sản phẩm</p>
+                            <p className="emptyTitle">Không tải được đánh giá</p>
                             <p>{error}</p>
                             <button type="button" className="btn btnDark" onClick={() => dispatch(loadProducts())}>
                                 Thử lại
@@ -47,7 +53,7 @@ export default function ProductDetailPage() {
                         </div>
                     )}
                     {!product && (status === "idle" || status === "loading") && (
-                        <p className="emptyState" role="status">Đang tải sản phẩm...</p>
+                        <p className="emptyState" role="status">Đang tải đánh giá...</p>
                     )}
                     {!product && status === "succeeded" && (
                         <div className="emptyState">

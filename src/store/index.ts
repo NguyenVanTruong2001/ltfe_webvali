@@ -3,6 +3,7 @@ import cartReducer, {saveCart} from './cartSlice.ts'
 import ordersReducer from './ordersSlice.ts'
 import productsReducer from './productsSlice.ts'
 import reviewsReducer, {saveHelpful, saveReviews} from './reviewsSlice.ts'
+import voucherReducer, {saveVoucher} from './voucherSlice.ts'
 import wishlistReducer, {saveWishlist} from './wishlistSlice.ts'
 
 export const store = configureStore({
@@ -12,6 +13,7 @@ export const store = configureStore({
         cart: cartReducer,
         reviews: reviewsReducer,
         orders: ordersReducer,
+        voucher: voucherReducer,
     },
 })
 
@@ -28,6 +30,7 @@ function persistOnChange<T>(select: (state: ReturnType<typeof store.getState>) =
 
 persistOnChange((state) => state.wishlist.ids, saveWishlist)
 persistOnChange((state) => state.cart.lines, saveCart)
+persistOnChange((state) => state.voucher.code, saveVoucher)
 persistOnChange((state) => state.reviews.items, saveReviews)
 persistOnChange((state) => state.reviews.helpful, saveHelpful)
 

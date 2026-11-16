@@ -268,13 +268,13 @@ export default function PageHeader({current}: {current?: string}) {
                     </a>
                 </div>
                 <div className="topbarGroup">
-                    <a href="../ui/orderTracking.html">
+                    <a href="/ui/orderTracking.html">
                         <svg className="icon iconSm" aria-hidden="true">
                             <use href="#iPackage" />
                         </svg>
                         Kiểm tra đơn hàng
                     </a>
-                    <a href="../ui/stores.html">
+                    <a href="/ui/stores.html">
                         <svg className="icon iconSm" aria-hidden="true">
                             <use href="#iStore" />
                         </svg>
@@ -327,28 +327,28 @@ export default function PageHeader({current}: {current?: string}) {
                     </button>
                 </form>
                 <div className="actions">
-                    <a href="../ui/login.html" className="action">
+                    <a href="/ui/login.html" className="action">
                         <svg className="icon iconLg" aria-hidden="true">
                             <use href="#iUser" />
                         </svg>
                         <span className="actionLabel">Tài khoản</span>
                     </a>
                     <Link to="/products" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
-                     <span className="actionIcon">
-                         <svg className="icon iconLg" aria-hidden="true">
-                             <use href="#iHeart" />
-                         </svg>
-                         <span className="count">{wishCount}</span>
-                     </span>
+        <span className="actionIcon">
+          <svg className="icon iconLg" aria-hidden="true">
+            <use href="#iHeart" />
+          </svg>
+          {wishCount > 0 && <span className="count">{wishCount}</span>}
+        </span>
                         <span className="actionLabel">Yêu thích</span>
                     </Link>
                     <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
-                     <span className="actionIcon">
-                         <svg className="icon iconLg" aria-hidden="true">
-                             <use href="#iBag" />
-                         </svg>
-                         <span className="count">{cartCount}</span>
-                     </span>
+        <span className="actionIcon">
+          <svg className="icon iconLg" aria-hidden="true">
+            <use href="#iBag" />
+          </svg>
+          {cartCount > 0 && <span className="count">{cartCount}</span>}
+        </span>
                         <span className="actionLabel">Giỏ hàng</span>
                     </Link>
                 </div>
@@ -357,7 +357,7 @@ export default function PageHeader({current}: {current?: string}) {
                 <div className="container">
                     <ul className="navList">
                         <li className="navItem">
-                            <a className="navLink" href="../ui/about.html">Về chúng tôi</a>
+                            <a className="navLink" href="/ui/about.html">Về chúng tôi</a>
                         </li>
                         <li className="navItem">
                             <Link className={current === "vali" ? "navLink isCurrent" : "navLink"} data-nav="vali" to="/products">
