@@ -64,19 +64,19 @@ export default function PageFooter() {
                             <Link to="/">Trang chủ</Link>
                         </li>
                         <li>
-                            <a href="/ui/about.html">Giới thiệu</a>
+                            <a href="../../ui/about.html">Giới thiệu</a>
                         </li>
                         <li>
                             <Link to="/products">Tất cả sản phẩm</Link>
                         </li>
                         <li>
-                            <a href="/ui/news.html">Tin tức</a>
+                            <Link to="/news">Tin tức</Link>
                         </li>
                         <li>
-                            <a href="/ui/stores.html">Hệ thống cửa hàng</a>
+                            <a href="../../ui/stores.html">Hệ thống cửa hàng</a>
                         </li>
                         <li>
-                            <a href="/ui/orderHistory.html">Lịch sử đơn hàng</a>
+                            <a href="../../ui/orderHistory.html">Lịch sử đơn hàng</a>
                         </li>
                     </ul>
                 </nav>
@@ -84,19 +84,19 @@ export default function PageFooter() {
                     <h2 className="footerTitle">Chính sách</h2>
                     <ul>
                         <li>
-                            <a href="/ui/shippingPolicy.html">Chính sách vận chuyển</a>
+                            <Link to="/shippingPolicy">Chính sách vận chuyển</Link>
                         </li>
                         <li>
-                            <a href="/ui/warrantyPolicy.html">Chính sách bảo hành</a>
+                            <Link to="/warrantyPolicy">Chính sách bảo hành</Link>
                         </li>
                         <li>
-                            <a href="/ui/returnPolicy.html">Chính sách đổi trả</a>
+                            <Link to="/returnPolicy">Chính sách đổi trả</Link>
                         </li>
                         <li>
-                            <a href="/ui/paymentPolicy.html">Chính sách thanh toán</a>
+                            <Link to="/paymentPolicy">Chính sách thanh toán</Link>
                         </li>
                         <li>
-                            <a href="/ui/privacyPolicy.html">Chính sách bảo mật</a>
+                            <Link to="/privacyPolicy">Chính sách bảo mật</Link>
                         </li>
                     </ul>
                 </nav>

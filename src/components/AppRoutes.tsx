@@ -1,9 +1,9 @@
 import {Link, Navigate, Route, Routes, useLocation} from "react-router-dom";
-import App from "../App.tsx";
 import ProductListPage from "./product-list/ProductListPage.tsx";
 import ProductDetailPage from "./product-detail/ProductDetailPage.tsx";
 import ProductReviewsPage from "./product-reviews/ProductReviewsPage.tsx";
 import News from "./news/News-List.tsx";
+import App from "../App.tsx";
 import CartPage from "./cart/CartPage.tsx";
 
 function NotFound() {
@@ -32,7 +32,6 @@ export default function AppRoutes() {
             <Route path="/index.html" element={<RedirectTo pathname="/" />} />
             <Route path="/ui/productList.html" element={<RedirectTo pathname="/products" />} />
             <Route path="/ui/productDetail.html" element={<RedirectTo pathname="/products" />} />
-            <Route path="/ui/cart.html" element={<RedirectTo pathname="/cart" />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

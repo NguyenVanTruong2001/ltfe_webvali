@@ -1,4 +1,3 @@
-import "../../../ui/css/cart.css";
 import {useEffect} from "react";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
