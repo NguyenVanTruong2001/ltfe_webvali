@@ -333,13 +333,13 @@ export default function PageHeader({current}: {current?: string}) {
                         </svg>
                         <span className="actionLabel">Tài khoản</span>
                     </a>
-                    <Link to="/products" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
-        <span className="actionIcon">
-          <svg className="icon iconLg" aria-hidden="true">
-            <use href="#iHeart" />
-          </svg>
-          {wishCount > 0 && <span className="count">{wishCount}</span>}
-        </span>
+                    <Link to="/wishlist" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
+                        <span className="actionIcon">
+                            <svg className="icon iconLg" aria-hidden="true">
+                                <use href="#iHeart" />
+                            </svg>
+                            <span className="count">{wishCount}</span>
+                        </span>
                         <span className="actionLabel">Yêu thích</span>
                     </Link>
                     <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
