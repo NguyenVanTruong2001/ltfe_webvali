@@ -32,10 +32,13 @@ const wishlistSlice = createSlice({
             if (index >= 0) state.ids.splice(index, 1)
             else state.ids.push(action.payload)
         },
+        clearWishlist(state) {
+            state.ids = []
+        },
     },
 })
 
-export const {toggleWish} = wishlistSlice.actions
+export const {toggleWish, clearWishlist} = wishlistSlice.actions
 export default wishlistSlice.reducer
 
 export const selectWishIds = (state: {wishlist: WishlistState}) => state.wishlist.ids
