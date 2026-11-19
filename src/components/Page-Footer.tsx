@@ -70,7 +70,7 @@ export default function PageFooter() {
                             <Link to="/products">Tất cả sản phẩm</Link>
                         </li>
                         <li>
-                            <Link to="/news">Tin tức</Link>
+                            <a href="../ui/news.html">Tin tức</a>
                         </li>
                         <li>
                             <a href="../ui/stores.html">Hệ thống cửa hàng</a>
@@ -84,19 +84,19 @@ export default function PageFooter() {
                     <h2 className="footerTitle">Chính sách</h2>
                     <ul>
                         <li>
-                            <Link to="/shippingPolicy">Chính sách vận chuyển</Link>
+                            <a href="../ui/shippingPolicy.html">Chính sách vận chuyển</a>
                         </li>
                         <li>
-                            <Link to="/warrantyPolicy">Chính sách bảo hành</Link>
+                            <a href="../ui/warrantyPolicy.html">Chính sách bảo hành</a>
                         </li>
                         <li>
-                            <Link to="/returnPolicy">Chính sách đổi trả</Link>
+                            <a href="../ui/returnPolicy.html">Chính sách đổi trả</a>
                         </li>
                         <li>
-                            <Link to="/paymentPolicy">Chính sách thanh toán</Link>
+                            <a href="../ui/paymentPolicy.html">Chính sách thanh toán</a>
                         </li>
                         <li>
-                            <Link to="/privacyPolicy">Chính sách bảo mật</Link>
+                            <a href="../ui/privacyPolicy.html">Chính sách bảo mật</a>
                         </li>
                     </ul>
                 </nav>
@@ -112,13 +112,13 @@ export default function PageFooter() {
                     <h2 className="footerTitle footerTitleGap">Kết nối</h2>
                     <ul className="socialList">
                         <li>
-                            <Link to="">Facebook</Link>
+                            <a href="#">Facebook</a>
                         </li>
                         <li>
-                            <Link to="">YouTube</Link>
+                            <a href="#">YouTube</a>
                         </li>
                         <li>
-                            <Link to="">TikTok</Link>
+                            <a href="#">TikTok</a>
                         </li>
                     </ul>
                 </div>

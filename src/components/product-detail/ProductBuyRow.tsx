@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import {MAX_QUANTITY, MIN_QUANTITY} from "../../lib/productDetail/options.ts";
 
 interface ProductBuyRowProps {
@@ -72,7 +73,7 @@ export default function ProductBuyRow({
             </button>
             <p className="addNotice" role="status">
                 {notice}
-                {notice && <> <a href="../ui/cart.html" className="textLink">Xem giỏ hàng</a></>}
+                {notice && <> <Link to="/cart" className="textLink">Xem giỏ hàng</Link></>}
             </p>
         </>
     );

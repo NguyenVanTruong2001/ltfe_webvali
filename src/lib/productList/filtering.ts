@@ -25,16 +25,38 @@ function matchesGroup(product: Product, group: FilterGroup, selected: string[]):
     return group.options.some((o) => selected.includes(o.value) && (o.test ? o.test(product) : true))
 }
 
-
-export function applyFilters(products: Product[], state: FilterState, skipKey?: string): Product[] {
-    return products.filter((product) =>
-        FILTER_GROUPS.every((group) => group.key === skipKey || matchesGroup(product, group, selectedOf(state, group))),
+function matchesKeyword(product: Product, keyword?: string): boolean {
+    const trimmed = keyword?.trim().toLowerCase()
+    if (!trimmed) return true
+    return (
+        product.name.toLowerCase().includes(trimmed) ||
+        (product.brand?.toLowerCase().includes(trimmed) ?? false)
     )
 }
 
+export function applyFilters(
+    products: Product[],
+    state: FilterState,
+    skipKey?: string,
+    keyword?: string,
+): Product[] {
+    return products.filter(
+        (product) =>
+            matchesKeyword(product, keyword) &&
+            FILTER_GROUPS.every(
+                (group) => group.key === skipKey || matchesGroup(product, group, selectedOf(state, group)),
+            ),
+    )
+}
 
-export function countOption(products: Product[], state: FilterState, group: FilterGroup, option: FilterOption): number {
-    const pool = applyFilters(products, state, group.key)
+export function countOption(
+    products: Product[],
+    state: FilterState,
+    group: FilterGroup,
+    option: FilterOption,
+    keyword?: string,
+): number {
+    const pool = applyFilters(products, state, group.key, keyword)
     return option.test ? pool.filter(option.test).length : pool.length
 }
 
@@ -42,7 +64,6 @@ export function toggleOption(state: FilterState, group: FilterGroup, value: stri
     const selected = selectedOf(state, group)
 
     if (group.input === 'radio') {
-
         const next = value === 'all' || selected.includes(value) ? [] : [value]
         return {...state, [group.key]: next}
     }
@@ -71,7 +92,6 @@ function chipLabel(group: FilterGroup, option: FilterOption): string {
 }
 
 const comparators: Record<SortKey, (a: Product, b: Product) => number> = {
-
     'newest': (a, b) => Number(b.isNewArrival) - Number(a.isNewArrival) || b.id - a.id,
     'bestseller': (a, b) => Number(b.isBestSeller) - Number(a.isBestSeller) || b.reviewCount - a.reviewCount,
     'price-asc': (a, b) => a.price - b.price,
