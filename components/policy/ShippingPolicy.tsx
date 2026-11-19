@@ -1,7 +1,6 @@
 import PageHeader from "../Page-Header";
 import PageFooter from "../Page-Footer";
 import {Link} from "react-router-dom";
-import "../../ui/css/policy.css"
 
 export default function ShippingPolicy() {
     return (

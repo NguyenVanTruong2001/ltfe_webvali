@@ -1,5 +1,3 @@
-import "../../ui/css/productDetail.css";
-import "../../ui/css/productReviews.css";
 import {useEffect} from "react";
 import {Link, useLocation, useParams} from "react-router-dom";
 import PageHeader from "../Page-Header.tsx";
