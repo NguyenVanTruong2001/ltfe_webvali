@@ -438,10 +438,10 @@ export default function PageHeader({current}: {current?: string}) {
                                                 <Link to="/news">Tin tức</Link>
                                             </li>
                                             <li>
-                                                <Link to="/news">Về chúng tôi</Link>
+                                                <Link to="/aboutus">Về chúng tôi</Link>
                                             </li>
                                             <li>
-                                                <Link to="/news">Hệ thống cửa hàng</Link>
+                                                <Link to="/stores">Hệ thống cửa hàng</Link>
                                             </li>
                                         </ul>
                                     </div>
