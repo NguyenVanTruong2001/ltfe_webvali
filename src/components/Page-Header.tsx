@@ -316,7 +316,7 @@ export default function PageHeader({current}: {current?: string}) {
                         id="siteSearch"
                         type="search"
                         autoComplete="off"
-                        placeholder="Tìm vali, balo, phụ kiện..."
+                        placeholder="Tìm kiếm sản phẩm..."
                         value={keyword}
                         onChange={(e) => setKeyword(e.target.value)}
                     />
@@ -338,17 +338,17 @@ export default function PageHeader({current}: {current?: string}) {
                             <svg className="icon iconLg" aria-hidden="true">
                                 <use href="#iHeart" />
                             </svg>
-                            <span className="count">{wishCount}</span>
+                            {wishCount > 0 && <span className="count">{wishCount}</span>}
                         </span>
                         <span className="actionLabel">Yêu thích</span>
                     </Link>
                     <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
-        <span className="actionIcon">
-          <svg className="icon iconLg" aria-hidden="true">
-            <use href="#iBag" />
-          </svg>
-          {cartCount > 0 && <span className="count">{cartCount}</span>}
-        </span>
+                        <span className="actionIcon">
+                            <svg className="icon iconLg" aria-hidden="true">
+                                <use href="#iBag" />
+                            </svg>
+                            {cartCount > 0 && <span className="count">{cartCount}</span>}
+                        </span>
                         <span className="actionLabel">Giỏ hàng</span>
                     </Link>
                 </div>
@@ -357,11 +357,11 @@ export default function PageHeader({current}: {current?: string}) {
                 <div className="container">
                     <ul className="navList">
                         <li className="navItem">
-                            <a className="navLink" href="/ui/about.html">Về chúng tôi</a>
+                            <Link className="navLink" to="/">Trang chủ</Link>
                         </li>
                         <li className="navItem">
                             <Link className={current === "vali" ? "navLink isCurrent" : "navLink"} data-nav="vali" to="/products">
-                                Vali
+                                Sản phẩm
                                 <svg className="icon iconSm" aria-hidden="true">
                                     <use href="#iChevDown" />
                                 </svg>
@@ -369,100 +369,62 @@ export default function PageHeader({current}: {current?: string}) {
                             <div className="mega">
                                 <div className="container megaInner">
                                     <div className="megaCol">
-                                        <p className="megaTitle">Theo size</p>
+                                        <p className="megaTitle">Chọn size</p>
                                         <ul>
                                             <li>
-                                                <Link to="/products?size=20">Size 20" xách tay</Link>
+                                                <Link to="/products?size=20">S - 20" xách tay</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?size=24">Size 24" ký gửi</Link>
+                                                <Link to="/products?size=24">M - 24" ký gửi</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?size=28">Size 28" cỡ lớn</Link>
+                                                <Link to="/products?size=28">L - 28" cỡ lớn</Link>
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="megaCol">
-                                        <p className="megaTitle">Theo chất liệu</p>
+                                        <p className="megaTitle">Chọn loại sản phẩm</p>
                                         <ul>
                                             <li>
-                                                <Link to="/products?material=aluminum">Vali khung nhôm</Link>
+                                                <Link to="/products?category=suitchase-hard">Vali khung nhôm</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?material=zipper">Vali khóa kéo</Link>
+                                                <Link to="/products?category=suitchase-soft">Vali nhựa PP</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?material=zipper">Vali nhựa PC</Link>
+                                                <Link to="/products?category=travel-bag">Vali nhựa PC</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?material=pp">Vali nhựa PP</Link>
+                                                <Link to="/products?category=accessory">Vali vải</Link>
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="megaCol">
-                                        <p className="megaTitle">Dòng sản phẩm</p>
+                                        <p className="megaTitle">Chọn thương hiệu</p>
                                         <ul>
                                             <li>
-                                                <Link to="/products?line=atlas">Atlas</Link>
+                                                <Link to="/products?brand=pisani">Pisani</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?line=orion">Orion doanh nhân</Link>
+                                                <Link to="/products?brand=larita">Larita</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?line=zipra">Zipra</Link>
+                                                <Link to="/products?brand=bamozo">Bamozo</Link>
                                             </li>
                                             <li>
-                                                <Link to="/products?line=sora">Sora</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/products?line=pebble">Pebble</Link>
+                                                <Link to="/products?brand=mrvui">Mr.Vui</Link>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li className="navItem">
-                            <Link className="navLink" to="/products?category=backpack">
-                                Balo
-                                <svg className="icon iconSm" aria-hidden="true">
-                                    <use href="#iChevDown" />
-                                </svg>
-                            </Link>
-                            <div className="mega">
-                                <div className="container megaInner">
-                                    <div className="megaCol">
-                                        <p className="megaTitle">Balo</p>
-                                        <ul>
-                                            <li>
-                                                <Link to="/products?category=backpack&line=dune">Balo laptop Dune</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/products?category=backpack&line=fern">Balo laptop Fern</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/products?category=backpack&line=ridge">Balo Ridge da PU</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/products?category=backpack&line=skyline">Balo Skyline</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/products?category=backpack&line=daily">Balo Daily</Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="navItem">
-                            <Link className="navLink" to="/products?category=accessory">Phụ kiện</Link>
                         </li>
                         <li className="navItem">
                             <Link className="navLink isHot" to="/">Khuyến mại</Link>
                         </li>
                         <li className="navItem">
                             <Link className="navLink" to="/news">
-                                Tin tức
+                                Thông tin
                                 <svg className="icon iconSm" aria-hidden="true">
                                     <use href="#iChevDown" />
                                 </svg>
@@ -470,30 +432,36 @@ export default function PageHeader({current}: {current?: string}) {
                             <div className="mega">
                                 <div className="container megaInner">
                                     <div className="megaCol">
-                                        <p className="megaTitle">Hướng dẫn</p>
+                                        <p className="megaTitle">Thông tin</p>
                                         <ul>
                                             <li>
-                                                <Link to="/news?topic=size">Chọn size vali</Link>
+                                                <Link to="/news">Tin tức</Link>
                                             </li>
                                             <li>
-                                                <Link to="/news?topic=guide">Cẩm nang du lịch</Link>
+                                                <Link to="/news">Về chúng tôi</Link>
                                             </li>
                                             <li>
-                                                <Link to="/news?topic=review">Review sản phẩm</Link>
+                                                <Link to="/news">Hệ thống cửa hàng</Link>
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="megaCol">
-                                        <p className="megaTitle">Hỗ trợ</p>
+                                        <p className="megaTitle">Chính sách</p>
                                         <ul>
+                                            <li>
+                                                <Link to="/shippingPolicy">Chính sách vận chuyển</Link>
+                                            </li>
                                             <li>
                                                 <Link to="/warrantyPolicy">Chính sách bảo hành</Link>
                                             </li>
                                             <li>
-                                                <Link to="/news">Xử lý lỗi vali</Link>
+                                                <Link to="/returnPolicy">Chính sách đổi trả</Link>
                                             </li>
                                             <li>
-                                                <Link to="/news">Tuyển dụng</Link>
+                                                <Link to="/paymentPolicy">Chính sách thanh toán</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/privacyPolicy">Chính sách bảo mật</Link>
                                             </li>
                                         </ul>
                                     </div>

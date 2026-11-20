@@ -6,6 +6,11 @@ import ProductReviewsPage from "./product-reviews/ProductReviewsPage.tsx";
 import News from "./news/News-List.tsx";
 import CartPage from "./cart/CartPage.tsx";
 import WishlistPage from "./wishlist/WishlistPage.tsx";
+import ShippingPolicy from "./policy/ShippingPolicy.tsx";
+import WarrantyPolicy from "./policy/WarrantyPolicy.tsx";
+import PaymentPolicy from "./policy/PaymentPolicy.tsx";
+import ReturnPolicy from "./policy/ReturnPolicy.tsx";
+import PrivacyPolicy from "./policy/PrivacyPolicy.tsx";
 
 function NotFound() {
     return (
@@ -31,6 +36,11 @@ export default function AppRoutes() {
             <Route path="/products/:id/:slug?" element={<ProductDetailPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/shippingPolicy" element={<ShippingPolicy />} />
+            <Route path="/warrantyPolicy" element={<WarrantyPolicy />} />
+            <Route path="/paymentPolicy" element={<PaymentPolicy />} />
+            <Route path="/returnPolicy" element={<ReturnPolicy />} />
+            <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/index.html" element={<RedirectTo pathname="/" />} />
             <Route path="/ui/productList.html" element={<RedirectTo pathname="/products" />} />
             <Route path="/ui/productDetail.html" element={<RedirectTo pathname="/products" />} />

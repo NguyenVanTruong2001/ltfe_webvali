@@ -65,10 +65,10 @@ export const FILTER_GROUPS: FilterGroup[] = [
         title: 'Loại sản phẩm',
         input: 'checkbox',
         options: [
-            {value: 'suitchase-hard', label: 'Vali vỏ cứng', test: (p) => p.category === 'suitchase-hard'},
-            {value: 'suitcase-soft', label: 'Vali vải', test: (p) => p.category === 'suitcase-soft'},
-            {value: 'travel-bag', label: 'Túi du lịch', test: (p) => p.category === 'travel-bag'},
-            {value: 'accessory', label: 'Phụ kiện', test: (p) => p.category === 'accessory'},
+            {value: 'suitchase-hard', label: 'Vali khung nhôm', test: (p) => p.category === 'suitchase-hard'},
+            {value: 'suitcase-soft', label: 'Vali nhựa PP', test: (p) => p.category === 'suitcase-soft'},
+            {value: 'travel-bag', label: 'Vali nhựa PC', test: (p) => p.category === 'travel-bag'},
+            {value: 'accessory', label: 'Vali vải', test: (p) => p.category === 'accessory'},
         ],
     },
     {
@@ -103,10 +103,10 @@ export const FILTER_GROUPS: FilterGroup[] = [
         title: 'Thương hiệu',
         input: 'checkbox',
         options: [
-            {value: 'Traveler Pro', label: 'Traveler Pro', test: (p) => p.brand === 'Traveler Pro'},
-            {value: 'EcoTrip', label: 'EcoTrip', test: (p) => p.brand === 'EcoTrip'},
-            {value: 'Retro Traveler', label: 'Retro Traveler', test: (p) => p.brand === 'Retro Traveler'},
-            {value: 'Little Traveler', label: 'Little Traveler', test: (p) => p.brand === 'Little Traveler'},
+            {value: 'pisani', label: 'Pisani', test: (p) => p.brand === 'Pisani'},
+            {value: 'larita', label: 'Larita', test: (p) => p.brand === 'Larita'},
+            {value: 'bamozo', label: 'Bamozo', test: (p) => p.brand === 'Bamozo'},
+            {value: 'mrvui', label: 'Mr.Vui', test: (p) => p.brand === 'Mr.Vui'},
         ],
     },
     {
