@@ -7,7 +7,7 @@ export default function Breadcrumb() {
                 <li>
                     <Link to="/">Trang chủ</Link>
                 </li>
-                <li aria-current="page">Vali</li>
+                <li aria-current="page">Sản phẩm</li>
             </ol>
         </nav>
     );

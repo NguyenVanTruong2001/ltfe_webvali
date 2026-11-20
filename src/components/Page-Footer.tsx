@@ -64,16 +64,16 @@ export default function PageFooter() {
                             <Link to="/">Trang chủ</Link>
                         </li>
                         <li>
-                            <a href="../../ui/about.html">Giới thiệu</a>
+                            <Link to="/aboutus">Về chúng tôi</Link>
                         </li>
                         <li>
-                            <Link to="/products">Tất cả sản phẩm</Link>
+                            <Link to="/products">Sản phẩm</Link>
                         </li>
                         <li>
                             <Link to="/news">Tin tức</Link>
                         </li>
                         <li>
-                            <a href="../../ui/stores.html">Hệ thống cửa hàng</a>
+                            <Link to="/stores">Hệ thống cửa hàng</Link>
                         </li>
                         <li>
                             <a href="../../ui/orderHistory.html">Lịch sử đơn hàng</a>

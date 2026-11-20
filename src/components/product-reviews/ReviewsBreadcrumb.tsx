@@ -9,7 +9,7 @@ export default function ReviewsBreadcrumb({product}: {product: Product}) {
                     <Link to="/">Trang chủ</Link>
                 </li>
                 <li>
-                    <Link to="/products">Vali</Link>
+                    <Link to="/products">Sản phẩm</Link>
                 </li>
                 <li>
                     <Link to={`/products/${product.id}/${product.slug}`}>{product.name}</Link>

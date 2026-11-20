@@ -11,6 +11,8 @@ import WarrantyPolicy from "./policy/WarrantyPolicy.tsx";
 import PaymentPolicy from "./policy/PaymentPolicy.tsx";
 import ReturnPolicy from "./policy/ReturnPolicy.tsx";
 import PrivacyPolicy from "./policy/PrivacyPolicy.tsx";
+import AboutUs from "./aboutus/AboutUs.tsx";
+import Stores from "./stores/Stores.tsx";
 
 function NotFound() {
     return (
@@ -31,6 +33,8 @@ export default function AppRoutes() {
         <Routes>
             <Route path="/" element={<App />} />
             <Route path="/news" element={<News />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/stores" element={<Stores />} />
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id/reviews" element={<ProductReviewsPage />} />
             <Route path="/products/:id/:slug?" element={<ProductDetailPage />} />
