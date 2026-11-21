@@ -88,7 +88,7 @@ export default function Register() {
                                     <label className="check">
                                         <input type="checkbox" id="regTerms" name="terms" className="checkInput" aria-describedby="regTermsError" />
                                             <span className="checkBox" aria-hidden="true"><svg className="icon iconSm"><use href="#iCheck" /></svg></span>
-                                            <span>Tôi đồng ý với <a href="" className="textLink">Điều khoản sử dụng</a> và <a href="" className="textLink">Chính sách bảo mật</a></span>
+                                            <span>Tôi đồng ý với <span className="textLink">Điều khoản sử dụng</span> và <span className="textLink">Chính sách bảo mật</span></span>
                                     </label>
                                     <p id="regTermsError" className="fieldError" hidden>
                                         <svg className="icon iconSm" aria-hidden="true"><use href="#iAlert" /></svg>
@@ -109,8 +109,7 @@ export default function Register() {
                             </div>
 
                             <p className="switchText">
-                                Đã có tài khoản?
-                                <Link to="/login" className="textLink">Đăng nhập</Link>
+                                Đã có tài khoản? <Link to="/login" className="textLink">Đăng nhập</Link>
                             </p>
                         </section>
 

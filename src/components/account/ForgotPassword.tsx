@@ -21,7 +21,7 @@ export default function ForgotPassword() {
                             <h1 id="pageTitle" className="authTitle">Quên mật khẩu?</h1>
                             <p className="authSub">Nhập email hoặc số điện thoại đã đăng ký, Valigo sẽ gửi mã xác nhận để bạn đặt lại mật khẩu.</p>
 
-                            <form className="form" action="verifyOtp.html">
+                            <form className="form" action="">
                                 <div className="field">
                                     <label className="fieldLabel" htmlFor="forgotId">Email hoặc số điện thoại</label>
                                     <input id="forgotId" className="input" type="text" required inputMode="email" autoComplete="username" placeholder="vidu@email.com" aria-describedby="forgotIdError" />

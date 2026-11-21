@@ -105,8 +105,7 @@ export default function LogIn() {
                             </div>
 
                             <p className="switchText">
-                                Chưa có tài khoản?
-                                <Link to="/register" className="textLink">Tạo tài khoản mới</Link>
+                                Chưa có tài khoản? <Link to="/register" className="textLink">Tạo tài khoản mới</Link>
                             </p>
                         </section>
 
