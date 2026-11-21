@@ -13,8 +13,8 @@ function normalize(text: string): string {
 }
 
 export default function Stores() {
-    const [selectedCity, setSelectedCity] = useState<string>('');
-    const [keyword, setKeyword] = useState<string>('');
+    const [selectedCity, setSelectedCity] = useState("");
+    const [keyword, setKeyword] = useState("");
 
     // 4. Logic lọc danh sách cửa hàng bằng useMemo
     const filteredStores = useMemo(() => {
@@ -90,7 +90,7 @@ export default function Stores() {
                                 <div>
                                     <dt>Điện thoại</dt>
                                     <dd>
-                                        <a href={`tel:${store.phoneRaw}`} className="textLink">
+                                        <a href={"tel: " + store.phoneRaw} className="textLink">
                                             {store.phone}
                                         </a>
                                     </dd>

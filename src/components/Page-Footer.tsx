@@ -41,13 +41,13 @@ export default function PageFooter() {
                             <svg className="icon" aria-hidden="true">
                                 <use href="#iPhone" />
                             </svg>
-                            <a href="tel:0900000000">0900 000 000</a>
+                            0900 000 000
                         </li>
                         <li>
                             <svg className="icon" aria-hidden="true">
                                 <use href="#iMail" />
                             </svg>
-                            <a href="mailto:cskh@valigo.vn">cskh@valigo.vn</a>
+                            cskh@valigo.vn
                         </li>
                         <li>
                             <svg className="icon" aria-hidden="true">

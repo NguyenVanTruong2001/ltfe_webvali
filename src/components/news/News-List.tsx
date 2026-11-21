@@ -39,16 +39,13 @@ export default function News() {
                                 aria-pressed={activeTopic}
                                 onClick={() => setActiveTopic(category.category)}
                             >
-                                <Link to={category.category === "all" ? "/news" : "/news?topic=" + category.category}>
-                                    {category.topic}
-                                </Link>
+                                {category.topic}
                             </button>
                         ))}
                     </div>
                     <ul className="newsList" id="newsList">
                         {filteredNews.map((news: any) => <NewsItem News={news} key={news.id} />)}
                     </ul>
-                    <p id="newsEmpty" className="newsEmpty" hidden>Chưa có bài viết trong chủ đề này.</p>
                 </div>
             </main>
             <PageFooter />
