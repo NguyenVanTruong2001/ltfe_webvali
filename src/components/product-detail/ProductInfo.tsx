@@ -1,5 +1,5 @@
 import type {CSSProperties, ReactNode} from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import type {Product} from "../../types/Product.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {PERKS} from "../../lib/productDetail/content.ts";

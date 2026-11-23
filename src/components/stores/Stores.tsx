@@ -2,7 +2,7 @@ import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import {useMemo, useState} from "react";
 import {StoresData} from "../../dataset/Stores.tsx";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 
 function normalize(text: string): string {
     return text

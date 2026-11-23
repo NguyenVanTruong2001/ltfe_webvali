@@ -1,5 +1,5 @@
 import { useState, useEffect, type SyntheticEvent } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router";
 import { useAppSelector } from "../store/hooks.ts";
 import { selectCartCount } from "../store/cartSlice.ts";
 import { selectWishIds } from "../store/wishlistSlice.ts";

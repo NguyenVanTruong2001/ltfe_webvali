@@ -1,5 +1,5 @@
 import {useCallback, useMemo} from 'react'
-import {useSearchParams} from 'react-router-dom'
+import {useSearchParams} from 'react-router'
 import type {Product} from '../types/Product.ts'
 import {FILTER_GROUPS} from '../lib/productList/filterConfig.ts'
 import type {SortKey} from '../lib/productList/filterConfig.ts'

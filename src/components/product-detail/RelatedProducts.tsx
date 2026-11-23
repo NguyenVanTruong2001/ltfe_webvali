@@ -1,5 +1,5 @@
 import {useCallback} from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import ProductItem from "../Product-Item.tsx";
 import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
 import {selectProducts} from "../../store/productsSlice.ts";

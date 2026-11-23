@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import {MAX_QUANTITY, MIN_QUANTITY} from "../../lib/productDetail/options.ts";
 
 interface ProductBuyRowProps {

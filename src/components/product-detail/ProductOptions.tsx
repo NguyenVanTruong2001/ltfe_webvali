@@ -1,5 +1,5 @@
 import type {CSSProperties} from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import type {ProductColor} from "../../types/Product.ts";
 import {SIZE_GUIDE} from "../../lib/productDetail/sizeGuide.ts";
 
