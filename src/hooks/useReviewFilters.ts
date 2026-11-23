@@ -1,5 +1,5 @@
 import {useCallback, useMemo} from 'react'
-import {useLocation, useNavigate, useSearchParams} from 'react-router-dom'
+import {useLocation, useNavigate, useSearchParams} from 'react-router'
 import type {ProductReview} from '../types/Product.ts'
 import {filterByStar, paginate, sortReviews} from '../lib/productReviews/filtering.ts'
 import {buildReviewSearch, parseReviewSearch, REVIEW_PAGE_SIZE} from '../lib/productReviews/urlState.ts'

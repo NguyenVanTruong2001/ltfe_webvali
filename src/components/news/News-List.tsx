@@ -1,6 +1,6 @@
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import {Newsletter, NewsCategory} from "../../dataset/News.tsx";
 import NewsItem from "./News-Item.tsx";
 import {useState, useMemo} from "react";

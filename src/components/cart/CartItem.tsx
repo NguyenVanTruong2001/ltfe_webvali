@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {isUnavailable, lineTotal, variantLabel} from "../../lib/cart/pricing.ts";
 import type {CartEntry} from "../../lib/cart/pricing.ts";

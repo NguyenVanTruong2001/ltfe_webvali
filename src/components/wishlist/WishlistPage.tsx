@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import ProductItem from "../Product-Item.tsx";

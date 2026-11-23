@@ -1,5 +1,5 @@
 import {useMemo} from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import type {Product} from "../../types/Product.ts";
 import {useProductReviews} from "../../hooks/useProductReviews.ts";
 import {countByStar} from "../../lib/productReviews/summary.ts";
