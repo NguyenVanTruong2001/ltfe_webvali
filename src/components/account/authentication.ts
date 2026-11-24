@@ -1,7 +1,7 @@
 import type {Role, UsersInterface} from "../../dataset/Users.tsx";
 import {UsersData} from "../../dataset/Users.tsx";
 import type {SessionAuth, SessionUser} from "./session.ts";
-import {clearSession, saveSession} from "./session.ts";
+import {saveSession} from "./session.ts";
 
 export interface LogInPayload {
     identifier: string;
@@ -63,8 +63,4 @@ export function logIn({identifier, password, isRemembered = false}: LogInPayload
         session: session,
         redirection: getRedirectPathByRole(matchedUser.role)
     };
-}
-
-export function logOut() {
-    clearSession();
 }
