@@ -4,14 +4,16 @@ export interface UsersInterface {
     email: string
     telephone: string
     password: string
-    role: "User" | "Admin"
+    role: Role
 }
+
+export type Role = "User" | "Admin"
 
 export const UsersData: UsersInterface[] = [
     {
         id: 1,
         fullname: 'Nguyễn Hoàng Nam',
-        email: 'admin@valigo.vn',
+        email: 'admin@gmail.com',
         telephone: '0901234567',
         password: 'admin',
         role: "Admin",
