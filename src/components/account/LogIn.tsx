@@ -1,15 +1,107 @@
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import {Link} from "react-router";
+import {useRef, useState} from "react";
+import type {SessionAuth} from "./session.ts";
+import type {LogInResult} from "./authentication.ts";
+import * as React from "react";
+import {logIn} from "./authentication.ts";
 
-export default function LogIn() {
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const phonePattern = /^(0)\d{9}$/;
+
+export interface LogInProps {
+    onNav?: (path: string, sessionAuth: SessionAuth) => void,
+    onAuthSuccess?: (result: LogInResult) => void
+}
+
+export const LogIn: React.FC<LogInProps> = ({onNav, onAuthSuccess}) => {
+    const [logInId, setLogInId] = useState("");
+    const [password, setPassword] = useState("");
+    const [remember, setRemember] = useState(false);
+
+    const [logInIdError, setLogInIdError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [formStatus, setFormStatus] = useState("");
+
+    const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const logInIdRef = useRef(null);
+    const passwordRef = useRef(null);
+
+    const validateLogInId = (string: string): boolean => {
+        const trim = string.trim();
+        if (!trim) {
+            setLogInIdError("Nhập lại email hoặc số điện thoại đã đăng ký.");
+            return false;
+        }
+
+        if (!emailPattern.test(trim) && !phonePattern.test(trim.replace(/[\s.-]/g, ""))) {
+            setLogInIdError("Email hoặc số điện thoại chưa đúng định dạng.");
+            return false;
+        }
+
+        setLogInIdError("");
+        return true;
+    }
+
+    const validatePassword = (string: string): boolean => {
+        if (!string) {
+            setPasswordError("Nhập lại mật khẩu của bạn.");
+            return false;
+        }
+
+        setPasswordError("");
+        return true;
+    }
+
+    const togglePassword = () => {
+        setShowPassword((prevState) => !prevState);
+        passwordRef.current?.focus();
+    }
+
+    const handleLogIn = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (isLoading) return;
+        setFormStatus("");
+        
+        const id = validateLogInId(logInId);
+        const pass = validatePassword(password);
+        if (!id || !pass) {
+            if (!id) logInIdRef.current?.focus();
+            else passwordRef.current?.focus();
+            return;
+        }
+
+        setIsLoading(true);
+
+        setTimeout(() => {
+            const user = logIn({
+                identifier: logInId,
+                password: password,
+                isRemembered: remember
+            });
+
+            if (!user.isSuccess || !user.session || !user.redirection) {
+                setIsLoading(false);
+                setFormStatus(user.message || "Đăng nhập thất bại. Vui lòng thử lại.");
+                return;
+            }
+
+            onAuthSuccess?.(user);
+            if (onNav) onNav(user.redirection, user.session);
+            else window.location.assign(user.redirection)
+        }, 700)
+    }
+
     return (
         <>
             <PageHeader />
             <main id="noiDung" className="auth">
                 <div className="container">
                     <nav className="crumbs" aria-label="Đường dẫn">
-                        <a href="index.html">Trang chủ</a>
+                        <Link to="/">Trang chủ</Link>
                         <span aria-hidden="true">/</span>
                         <span aria-current="page">Đăng nhập</span>
                     </nav>
@@ -19,8 +111,11 @@ export default function LogIn() {
                             <h1 id="loginTitle" className="authTitle">Đăng nhập</h1>
                             <p className="authSub">Xem đơn hàng, lưu sản phẩm yêu thích và thanh toán nhanh hơn.</p>
 
-                            <form id="loginForm" className="form" action="#" noValidate>
-                                <p id="formStatus" className="formStatus" role="status" aria-live="polite" hidden></p>
+                            <form id="loginForm" className="form" noValidate onSubmit={handleLogIn}>
+                                <p id="formStatus" className="formStatus"
+                                   role="status" aria-live="polite" hidden={!formStatus}>
+                                    {formStatus}
+                                </p>
 
                                 <div className="field">
                                     <label className="fieldLabel" htmlFor="loginId">Email hoặc số điện thoại</label>
@@ -34,12 +129,24 @@ export default function LogIn() {
                                         placeholder="vidu@email.com"
                                         aria-describedby="loginIdError"
                                         required
+                                        ref={logInIdRef}
+                                        aria-invalid={logInIdError ? "true" : "false"}
+                                        value={logInId}
+                                        onChange={(e) => {
+                                            const next = e.target.value;
+                                            setLogInId(next);
+                                            if (formStatus) setFormStatus("");
+                                            if (logInIdError) validateLogInId(next);
+                                        }}
+                                        onBlur={() => {
+                                            if (logInId) validateLogInId(logInId);
+                                        }}
                                     />
                                         <p id="loginIdError" className="fieldError" hidden>
                                             <svg className="icon iconSm" aria-hidden="true">
                                                 <use href="#iAlert" />
                                             </svg>
-                                            <span></span>
+                                            <span>{logInIdError}</span>
                                         </p>
                                 </div>
 
@@ -53,18 +160,31 @@ export default function LogIn() {
                                             id="loginPassword"
                                             name="password"
                                             className="input"
-                                            type="password"
+                                            type={showPassword ? "text" : "password"}
                                             autoComplete="current-password"
                                             placeholder="Nhập mật khẩu"
                                             aria-describedby="loginPasswordError"
                                             required
+                                            ref={passwordRef}
+                                            aria-invalid={passwordError ? "true" : "false"}
+                                            value={password}
+                                            onChange={(e) => {
+                                                const next = e.target.value;
+                                                setPassword(next);
+                                                if (formStatus) setFormStatus("");
+                                                if (passwordError) validatePassword(password);
+                                            }}
+                                            onBlur={() => {
+                                                if (password) validatePassword(password)
+                                            }}
                                         />
                                             <button
                                                 type="button"
                                                 className="eyeBtn"
                                                 aria-controls="loginPassword"
-                                                aria-pressed="false"
-                                                aria-label="Hiện mật khẩu"
+                                                aria-pressed={showPassword}
+                                                aria-label={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+                                                onClick={togglePassword}
                                             >
                                                 <svg className="icon eyeOn" aria-hidden="true">
                                                     <use href="#iEye" />
@@ -74,16 +194,20 @@ export default function LogIn() {
                                                 </svg>
                                             </button>
                                     </div>
-                                    <p id="loginPasswordError" className="fieldError" hidden>
+                                    <p id="loginPasswordError" className="fieldError"
+                                       hidden={!passwordError}>
                                         <svg className="icon iconSm" aria-hidden="true">
                                             <use href="#iAlert" />
                                         </svg>
-                                        <span></span>
+                                        <span>{passwordError}</span>
                                     </p>
                                 </div>
 
                                 <label className="check">
-                                    <input type="checkbox" name="remember" className="checkInput"/>
+                                    <input type="checkbox" name="remember" className="checkInput"
+                                           checked={remember}
+                                           onChange={(e) => setRemember(e.target.checked)}
+                                    />
                                         <span className="checkBox" aria-hidden="true">
                                             <svg className="icon iconSm">
                                                 <use href="#iCheck" />
@@ -92,7 +216,12 @@ export default function LogIn() {
                                         <span>Ghi nhớ đăng nhập trên thiết bị này</span>
                                 </label>
 
-                                <button type="submit" className="btn btnPrimary btnBlock submitBtn">Đăng nhập</button>
+                                <button
+                                    type="submit"
+                                    className={`btn btnPrimary btnBlock submitBtn ${isLoading ? "isLoading" : ""}`}
+                                >
+                                    {isLoading ? "Đang đăng nhập..." : "Đăng nhập"}
+                                </button>
                             </form>
 
                             <div className="divider" role="separator">
@@ -161,3 +290,5 @@ export default function LogIn() {
         </>
     )
 }
+
+export default LogIn;
