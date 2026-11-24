@@ -64,3 +64,30 @@ export function orderTotalOf(order: Order, products: Product[]): number {
     const subtotal = historyLines(order, products).reduce((sum, line) => sum + line.unitPrice * line.quantity, 0)
     return Math.max(0, subtotal - (order.discount ?? 0) + (order.shippingFee ?? 0))
 }
+
+export type StatusFilter = 'all' | OrderStatus
+
+export const STATUS_FILTERS: {id: StatusFilter, label: string}[] = [
+    {id: 'all', label: 'Tất cả'},
+    {id: 'pending', label: STATUS_INFO.pending.label},
+    {id: 'shipping', label: STATUS_INFO.shipping.label},
+    {id: 'delivered', label: STATUS_INFO.delivered.label},
+    {id: 'cancelled', label: STATUS_INFO.cancelled.label},
+]
+
+export function parseFilter(value: string | null): StatusFilter {
+    const match = STATUS_FILTERS.find((filter) => filter.id === value)
+    return match ? match.id : 'all'
+}
+
+export function filterOrders(orders: Order[], filter: StatusFilter): Order[] {
+    return filter === 'all' ? orders : orders.filter((order) => order.status === filter)
+}
+
+export function countByFilter(orders: Order[]): Record<StatusFilter, number> {
+    const counts: Record<StatusFilter, number> = {all: orders.length, pending: 0, shipping: 0, delivered: 0, cancelled: 0}
+    orders.forEach((order) => {
+        counts[order.status] += 1
+    })
+    return counts
+}

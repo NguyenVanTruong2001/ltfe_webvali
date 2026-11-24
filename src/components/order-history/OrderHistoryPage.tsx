@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import OrderHistory from "./OrderHistory.tsx";
+import "./order-history.css";
 import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
 import {loadProducts, selectProductsError, selectProductsStatus} from "../../store/productsSlice.ts";
 
