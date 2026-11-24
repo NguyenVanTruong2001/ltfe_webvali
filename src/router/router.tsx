@@ -12,6 +12,7 @@ import CartPage from "../components/cart/CartPage.tsx";
 import WishlistPage from "../components/wishlist/WishlistPage.tsx";
 import CheckoutPage from "../components/checkout/CheckoutPage.tsx";
 import OrderSuccessPage from "../components/checkout/OrderSuccessPage.tsx";
+import OrderHistoryPage from "../components/order-history/OrderHistoryPage.tsx";
 import ShippingPolicy from "../components/policy/ShippingPolicy.tsx";
 import WarrantyPolicy from "../components/policy/WarrantyPolicy.tsx";
 import PaymentPolicy from "../components/policy/PaymentPolicy.tsx";
@@ -44,6 +45,7 @@ export const router = createBrowserRouter([
             {path: "wishlist", element: <WishlistPage />, loader: productsLoader},
             {path: "checkout", element: <CheckoutPage />, loader: productsLoader},
             {path: "order-success", element: <OrderSuccessPage />, loader: productsLoader},
+            {path: "orders", element: <OrderHistoryPage />, loader: productsLoader},
             {path: "shippingPolicy", element: <ShippingPolicy />},
             {path: "warrantyPolicy", element: <WarrantyPolicy />},
             {path: "paymentPolicy", element: <PaymentPolicy />},
@@ -56,6 +58,7 @@ export const router = createBrowserRouter([
             {path: "ui/wishlist.html", element: <Redirect pathname="/wishlist" />},
             {path: "ui/checkout.html", element: <Redirect pathname="/checkout" />},
             {path: "ui/orderSuccess.html", element: <Redirect pathname="/order-success" />},
+            {path: "ui/orderHistory.html", element: <Redirect pathname="/orders" />},
         ],
     },
 ]);
