@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useLocation} from "react-router-dom";
+import {useLocation} from "react-router";
 import ReviewForm from "./ReviewForm.tsx";
 import {useReviewEligibility} from "../../hooks/useReviewEligibility.ts";
 

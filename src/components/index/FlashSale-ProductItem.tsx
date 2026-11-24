@@ -1,7 +1,7 @@
 import type {Product} from "../../types/Product.ts";
 import {useState} from "react";
 import type {CSSProperties} from "react"
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import {formatPrice} from "../../lib/productList/format.ts";
 
 interface ProductItemProps {

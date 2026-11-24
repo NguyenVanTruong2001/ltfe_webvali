@@ -1,6 +1,6 @@
 import {memo, useState} from "react";
 import type {CSSProperties} from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import type {Product} from "../types/Product.ts";
 import {formatPrice} from "../lib/productList/format.ts";
 

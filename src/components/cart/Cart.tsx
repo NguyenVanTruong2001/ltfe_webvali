@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import {useCartEntries} from "../../hooks/useCartEntries.ts";
 import CartBreadcrumb from "./CartBreadcrumb.tsx";
 import CartEmpty from "./CartEmpty.tsx";

@@ -1,3 +1,4 @@
+import {Link} from "react-router";
 import {formatPrice} from "../../lib/productList/format.ts";
 import type {CartEntry} from "../../lib/cart/pricing.ts";
 import type {CartTotals} from "../../lib/cart/totals.ts";
@@ -55,7 +56,7 @@ export default function CartSummary({entries, totals, voucherCode}: CartSummaryP
                 </p>
             )}
             {totals.purchasableCount > 0 ? (
-                <a href="/ui/checkout.html" className="btn btnPrimary btnBlock">Tiến hành thanh toán</a>
+                <Link to="/checkout" className="btn btnPrimary btnBlock">Tiến hành thanh toán</Link>
             ) : (
                 <button type="button" className="btn btnPrimary btnBlock" disabled>
                     Tiến hành thanh toán

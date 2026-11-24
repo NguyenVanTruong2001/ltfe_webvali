@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {Link, useLocation, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import ProductReviews from "./ProductReviews.tsx";

@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {Link, useLocation, useSearchParams} from "react-router-dom";
+import {Link, useLocation, useSearchParams} from "react-router";
 import type {Product} from "../../types/Product.ts";
 import {parseTab, TABS} from "../../lib/productDetail/content.ts";
 import {useProductReviews} from "../../hooks/useProductReviews.ts";
