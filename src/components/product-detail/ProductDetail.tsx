@@ -12,10 +12,12 @@ import {useProductOptions} from "../../hooks/useProductOptions.ts";
 import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
 import {addToCart} from "../../store/cartSlice.ts";
 import {selectWishIds, toggleWish} from "../../store/wishlistSlice.ts";
+import {getSession} from "../account/session.ts";
 
 export default function ProductDetail({product}: {product: Product}) {
     const options = useProductOptions(product);
     const dispatch = useAppDispatch();
+    const session = getSession();
     const wished = useAppSelector((state) => selectWishIds(state).includes(product.id));
     const [notice, setNotice] = useState<string | null>(null);
 
@@ -58,16 +60,18 @@ export default function ProductDetail({product}: {product: Product}) {
                         onColorChange={options.selectColor}
                         onSizeChange={options.selectSize}
                     />
-                    <ProductBuyRow
-                        quantity={options.quantity}
-                        inStock={product.inStock}
-                        wished={wished}
-                        notice={notice}
-                        onQuantityChange={options.setQuantity}
-                        onAddToCart={handleAddToCart}
-                        onBuyNow={handleBuyNow}
-                        onToggleWish={() => dispatch(toggleWish(product.id))}
-                    />
+                    {session ? (
+                        <ProductBuyRow
+                            quantity={options.quantity}
+                            inStock={product.inStock}
+                            wished={wished}
+                            notice={notice}
+                            onQuantityChange={options.setQuantity}
+                            onAddToCart={handleAddToCart}
+                            onBuyNow={handleBuyNow}
+                            onToggleWish={() => dispatch(toggleWish(product.id))}
+                        />
+                    ) : (<></>)}
                 </ProductInfo>
             </section>
             <ProductTabs product={product} />
