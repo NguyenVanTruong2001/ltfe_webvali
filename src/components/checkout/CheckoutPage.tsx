@@ -4,34 +4,22 @@ import {Link, useNavigate} from "react-router";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import {useCartEntries} from "../../hooks/useCartEntries.ts";
-import {useAppDispatch} from "../../store/hooks.ts";
-import {addOrder} from "../../store/ordersSlice.ts";
+import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
+import {createOrderAsync, selectOrders} from "../../store/ordersSlice.ts";
 import {removeFromCart} from "../../store/cartSlice.ts";
+import {removeVoucher} from "../../store/voucherSlice.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {isPurchasable, lineTotal, variantLabel} from "../../lib/cart/pricing.ts";
 import type {Order, PaymentMethod, ShippingMethod} from "../../types/Order.ts";
+import {generateOrderCode} from "../../lib/orders/code.ts";
+import {VIETNAM_LOCATIONS} from "../../lib/checkout/locations.ts";
 
-const DISTRICTS_BY_PROVINCE: Record<string, string[]> = {
-    "TP. Hồ Chí Minh": ["Quận 1", "Quận 3", "Quận 7", "Quận Bình Thạnh", "TP. Thủ Đức"],
-    "Hà Nội": ["Quận Hoàn Kiếm", "Quận Ba Đình", "Quận Cầu Giấy", "Quận Đống Đa"],
-    "Đà Nẵng": ["Quận Hải Châu", "Quận Thanh Khê", "Quận Sơn Trà"],
-    "Cần Thơ": ["Quận Ninh Kiều", "Quận Bình Thủy", "Quận Cái Răng"],
-};
-
-const WARDS_DEFAULT = ["Phường Bến Nghé", "Phường Bến Thành", "Phường Đa Kao", "Phường Trung Tâm"];
-
-function generateOrderCode(): string {
-    const now = new Date();
-    const yy = String(now.getFullYear()).slice(-2);
-    const mm = String(now.getMonth() + 1).padStart(2, "0");
-    const dd = String(now.getDate()).padStart(2, "0");
-    const rand = String(Math.floor(1000 + Math.random() * 9000));
-    return `VLG-${yy}${mm}${dd}-${rand}`;
-}
+const EXPRESS_SURCHARGE = 30000;
 
 export default function CheckoutPage() {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    const orders = useAppSelector(selectOrders);
     const {entries, totals, voucherCode} = useCartEntries();
 
     const purchasableEntries = useMemo(
@@ -51,10 +39,16 @@ export default function CheckoutPage() {
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("cod");
     const [agree, setAgree] = useState(false);
 
-    const districtOptions = province ? (DISTRICTS_BY_PROVINCE[province] ?? []) : [];
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
-    const baseShippingFee = shippingMethod === "express" ? 30000 : totals.shippingFee;
-    const effectiveShippingFee = Math.max(0, baseShippingFee - totals.shippingDiscount);
+    const provinceOptions = Object.keys(VIETNAM_LOCATIONS);
+    const districtOptions = province ? Object.keys(VIETNAM_LOCATIONS[province] ?? {}) : [];
+    const wardOptions =
+        province && district ? (VIETNAM_LOCATIONS[province]?.[district] ?? []) : [];
+
+    const expressSurcharge = shippingMethod === "express" ? EXPRESS_SURCHARGE : 0;
+    const effectiveShippingFee = Math.max(0, totals.shippingFee - totals.shippingDiscount) + expressSurcharge;
     const finalTotal = Math.max(0, totals.subtotal - totals.discount + effectiveShippingFee);
 
     function handleProvinceChange(nextProvince: string) {
@@ -63,11 +57,19 @@ export default function CheckoutPage() {
         setWard("");
     }
 
-    function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
-        e.preventDefault();
-        if (purchasableEntries.length === 0) return;
+    function handleDistrictChange(nextDistrict: string) {
+        setDistrict(nextDistrict);
+        setWard("");
+    }
 
-        const code = generateOrderCode();
+    async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
+        e.preventDefault();
+        if (purchasableEntries.length === 0 || isSubmitting) return;
+
+        setIsSubmitting(true);
+        setSubmitError(null);
+
+        const code = generateOrderCode(orders.map((order) => order.code));
         const newOrder: Order = {
             code,
             placedAt: new Date().toISOString(),
@@ -80,7 +82,9 @@ export default function CheckoutPage() {
                 name: entry.product?.name,
                 price: entry.product?.price,
                 img: entry.product?.images?.[0],
-                colorHex: entry.product?.colors?.find((c) => c.name === entry.line.color)?.hex ?? entry.product?.colors?.[0]?.hex,
+                colorHex:
+                    entry.product?.colors?.find((c) => c.name === entry.line.color)?.hex ??
+                    entry.product?.colors?.[0]?.hex,
             })),
             customer: {
                 fullName: fullName.trim(),
@@ -101,12 +105,21 @@ export default function CheckoutPage() {
             voucherCode,
         };
 
-        dispatch(addOrder(newOrder));
-        purchasableEntries.forEach((entry) => {
-            dispatch(removeFromCart(entry.line.key));
-        });
+        try {
+            await dispatch(createOrderAsync(newOrder)).unwrap();
 
-        navigate(`/order-success?code=${encodeURIComponent(code)}`);
+            purchasableEntries.forEach((entry) => {
+                dispatch(removeFromCart(entry.line.key));
+            });
+            dispatch(removeVoucher());
+
+            navigate(`/order-success?code=${encodeURIComponent(code)}`);
+        } catch (err) {
+            setSubmitError(
+                err instanceof Error ? err.message : "Không thể tạo đơn hàng. Vui lòng thử lại."
+            );
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -147,7 +160,7 @@ export default function CheckoutPage() {
                     ) : (
                         <div className="checkoutLayout">
                             <form className="checkoutForm" id="checkoutForm" onSubmit={handleSubmit}>
-                                <fieldset className="formSection">
+                                <fieldset className="formSection" disabled={isSubmitting}>
                                     <legend className="formTitle">Thông tin liên hệ</legend>
                                     <div className="fieldGrid">
                                         <div className="formField span2">
@@ -193,7 +206,7 @@ export default function CheckoutPage() {
                                     </div>
                                 </fieldset>
 
-                                <fieldset className="formSection">
+                                <fieldset className="formSection" disabled={isSubmitting}>
                                     <legend className="formTitle">Địa chỉ giao hàng</legend>
                                     <div className="fieldGrid">
                                         <div className="formField">
@@ -206,7 +219,7 @@ export default function CheckoutPage() {
                                                 onChange={(e) => handleProvinceChange(e.target.value)}
                                             >
                                                 <option value="">Chọn tỉnh, thành phố</option>
-                                                {Object.keys(DISTRICTS_BY_PROVINCE).map((prov) => (
+                                                {provinceOptions.map((prov) => (
                                                     <option key={prov} value={prov}>{prov}</option>
                                                 ))}
                                             </select>
@@ -219,7 +232,7 @@ export default function CheckoutPage() {
                                                 required
                                                 disabled={!province}
                                                 value={district}
-                                                onChange={(e) => setDistrict(e.target.value)}
+                                                onChange={(e) => handleDistrictChange(e.target.value)}
                                             >
                                                 <option value="">Chọn quận, huyện</option>
                                                 {districtOptions.map((dist) => (
@@ -238,7 +251,7 @@ export default function CheckoutPage() {
                                                 onChange={(e) => setWard(e.target.value)}
                                             >
                                                 <option value="">Chọn phường, xã</option>
-                                                {WARDS_DEFAULT.map((w) => (
+                                                {wardOptions.map((w) => (
                                                     <option key={w} value={w}>{w}</option>
                                                 ))}
                                             </select>
@@ -268,7 +281,7 @@ export default function CheckoutPage() {
                                     </div>
                                 </fieldset>
 
-                                <fieldset className="formSection">
+                                <fieldset className="formSection" disabled={isSubmitting}>
                                     <legend className="formTitle">Phương thức vận chuyển</legend>
                                     <div className="optionList">
                                         <label className="optionCard">
@@ -299,12 +312,12 @@ export default function CheckoutPage() {
                                                 <strong>Giao nhanh</strong>
                                                 <span className="optionNote">Nhận hàng sau 1 đến 2 ngày</span>
                                             </span>
-                                            <span className="optionPrice">30.000₫</span>
+                                            <span className="optionPrice">+{formatPrice(EXPRESS_SURCHARGE)}</span>
                                         </label>
                                     </div>
                                 </fieldset>
 
-                                <fieldset className="formSection">
+                                <fieldset className="formSection" disabled={isSubmitting}>
                                     <legend className="formTitle">Phương thức thanh toán</legend>
                                     <div className="optionList">
                                         <label className="optionCard">
@@ -367,6 +380,7 @@ export default function CheckoutPage() {
                                         type="checkbox"
                                         name="agree"
                                         required
+                                        disabled={isSubmitting}
                                         checked={agree}
                                         onChange={(e) => setAgree(e.target.checked)}
                                     />
@@ -379,9 +393,17 @@ export default function CheckoutPage() {
                                     </span>
                                 </label>
 
+                                {submitError && (
+                                    <p role="alert" style={{color: "#b91c1c", marginTop: "0.75rem", fontWeight: 500}}>
+                                        {submitError}
+                                    </p>
+                                )}
+
                                 <div className="formActions">
                                     <Link to="/cart" className="textLink">Quay lại giỏ hàng</Link>
-                                    <button type="submit" className="btn btnPrimary">Đặt hàng</button>
+                                    <button type="submit" className="btn btnPrimary" disabled={isSubmitting}>
+                                        {isSubmitting ? "Đang xử lý đơn hàng..." : "Đặt hàng"}
+                                    </button>
                                 </div>
                             </form>
 
