@@ -4,26 +4,22 @@ import {Link, useNavigate} from "react-router";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import {useCartEntries} from "../../hooks/useCartEntries.ts";
-import {useAppDispatch} from "../../store/hooks.ts";
-import {createOrderAsync} from "../../store/ordersSlice.ts";
+import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
+import {createOrderAsync, selectOrders} from "../../store/ordersSlice.ts";
 import {removeFromCart} from "../../store/cartSlice.ts";
+import {removeVoucher} from "../../store/voucherSlice.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {isPurchasable, lineTotal, variantLabel} from "../../lib/cart/pricing.ts";
 import type {Order, PaymentMethod, ShippingMethod} from "../../types/Order.ts";
+import {generateOrderCode} from "../../lib/orders/code.ts";
 import {VIETNAM_LOCATIONS} from "../../lib/checkout/locations.ts";
 
-function generateOrderCode(): string {
-    const now = new Date();
-    const yy = String(now.getFullYear()).slice(-2);
-    const mm = String(now.getMonth() + 1).padStart(2, "0");
-    const dd = String(now.getDate()).padStart(2, "0");
-    const rand = String(Math.floor(1000 + Math.random() * 9000));
-    return `VLG-${yy}${mm}${dd}-${rand}`;
-}
+const EXPRESS_SURCHARGE = 30000;
 
 export default function CheckoutPage() {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    const orders = useAppSelector(selectOrders);
     const {entries, totals, voucherCode} = useCartEntries();
 
     const purchasableEntries = useMemo(
@@ -51,8 +47,8 @@ export default function CheckoutPage() {
     const wardOptions =
         province && district ? (VIETNAM_LOCATIONS[province]?.[district] ?? []) : [];
 
-    const baseShippingFee = shippingMethod === "express" ? 30000 : totals.shippingFee;
-    const effectiveShippingFee = Math.max(0, baseShippingFee - totals.shippingDiscount);
+    const expressSurcharge = shippingMethod === "express" ? EXPRESS_SURCHARGE : 0;
+    const effectiveShippingFee = Math.max(0, totals.shippingFee - totals.shippingDiscount) + expressSurcharge;
     const finalTotal = Math.max(0, totals.subtotal - totals.discount + effectiveShippingFee);
 
     function handleProvinceChange(nextProvince: string) {
@@ -73,7 +69,7 @@ export default function CheckoutPage() {
         setIsSubmitting(true);
         setSubmitError(null);
 
-        const code = generateOrderCode();
+        const code = generateOrderCode(orders.map((order) => order.code));
         const newOrder: Order = {
             code,
             placedAt: new Date().toISOString(),
@@ -115,6 +111,7 @@ export default function CheckoutPage() {
             purchasableEntries.forEach((entry) => {
                 dispatch(removeFromCart(entry.line.key));
             });
+            dispatch(removeVoucher());
 
             navigate(`/order-success?code=${encodeURIComponent(code)}`);
         } catch (err) {
@@ -315,7 +312,7 @@ export default function CheckoutPage() {
                                                 <strong>Giao nhanh</strong>
                                                 <span className="optionNote">Nhận hàng sau 1 đến 2 ngày</span>
                                             </span>
-                                            <span className="optionPrice">30.000₫</span>
+                                            <span className="optionPrice">+{formatPrice(EXPRESS_SURCHARGE)}</span>
                                         </label>
                                     </div>
                                 </fieldset>

@@ -38,7 +38,7 @@ export default function OrderSuccessPage() {
     const orders = useAppSelector(selectOrders);
     const products = useAppSelector(selectProducts);
 
-    const order = orders.find((o) => o.code === codeParam) ?? orders[0];
+    const order = orders.find((o) => o.code === codeParam);
 
     if (!order) {
         return (

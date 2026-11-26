@@ -143,7 +143,7 @@ export default function OrderTrackingPage() {
                                 type="text"
                                 autoComplete="off"
                                 required
-                                placeholder="VLG-241103-0827"
+                                placeholder="VLG-261103-0827"
                                 value={orderCode}
                                 onChange={(e) => setOrderCode(e.target.value)}
                             />
