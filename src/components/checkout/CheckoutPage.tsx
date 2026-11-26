@@ -4,29 +4,22 @@ import {Link, useNavigate} from "react-router";
 import PageHeader from "../Page-Header.tsx";
 import PageFooter from "../Page-Footer.tsx";
 import {useCartEntries} from "../../hooks/useCartEntries.ts";
-import {useAppDispatch} from "../../store/hooks.ts";
-import {createOrderAsync} from "../../store/ordersSlice.ts";
+import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
+import {createOrderAsync, selectOrders} from "../../store/ordersSlice.ts";
 import {removeFromCart} from "../../store/cartSlice.ts";
 import {removeVoucher} from "../../store/voucherSlice.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {isPurchasable, lineTotal, variantLabel} from "../../lib/cart/pricing.ts";
 import type {Order, PaymentMethod, ShippingMethod} from "../../types/Order.ts";
+import {generateOrderCode} from "../../lib/orders/code.ts";
 import {VIETNAM_LOCATIONS} from "../../lib/checkout/locations.ts";
 
 const EXPRESS_SURCHARGE = 30000;
 
-function generateOrderCode(): string {
-    const now = new Date();
-    const yy = String(now.getFullYear()).slice(-2);
-    const mm = String(now.getMonth() + 1).padStart(2, "0");
-    const dd = String(now.getDate()).padStart(2, "0");
-    const rand = String(Math.floor(1000 + Math.random() * 9000));
-    return `VLG-${yy}${mm}${dd}-${rand}`;
-}
-
 export default function CheckoutPage() {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    const orders = useAppSelector(selectOrders);
     const {entries, totals, voucherCode} = useCartEntries();
 
     const purchasableEntries = useMemo(
@@ -76,7 +69,7 @@ export default function CheckoutPage() {
         setIsSubmitting(true);
         setSubmitError(null);
 
-        const code = generateOrderCode();
+        const code = generateOrderCode(orders.map((order) => order.code));
         const newOrder: Order = {
             code,
             placedAt: new Date().toISOString(),
