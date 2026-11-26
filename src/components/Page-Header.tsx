@@ -43,20 +43,20 @@ export default function PageHeader({current}: {current?: string}) {
         <div className="topbar">
             {session ? (
                 <>
-                {session.user.role === "Admin" ? (
-                    <div className="container topbarInner">
-                        <div className="topbarGroup"></div>
-                        <div className="topbarGroup">
-                            <Link to="/dashboard">
-                                <svg className="icon iconSm" aria-hidden="true">
-                                    <use href="#iPackage" />
-                                </svg>
-                                Admin
-                            </Link>
+                    {session.user.role === "Admin" ? (
+                        <div className="container topbarInner">
+                            <div className="topbarGroup"></div>
+                            <div className="topbarGroup">
+                                <Link to="/dashboard">
+                                    <svg className="icon iconSm" aria-hidden="true">
+                                        <use href="#iPackage" />
+                                    </svg>
+                                    Admin
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ) : (<></>)
-                }
+                    ) : (<></>)
+                    }
                 </>
             ) : (<></>)}
         </div>
@@ -114,35 +114,24 @@ export default function PageHeader({current}: {current?: string}) {
                                     {session.user.fullname}
                                 </span>
                             </Link>
-                        </>
-                    ) : (
-                        <Link to="/login" className="action">
-                            <svg className="icon iconLg" aria-hidden="true">
-                                <use href="#iUser" />
-                            </svg>
-                            <span className="actionLabel">Tài khoản</span>
-                        </Link>
-                    )}
-                    <Link to="/wishlist" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
-                        <span className="actionIcon">
-                            <svg className="icon iconLg" aria-hidden="true">
-                                <use href="#iHeart" />
-                            </svg>
-                            {wishCount > 0 && <span className="count">{wishCount}</span>}
-                        </span>
-                        <span className="actionLabel">Yêu thích</span>
-                    </Link>
-                    <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
-                        <span className="actionIcon">
-                            <svg className="icon iconLg" aria-hidden="true">
-                                <use href="#iBag" />
-                            </svg>
-                            {cartCount > 0 && <span className="count">{cartCount}</span>}
-                        </span>
-                        <span className="actionLabel">Giỏ hàng</span>
-                    </Link>
-                    {session ? (
-                        <>
+                            <Link to="/wishlist" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
+                            <span className="actionIcon">
+                                <svg className="icon iconLg" aria-hidden="true">
+                                    <use href="#iHeart" />
+                                </svg>
+                                {wishCount > 0 && <span className="count">{wishCount}</span>}
+                            </span>
+                                <span className="actionLabel">Yêu thích</span>
+                            </Link>
+                            <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
+                            <span className="actionIcon">
+                                <svg className="icon iconLg" aria-hidden="true">
+                                    <use href="#iBag" />
+                                </svg>
+                                {cartCount > 0 && <span className="count">{cartCount}</span>}
+                            </span>
+                                <span className="actionLabel">Giỏ hàng</span>
+                            </Link>
                             <button
                                 type="button"
                                 className="btn btnPrimary action"
@@ -152,7 +141,22 @@ export default function PageHeader({current}: {current?: string}) {
                                 <span className="actionLabel">Đăng xuất</span>
                             </button>
                         </>
-                    ) : (<></>)}
+                    ) : (
+                        <>
+                        <Link to="/login" className="action">
+                            <svg className="icon iconLg" aria-hidden="true">
+                                <use href="#iUser" />
+                            </svg>
+                            <span className="actionLabel">Đăng nhập</span>
+                        </Link>
+                        <Link to="/register" className="action" style={{color: "coral"}}>
+                            <svg className="icon iconLg" aria-hidden="true">
+                                <use href="#iUser" />
+                            </svg>
+                            <span className="actionLabel">Đăng ký</span>
+                        </Link>
+                        </>
+                    )}
                 </div>
             </div>
             <nav className="mainnav" aria-label="Danh mục chính">
