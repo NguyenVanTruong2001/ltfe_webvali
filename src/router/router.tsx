@@ -22,8 +22,8 @@ import AboutUs from "../components/aboutus/AboutUs.tsx";
 import Stores from "../components/stores/Stores.tsx";
 import Register from "../components/account/Register.tsx";
 import LogIn from "../components/account/LogIn.tsx";
-import ForgotPassword from "../components/account/ForgotPassword.tsx";
 import Dashboard from "../components/dashboard/Dashboard.tsx";
+import ProtectedRoute from "./ProtectedRoute.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -36,18 +36,41 @@ export const router = createBrowserRouter([
             {path: "news", element: <News />},
             {path: "register", element: <Register />},
             {path: "login", element: <LogIn />},
-            {path: "dashboard", element: <Dashboard />},
-            {path: "forgotPassword", element: <ForgotPassword />},
+            {path: "dashboard", element:
+                    <ProtectedRoute allowedRoles={["Admin"]}>
+                        <Dashboard />
+                    </ProtectedRoute>
+            },
             {path: "aboutus", element: <AboutUs />},
             {path: "stores", element: <Stores />},
             {path: "products", element: <ProductListPage />, loader: productsLoader},
             {path: "products/:id/reviews", element: <ProductReviewsPage />, loader: productsLoader},
             {path: "products/:id/:slug?", element: <ProductDetailPage />, loader: productsLoader},
-            {path: "cart", element: <CartPage />, loader: productsLoader},
-            {path: "wishlist", element: <WishlistPage />, loader: productsLoader},
-            {path: "checkout", element: <CheckoutPage />, loader: productsLoader},
-            {path: "order-success", element: <OrderSuccessPage />, loader: productsLoader},
-            {path: "orders", element: <OrderHistoryPage />, loader: productsLoader},
+            {path: "cart", element:
+                    <ProtectedRoute allowedRoles={["User", "Admin"]}>
+                        <CartPage />
+                    </ProtectedRoute>
+                , loader: productsLoader},
+            {path: "wishlist", element:
+                    <ProtectedRoute allowedRoles={["User", "Admin"]}>
+                        <WishlistPage />
+                    </ProtectedRoute>
+                , loader: productsLoader},
+            {path: "checkout", element:
+                    <ProtectedRoute allowedRoles={["User", "Admin"]}>
+                        <CheckoutPage />
+                    </ProtectedRoute>
+                , loader: productsLoader},
+            {path: "order-success", element:
+                    <ProtectedRoute allowedRoles={["User", "Admin"]}>
+                        <OrderSuccessPage />
+                    </ProtectedRoute>
+                , loader: productsLoader},
+            {path: "orders", element:
+                    <ProtectedRoute allowedRoles={["User", "Admin"]}>
+                        <OrderHistoryPage />
+                    </ProtectedRoute>
+                , loader: productsLoader},
             {path: "shippingPolicy", element: <ShippingPolicy />},
             {path: "warrantyPolicy", element: <WarrantyPolicy />},
             {path: "paymentPolicy", element: <PaymentPolicy />},

@@ -14,60 +14,43 @@ export interface SessionAuth {
 }
 
 export const SESSION_STORAGE= "SESSION_STORAGE";
-interface SessionStore {
-    currentSession: SessionAuth | null;
-    registeredUsers: UsersInterface[];
-}
-
-function readStore(): SessionStore {
-    try {
-        const raw = sessionStorage.getItem(SESSION_STORAGE);
-        if (!raw) {
-            return { currentSession: null, registeredUsers: [] };
-        }
-        const parsed = JSON.parse(raw) as SessionStore | null;
-        return {
-            currentSession: parsed?.currentSession ?? null,
-            registeredUsers: Array.isArray(parsed?.registeredUsers) ? parsed.registeredUsers : [],
-        };
-    } catch {
-        return { currentSession: null, registeredUsers: [] };
-    }
-}
-
-function writeStore(store: SessionStore): void {
-    try {
-        sessionStorage.setItem(SESSION_STORAGE, JSON.stringify(store));
-    } catch {
-        // Bỏ qua nếu trình duyệt chặn sessionStorage
-    }
-}
+export const REGISTER_STORAGE = "REGISTER_STORAGE";
 
 export function saveSession(user: SessionUser, remember = false): SessionAuth {
-    const session: SessionAuth = { user, remember };
-    const store = readStore();
-    writeStore({ ...store, currentSession: session });
+    const session: SessionAuth = {user, remember};
+    try {
+        sessionStorage.setItem(SESSION_STORAGE, JSON.stringify(session));
+    } catch (e) {}
+
     return session;
 }
 
-export function getSession(): SessionAuth | null {
-    const { currentSession } = readStore();
-    if (!currentSession?.user?.id || !currentSession?.user?.role) {
-        return null;
-    }
-    return currentSession;
+export function getSession(): SessionAuth {
+    try {
+        const raw = sessionStorage.getItem(SESSION_STORAGE);
+        if (!raw) return;
+
+        const parsed = JSON.parse(raw);
+        if (!parsed.user.id || !parsed.user.role) return null;
+        return parsed;
+    } catch (e) {return null;}
 }
 
-export function clearSession(): void {
-    const store = readStore();
-    writeStore({ ...store, currentSession: null });
+export function clearSession() {
+    try {sessionStorage.removeItem(SESSION_STORAGE);}
+    catch (e) {}
 }
 
 export function getRegisters(): UsersInterface[] {
-    return readStore().registeredUsers;
+    try {
+        const raw = sessionStorage.getItem(REGISTER_STORAGE);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {return [];}
 }
 
-export function saveRegisters(users: UsersInterface[]): void {
-    const store = readStore();
-    writeStore({ ...store, registeredUsers: users });
+export function saveRegisters(user: UsersInterface[]): void {
+    try {sessionStorage.setItem(REGISTER_STORAGE, JSON.stringify(user));}
+    catch (e) {}
 }

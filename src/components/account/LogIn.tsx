@@ -153,7 +153,7 @@ export const LogIn: React.FC<LogInProps> = ({onNav, onAuthSuccess}) => {
                                 <div className="field">
                                     <div className="fieldHead">
                                         <label className="fieldLabel" htmlFor="loginPassword">Mật khẩu</label>
-                                        <Link to="/forgotPassword" className="textLink fieldLink">Quên mật khẩu?</Link>
+                                        <span className="textLink fieldLink">Quên mật khẩu?</span>
                                     </div>
                                     <div className="inputWrap">
                                         <input

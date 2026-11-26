@@ -1,4 +1,4 @@
-import { useState, useEffect, type SyntheticEvent } from "react";
+import {useState, useEffect, type SyntheticEvent} from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { useAppSelector } from "../store/hooks.ts";
 import { selectCartCount } from "../store/cartSlice.ts";
@@ -10,15 +10,20 @@ import {getRedirectPathByRole} from "./account/authentication.ts";
 export default function PageHeader({current}: {current?: string}) {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
+    const [isLoading, setIsLoading] = useState(false);
     const [session, setSession] = useState<SessionAuth | null>(() => getSession())
     const [keyword, setKeyword] = useState(searchParams.get("q") ?? "");
     const cartCount = useAppSelector(selectCartCount);
     const wishCount = useAppSelector(selectWishIds).length;
     const accountPath = getRedirectPathByRole(session?.user.role);
+
     const handleLogout = () => {
-        clearSession();
-        setSession(null);
-        navigate("/");
+        setIsLoading(true);
+        setTimeout(() => {
+            clearSession();
+            setSession(null);
+            navigate("/");
+        }, 1000)
     }
 
     useEffect(() => {
@@ -134,11 +139,17 @@ export default function PageHeader({current}: {current?: string}) {
                             </Link>
                             <button
                                 type="button"
-                                className="btn btnPrimary action"
+                                className={`action ${isLoading ? "isLoading" : ""}`}
                                 onClick={handleLogout}
+                                style={{color: "coral"}}
                                 aria-label="Đăng xuất"
                             >
-                                <span className="actionLabel">Đăng xuất</span>
+                                <svg className="icon iconLg" aria-hidden="true">
+                                    <use href="#iUser" />
+                                </svg>
+                                <span className="actionLabel">
+                                    {isLoading ? "Đang đăng xuất..." : "Đăng xuất"}
+                                </span>
                             </button>
                         </>
                     ) : (
