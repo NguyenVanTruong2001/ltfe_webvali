@@ -7,6 +7,7 @@ import {useCartEntries} from "../../hooks/useCartEntries.ts";
 import {useAppDispatch} from "../../store/hooks.ts";
 import {createOrderAsync} from "../../store/ordersSlice.ts";
 import {removeFromCart} from "../../store/cartSlice.ts";
+import {removeVoucher} from "../../store/voucherSlice.ts";
 import {formatPrice} from "../../lib/productList/format.ts";
 import {isPurchasable, lineTotal, variantLabel} from "../../lib/cart/pricing.ts";
 import type {Order, PaymentMethod, ShippingMethod} from "../../types/Order.ts";
@@ -115,6 +116,7 @@ export default function CheckoutPage() {
             purchasableEntries.forEach((entry) => {
                 dispatch(removeFromCart(entry.line.key));
             });
+            dispatch(removeVoucher());
 
             navigate(`/order-success?code=${encodeURIComponent(code)}`);
         } catch (err) {
