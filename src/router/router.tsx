@@ -23,6 +23,7 @@ import Stores from "../components/stores/Stores.tsx";
 import Register from "../components/account/Register.tsx";
 import LogIn from "../components/account/LogIn.tsx";
 import ForgotPassword from "../components/account/ForgotPassword.tsx";
+import Dashboard from "../components/dashboard/Dashboard.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
             {path: "news", element: <News />},
             {path: "register", element: <Register />},
             {path: "login", element: <LogIn />},
+            {path: "dashboard", element: <Dashboard />},
             {path: "forgotPassword", element: <ForgotPassword />},
             {path: "aboutus", element: <AboutUs />},
             {path: "stores", element: <Stores />},
