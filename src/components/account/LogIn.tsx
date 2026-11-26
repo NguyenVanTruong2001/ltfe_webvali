@@ -3,7 +3,7 @@ import PageFooter from "../Page-Footer.tsx";
 import {Link} from "react-router";
 import {useRef, useState} from "react";
 import type {SessionAuth} from "./session.ts";
-import type {LogInResult} from "./authentication.ts";
+import type {AuthResult} from "./authentication.ts";
 import * as React from "react";
 import {logIn} from "./authentication.ts";
 
@@ -12,7 +12,7 @@ const phonePattern = /^(0)\d{9}$/;
 
 export interface LogInProps {
     onNav?: (path: string, sessionAuth: SessionAuth) => void,
-    onAuthSuccess?: (result: LogInResult) => void
+    onAuthSuccess?: (result: AuthResult) => void
 }
 
 export const LogIn: React.FC<LogInProps> = ({onNav, onAuthSuccess}) => {
@@ -92,7 +92,7 @@ export const LogIn: React.FC<LogInProps> = ({onNav, onAuthSuccess}) => {
             onAuthSuccess?.(user);
             if (onNav) onNav(user.redirection, user.session);
             else window.location.assign(user.redirection)
-        }, 700)
+        }, 1000)
     }
 
     return (
@@ -153,7 +153,7 @@ export const LogIn: React.FC<LogInProps> = ({onNav, onAuthSuccess}) => {
                                 <div className="field">
                                     <div className="fieldHead">
                                         <label className="fieldLabel" htmlFor="loginPassword">Mật khẩu</label>
-                                        <Link to="/forgotPassword" className="textLink fieldLink">Quên mật khẩu?</Link>
+                                        <span className="textLink fieldLink">Quên mật khẩu?</span>
                                     </div>
                                     <div className="inputWrap">
                                         <input

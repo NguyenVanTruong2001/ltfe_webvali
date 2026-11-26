@@ -1,4 +1,4 @@
-import { useState, useEffect, type SyntheticEvent } from "react";
+import {useState, useEffect, type SyntheticEvent} from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { useAppSelector } from "../store/hooks.ts";
 import { selectCartCount } from "../store/cartSlice.ts";
@@ -10,15 +10,20 @@ import {getRedirectPathByRole} from "./account/authentication.ts";
 export default function PageHeader({current}: {current?: string}) {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
+    const [isLoading, setIsLoading] = useState(false);
     const [session, setSession] = useState<SessionAuth | null>(() => getSession())
     const [keyword, setKeyword] = useState(searchParams.get("q") ?? "");
     const cartCount = useAppSelector(selectCartCount);
     const wishCount = useAppSelector(selectWishIds).length;
     const accountPath = getRedirectPathByRole(session?.user.role);
+
     const handleLogout = () => {
-        clearSession();
-        setSession(null);
-        navigate("/");
+        setIsLoading(true);
+        setTimeout(() => {
+            clearSession();
+            setSession(null);
+            navigate("/");
+        }, 1000)
     }
 
     useEffect(() => {
@@ -43,20 +48,20 @@ export default function PageHeader({current}: {current?: string}) {
         <div className="topbar">
             {session ? (
                 <>
-                {session.user.role === "Admin" ? (
-                    <div className="container topbarInner">
-                        <div className="topbarGroup"></div>
-                        <div className="topbarGroup">
-                            <Link to="/dashboard">
-                                <svg className="icon iconSm" aria-hidden="true">
-                                    <use href="#iPackage" />
-                                </svg>
-                                Admin
-                            </Link>
+                    {session.user.role === "Admin" ? (
+                        <div className="container topbarInner">
+                            <div className="topbarGroup"></div>
+                            <div className="topbarGroup">
+                                <Link to="/dashboard">
+                                    <svg className="icon iconSm" aria-hidden="true">
+                                        <use href="#iPackage" />
+                                    </svg>
+                                    Admin
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ) : (<></>)
-                }
+                    ) : (<></>)
+                    }
                 </>
             ) : (<></>)}
         </div>
@@ -114,45 +119,55 @@ export default function PageHeader({current}: {current?: string}) {
                                     {session.user.fullname}
                                 </span>
                             </Link>
+                            <Link to="/wishlist" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
+                            <span className="actionIcon">
+                                <svg className="icon iconLg" aria-hidden="true">
+                                    <use href="#iHeart" />
+                                </svg>
+                                {wishCount > 0 && <span className="count">{wishCount}</span>}
+                            </span>
+                                <span className="actionLabel">Yêu thích</span>
+                            </Link>
+                            <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
+                            <span className="actionIcon">
+                                <svg className="icon iconLg" aria-hidden="true">
+                                    <use href="#iBag" />
+                                </svg>
+                                {cartCount > 0 && <span className="count">{cartCount}</span>}
+                            </span>
+                                <span className="actionLabel">Giỏ hàng</span>
+                            </Link>
+                            <button
+                                type="button"
+                                className={`action ${isLoading ? "isLoading" : ""}`}
+                                onClick={handleLogout}
+                                style={{color: "coral"}}
+                                aria-label="Đăng xuất"
+                            >
+                                <svg className="icon iconLg" aria-hidden="true">
+                                    <use href="#iUser" />
+                                </svg>
+                                <span className="actionLabel">
+                                    {isLoading ? "Đang đăng xuất..." : "Đăng xuất"}
+                                </span>
+                            </button>
                         </>
                     ) : (
+                        <>
                         <Link to="/login" className="action">
                             <svg className="icon iconLg" aria-hidden="true">
                                 <use href="#iUser" />
                             </svg>
-                            <span className="actionLabel">Tài khoản</span>
+                            <span className="actionLabel">Đăng nhập</span>
                         </Link>
-                    )}
-                    <Link to="/wishlist" className="action" aria-label={`Yêu thích, ${wishCount} sản phẩm`}>
-                        <span className="actionIcon">
+                        <Link to="/register" className="action" style={{color: "coral"}}>
                             <svg className="icon iconLg" aria-hidden="true">
-                                <use href="#iHeart" />
+                                <use href="#iUser" />
                             </svg>
-                            {wishCount > 0 && <span className="count">{wishCount}</span>}
-                        </span>
-                        <span className="actionLabel">Yêu thích</span>
-                    </Link>
-                    <Link to="/cart" className="action" aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}>
-                        <span className="actionIcon">
-                            <svg className="icon iconLg" aria-hidden="true">
-                                <use href="#iBag" />
-                            </svg>
-                            {cartCount > 0 && <span className="count">{cartCount}</span>}
-                        </span>
-                        <span className="actionLabel">Giỏ hàng</span>
-                    </Link>
-                    {session ? (
-                        <>
-                            <button
-                                type="button"
-                                className="btn btnPrimary action"
-                                onClick={handleLogout}
-                                aria-label="Đăng xuất"
-                            >
-                                <span className="actionLabel">Đăng xuất</span>
-                            </button>
+                            <span className="actionLabel">Đăng ký</span>
+                        </Link>
                         </>
-                    ) : (<></>)}
+                    )}
                 </div>
             </div>
             <nav className="mainnav" aria-label="Danh mục chính">

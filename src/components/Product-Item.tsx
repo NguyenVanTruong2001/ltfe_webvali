@@ -3,6 +3,7 @@ import type {CSSProperties} from "react";
 import {Link} from "react-router";
 import type {Product} from "../types/Product.ts";
 import {formatPrice} from "../lib/productList/format.ts";
+import {getSession} from "./account/session.ts";
 
 interface ProductItemProps {
     product: Product
@@ -12,6 +13,7 @@ interface ProductItemProps {
 
 function ProductItem({product, wished = false, onToggleWish}: ProductItemProps) {
     const [activeColor, setActiveColor] = useState(product.colors[0]?.name);
+    const session = getSession();
     const hasDiscount = product.discountPercent > 0;
     const detailPath = `/products/${product.id}/${product.slug}`;
 
@@ -19,17 +21,21 @@ function ProductItem({product, wished = false, onToggleWish}: ProductItemProps) 
         <article className="card">
             <div className="cardMedia">
                 {hasDiscount && <span className="badgeSale">-{product.discountPercent}%</span>}
-                <button
-                    type="button"
-                    className={wished ? "wish isActive" : "wish"}
-                    aria-label={wished ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
-                    aria-pressed={wished}
-                    onClick={() => onToggleWish?.(product.id)}
-                >
-                    <svg className="icon" aria-hidden="true">
-                        <use href="#iHeart" />
-                    </svg>
-                </button>
+                {session ? (
+                    <>
+                        <button
+                            type="button"
+                            className={wished ? "wish isActive" : "wish"}
+                            aria-label={wished ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
+                            aria-pressed={wished}
+                            onClick={() => onToggleWish?.(product.id)}
+                        >
+                            <svg className="icon" aria-hidden="true">
+                                <use href="#iHeart" />
+                            </svg>
+                        </button>
+                    </>
+                ) : (<></>)}
                 <Link to={detailPath} aria-label={`Xem ${product.name}`}>
                     <img className="cardImage" src={product.images[0]} alt={product.name} />
                 </Link>

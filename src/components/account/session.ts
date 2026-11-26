@@ -1,4 +1,4 @@
-import type {Role} from "../../dataset/Users.tsx";
+import type {Role, UsersInterface} from "../../dataset/Users.tsx";
 
 export interface SessionUser {
     id: number
@@ -14,6 +14,7 @@ export interface SessionAuth {
 }
 
 export const SESSION_STORAGE= "SESSION_STORAGE";
+export const REGISTER_STORAGE = "REGISTER_STORAGE";
 
 export function saveSession(user: SessionUser, remember = false): SessionAuth {
     const session: SessionAuth = {user, remember};
@@ -40,10 +41,16 @@ export function clearSession() {
     catch (e) {}
 }
 
-export function isAuthed() {
-    return getSession() !== null;
+export function getRegisters(): UsersInterface[] {
+    try {
+        const raw = sessionStorage.getItem(REGISTER_STORAGE);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {return [];}
 }
 
-export function getCurrentRole(): Role {
-    return getSession().user.role;
+export function saveRegisters(user: UsersInterface[]): void {
+    try {sessionStorage.setItem(REGISTER_STORAGE, JSON.stringify(user));}
+    catch (e) {}
 }
