@@ -51,7 +51,7 @@ export const VOUCHERS: Voucher[] = [
     {
         code: 'COMBO20',
         title: 'Giảm 20% khi mua combo',
-        note: 'Đã dùng cho đơn VLG-241018-0412',
+        note: 'Đã dùng cho đơn VLG-261018-0412',
         expiryLabel: '31/12/2026',
         kind: 'percent',
         value: 20,
