@@ -1,5 +1,4 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import type {PayloadAction} from '@reduxjs/toolkit'
 import {reviewEligibility} from '../lib/orders/eligibility.ts'
 import type {ReviewEligibility} from '../lib/orders/eligibility.ts'
 import {SEED_ORDERS} from '../lib/orders/seed.ts'
@@ -31,19 +30,7 @@ const ordersSlice = createSlice({
         loading: false,
         error: null,
     } as OrdersState,
-    reducers: {
-        addOrder(state, action: PayloadAction<Order>) {
-            state.items.unshift(action.payload)
-            void ordersApi.createOrder(action.payload)
-        },
-        cancelOrder(state, action: PayloadAction<string>) {
-            const target = state.items.find((o) => o.code === action.payload)
-            if (target && target.status === 'pending') {
-                target.status = 'cancelled'
-                void ordersApi.cancelOrder(action.payload)
-            }
-        },
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchOrders.pending, (state) => {
@@ -70,7 +57,6 @@ const ordersSlice = createSlice({
     },
 })
 
-export const {addOrder, cancelOrder} = ordersSlice.actions
 export default ordersSlice.reducer
 
 export const selectOrders = (state: {orders: OrdersState}) => state.orders.items

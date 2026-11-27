@@ -4,7 +4,7 @@ import OrderCard from "./OrderCard.tsx";
 import OrderTabs from "./OrderTabs.tsx";
 import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
 import {addToCart} from "../../store/cartSlice.ts";
-import {cancelOrder, selectOrders} from "../../store/ordersSlice.ts";
+import {cancelOrderAsync, selectOrders} from "../../store/ordersSlice.ts";
 import {selectProducts} from "../../store/productsSlice.ts";
 import {countByFilter, filterOrders, parseFilter, sortNewestFirst} from "../../lib/orders/history.ts";
 import type {StatusFilter} from "../../lib/orders/history.ts";
@@ -23,9 +23,13 @@ export default function OrderHistory() {
     const counts = useMemo(() => countByFilter(sorted), [sorted]);
     const visible = useMemo(() => filterOrders(sorted, filter), [sorted, filter]);
 
-    const handleCancel = (order: Order) => {
-        dispatch(cancelOrder(order.code));
-        setNotice(`Đã hủy đơn ${order.code}.`);
+    const handleCancel = async (order: Order) => {
+        try {
+            await dispatch(cancelOrderAsync(order.code)).unwrap();
+            setNotice(`Đã hủy đơn ${order.code}.`);
+        } catch (err) {
+            setNotice(err instanceof Error ? err.message : "Không thể hủy đơn hàng.");
+        }
     };
 
     const handleReorder = (order: Order) => {
