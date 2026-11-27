@@ -14,6 +14,8 @@ export default defineConfig({
         checkout: resolve(import.meta.dirname, 'ui/checkout.html'),
         orderSuccess: resolve(import.meta.dirname, 'ui/orderSuccess.html'),
         orderHistory: resolve(import.meta.dirname, 'ui/orderHistory.html'),
+        orderDetail: resolve(import.meta.dirname, 'ui/orderDetail.html'),
+        orderTracking: resolve(import.meta.dirname, 'ui/orderTracking.html'),
       },
     },
   },
