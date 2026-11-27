@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {useNavigate} from "react-router";
 import type {Product} from "../../types/Product.ts";
 import ProductBreadcrumb from "./ProductBreadcrumb.tsx";
 import ProductGallery from "./ProductGallery.tsx";
@@ -17,6 +18,7 @@ import {getSession} from "../account/session.ts";
 export default function ProductDetail({product}: {product: Product}) {
     const options = useProductOptions(product);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const session = getSession();
     const wished = useAppSelector((state) => selectWishIds(state).includes(product.id));
     const [notice, setNotice] = useState<string | null>(null);
@@ -37,7 +39,7 @@ export default function ProductDetail({product}: {product: Product}) {
 
     const handleBuyNow = () => {
         addCurrentToCart();
-        window.location.assign("/ui/checkout.html");
+        navigate("/checkout");
     };
 
     return (
