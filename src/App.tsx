@@ -121,7 +121,7 @@ function App() {
                 <span className="rangeValue">5 </span>
                 ngày
               </label>
-              <input id="tripDays" className="range" type="range" min="1" max="14" value="5" />
+              <input id="tripDays" className="range" type="range" min="1" max="14" defaultValue="5" />
                 <div className="rangeScale" aria-hidden="true">
                   <span>1 ngày</span>
                   <span>14 ngày</span>
